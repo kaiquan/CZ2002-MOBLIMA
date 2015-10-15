@@ -1,0 +1,5 @@
+package model;
+
+public enum CINEMACLASS {
+	GOLD_CLASS, GRAND_CLASS, PLANTIUM_CLASS, NORMAL_CLASS
+}

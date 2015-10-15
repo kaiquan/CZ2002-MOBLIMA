@@ -1,0 +1,5 @@
+package model;
+
+public enum MOVIESTATUS {
+	NOW_SHOWING, COMING_SOON, PREVIEW, END_OF_SHOWING
+}
