@@ -1,23 +1,24 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Hoilday {
-	private ArrayList<String> hoildays;
+	private ArrayList<Date> hoildays;
 	
-	public Hoilday(ArrayList<String> hoildays){
+	public Hoilday(ArrayList<Date> hoildays){
 		setHoildays(hoildays);
 	}
-	public void addHoilday(String dateTime){
+	public void addHoilday(Date dateTime){
 		this.hoildays.add(dateTime);
 	}
-	public void removeHoilday(String dateTime){
+	public void removeHoilday(Date dateTime){
 		this.hoildays.remove(dateTime);
 	}
-	public ArrayList<String> getHoildays() {
+	public ArrayList<Date> getHoildays() {
 		return hoildays;
 	}
-	public void setHoildays(ArrayList<String> hoildays) {
+	public void setHoildays(ArrayList<Date> hoildays) {
 		this.hoildays = hoildays;
 	}
 	

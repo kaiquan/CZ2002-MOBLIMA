@@ -1,0 +1,41 @@
+package dao_module;
+import java.util.ArrayList;
+
+import org.json.simple.JSONObject;
+
+import model.Admin;
+public class AdminDAO extends JSONDAO{
+	private JSONObject jsonObject = null;
+	private ArrayList<Admin> admins = null;
+
+	public AdminDAO(){
+		this.jsonObject = readFile(JSONDAO.adminPath);
+		parseJSON();
+	}
+	
+	//@purpose	: To retrieve the admin details for admin login
+	//@param	: both required
+	//@return	: null if not found/exist
+	public Admin getAdminByUserNameAndPassword(String username, String password){
+		Admin result = null;
+		
+		if(username.isEmpty()||password.isEmpty()){
+			return result;
+		}
+		//TODO search for a match
+		if(this.admins!=null&&this.admins.size()>0){
+			if(this.admins.contains(new Admin(username, password)){
+				result = new Admin(username, password);
+			}
+		}
+		
+		
+		return result;
+	}
+	
+	private void parseJSON(){
+		if(this.jsonObject != null){
+			
+		}
+	}
+}

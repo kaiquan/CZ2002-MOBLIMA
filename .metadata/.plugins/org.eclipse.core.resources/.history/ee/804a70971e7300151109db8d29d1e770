@@ -1,0 +1,28 @@
+package dao_module;
+import java.util.ArrayList;
+
+import org.json.simple.JSONObject;
+
+import model.Admin;
+public class AdminDAO extends JSONDAO{
+
+	
+	public ArrayList<Admin> getAllAdmins(){
+		ArrayList<Admin> results = null;
+		JSONObject jsonObject = null;
+		jsonObject = readFile(JSONDAO.adminPath);
+		
+		//TODO do the parsing
+		
+		return results;
+	}
+	public Admin getAdminByUserNameAndPassword(String username, String password){
+		Admin result = null;
+		JSONObject jsonObject = null;
+		jsonObject = readFile(JSONDAO.adminPath);
+		
+		//TODO do the parsing
+		
+		return result;
+	}
+}

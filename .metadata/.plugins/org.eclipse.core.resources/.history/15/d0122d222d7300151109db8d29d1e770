@@ -1,0 +1,5 @@
+package dao_module;
+
+public class CinemaDAO {
+	
+}

@@ -1,0 +1,33 @@
+package dao_module;
+
+import java.util.ArrayList;
+
+import org.json.simple.JSONObject;
+
+import model.Guest;
+import model.Movie;
+import model.Review;
+
+public class ReviewDAO extends JSONDAO{
+	private JSONObject jsonObject = null;
+	private ArrayList<Review> reviews = null;
+	
+	public ReviewDAO(){
+		this.jsonObject = readFile(JSONDAO.reviewPath);
+		parseJSON();
+	}
+	//@purpose 	: To create a new review
+	//@Param 	: required
+	public void createNewReview(Guest guest, Review review){
+		//TODO update the json object
+		
+		updateFile(JSONDAO.reviewPath,this.jsonObject);
+	}
+	
+	
+	private void parseJSON(){
+		if(this.jsonObject != null){
+			//TODO: PARSE REVIEW JSON FILE
+		}
+	}
+}

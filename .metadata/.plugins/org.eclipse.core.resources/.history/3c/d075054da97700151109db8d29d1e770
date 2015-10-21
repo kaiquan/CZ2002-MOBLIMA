@@ -1,0 +1,21 @@
+package main;
+
+import dao_module.AdminDAO;
+import model.Cineplex;
+
+public class DAOTest {
+	public static void main(String a[]){
+		TestAdminDAO();
+		TestGuestDAO();
+	}
+	
+	public static void TestAdminDAO(){
+		Cineplex cineplex = new AdminDAO().getCineplexByUserNameAndPassword("admin1", "password", "THE CATHAY CINEPLEX");
+		System.out.println("Method : \ngetCineplexByUserNameAndPassword : returns cineplex");
+		System.out.println("Output : \n\ncompanyName\t:"+cineplex.getCompanyName()+", \naddress\t\t:"+cineplex.getAddress()+", \nname:"+cineplex.getName()+", \ncinema size:"+cineplex.getCinemas().size()+", \nmovie size:"+cineplex.getMovies().size());
+		
+	}
+	public static void TestGuestDAO(){
+		
+	}
+}

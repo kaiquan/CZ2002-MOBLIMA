@@ -4,10 +4,12 @@ public class Admin {
 	
 	private String username;
 	private String password;
+	private String cineplexName;
 	
-	public Admin(String username, String password){
+	public Admin(String username, String password, String cineplexName){
 		setUsername(username);
 		setPassword(password);
+		setCineplexName(cineplexName);
 	}
 	
 	public String getUsername() {
@@ -21,5 +23,13 @@ public class Admin {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getCineplexName() {
+		return cineplexName;
+	}
+
+	public void setCineplexName(String cineplexName) {
+		this.cineplexName = cineplexName;
 	}
 }

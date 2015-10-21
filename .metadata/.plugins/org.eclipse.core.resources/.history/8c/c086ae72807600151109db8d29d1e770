@@ -1,0 +1,46 @@
+package dao_module;
+
+import java.util.ArrayList;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import model.Cineplex;
+
+public class CineplexDAO extends JSONDAO{
+	private JSONObject jsonObject = null;
+	private ArrayList<Cineplex> cineplexes = null;
+	
+	public CineplexDAO(){
+		this.jsonObject = readFile(JSONDAO.cineplexPath);
+		parseJSON(this.jsonObject);
+	}
+	
+	public ArrayList<Cineplex> getAllCineplex(){
+		ArrayList<Cineplex> results = null;
+		
+		return results;
+	}
+	public Cineplex getCineplexByName(String name){
+		Cineplex result=null;
+		
+		return result;
+	}
+	public ArrayList<Cineplex> getCineplexWithMovies(boolean INCLUDE_END_OF_SHOWING_MOVIES){
+		ArrayList<Cineplex> results = null;
+		
+		return results;
+	}
+	
+	private void parseJSON(JSONObject jsonObject){
+		if(this.jsonObject != null){
+			JSONArray cineplexs = (JSONArray) jsonObject.get("cineplex");
+			JSONObject jsonCineplex;
+			for(int i=0;i<cineplexs.size();i++){
+				jsonCineplex = (JSONObject) cineplexs.get(i);
+				System.out.println(jsonCineplex.toJSONString());
+			}
+		}
+	}
+	
+}

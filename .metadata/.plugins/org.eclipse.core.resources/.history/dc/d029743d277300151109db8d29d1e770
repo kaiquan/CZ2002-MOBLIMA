@@ -1,0 +1,44 @@
+package dao_module;
+
+import java.util.ArrayList;
+
+import org.json.simple.JSONObject;
+
+import model.Booking;
+import model.Cineplex;
+import model.Guest;
+import model.Movie;
+
+public class BookingDAO extends JSONDAO {
+	private JSONObject jsonObject = null;
+	
+	public BookingDAO(){
+		this.jsonObject = readFile(JSONDAO.bookingPath);
+	}
+	//@purpose 	: To create a new booking
+	//@Param 	: (Guest) null if guest exists (optional)
+	//			: (Booking) required
+	public void createNewBooking(Booking booking, Guest guest){
+		if(guest !=null){
+			new GuestDAO().createNewGuest(guest);
+		}
+		//TODO add the booking object to the jsonObject
+		
+		updateFile(JSONDAO.bookingPath,this.jsonObject);
+	}	
+	
+	//@purpose 	: To calculate the total ticket sales for a movie within the cineplex by the controller
+	//@Param	: (Movie) required
+	//			: (Cineplex) required
+	public ArrayList<Booking> getBookingsByMovieAndCineplex(Movie movie,Cineplex cineplex){
+		ArrayList<Booking> results = null;
+		
+		return results;
+	}
+	
+	public ArrayList<Booking> getBookingsByGuest(Guest guest){
+		ArrayList<Booking> results = null;
+		
+		return results;
+	}
+}

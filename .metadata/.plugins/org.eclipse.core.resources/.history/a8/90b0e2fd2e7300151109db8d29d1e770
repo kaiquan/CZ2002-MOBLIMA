@@ -1,0 +1,25 @@
+package dao_module;
+
+import java.util.ArrayList;
+
+import model.Movie;
+
+public class MovieDAO {
+	public void createNewMovie(Movie movie){
+		
+	}
+	public void updateMovie(Movie movie){
+		
+	}
+	public ArrayList<Movie> getAllMovieswithReviews(boolean include_END_OF_SHOWING){
+		ArrayList<Movie> results = null;
+		
+		return results;
+	}
+	public ArrayList<Movie> getMovieByTitleWithReviews(String title, boolean include_END_OF_SHOWING){
+		ArrayList<Movie> results = null;
+		
+		return results;
+	}
+	
+}

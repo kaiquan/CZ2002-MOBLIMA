@@ -1,0 +1,15 @@
+{
+	"accounts":
+	[
+		{
+			"cineplexname":"THE CATHAY CINEPLEX",
+			"username":"admin1",
+			"password":"password"
+		},
+		{
+			"cineplexname":"CATHAY CINEPLEX DOWNTOWN EAST",
+			"username":"admin1",
+			"password":"password"
+		}
+	]	
+}

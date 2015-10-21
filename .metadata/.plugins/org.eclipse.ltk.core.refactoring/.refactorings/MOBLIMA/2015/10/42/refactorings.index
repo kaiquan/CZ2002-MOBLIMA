@@ -7,3 +7,13 @@
 1444893738032	Encapsulate field 'cineplex'
 1444894167408	Encapsulate field 'id'
 1444894642659	Encapsulate field 'ageLimit'
+1444897457193	Rename type 'DAOAccess'
+1444897626519	Delete element
+1444898037460	Encapsulate field 'bookings'
+1444899139137	Rename type 'CIneplexDAO'
+1444899559740	Delete element
+1444899564838	Delete element
+1444907865137	Encapsulate field 'movieType'
+1444913195225	Encapsulate field 'movie'
+1444913589165	Encapsulate field 'guest'
+1444914219637	Encapsulate field 'name'

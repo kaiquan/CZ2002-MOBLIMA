@@ -1,0 +1,19 @@
+package dao_module;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+public class HoildayDAO {
+	
+	public ArrayList<Date> getAllHoildays(){
+		ArrayList<Date> results = null;
+		
+		return results;
+	}
+	public void addHoilday(Date date){
+		
+	}
+	public void removeHoilday(Date date){
+		
+	}
+}

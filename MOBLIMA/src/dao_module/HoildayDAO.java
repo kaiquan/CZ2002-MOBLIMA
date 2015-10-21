@@ -1,0 +1,82 @@
+package dao_module;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+public class HoildayDAO extends JSONDAO {
+	
+	private JSONObject jsonObject = null;
+	private ArrayList<Date> hoildays =null;
+	
+	public HoildayDAO(){
+		this.jsonObject = readFile(JSONDAO.hoildayPath);
+		parseJSON(this.jsonObject);
+	}
+	
+	public ArrayList<Date> getAllHoildays(){
+		if(this.hoildays!=null&&this.hoildays.size()>0)
+			return hoildays;
+		else
+			return null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void addHoilday(Date date){
+		JSONArray hoildays = (JSONArray) jsonObject.get("hoildays");
+		JSONObject jsonHoilday = new JSONObject();
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		jsonHoilday.put("date", df.format(date));
+		hoildays.add(jsonHoilday);
+		
+		updateFile(JSONDAO.hoildayPath,this.jsonObject);
+	}
+	
+	public void removeHoilday(Date date){
+		JSONArray hoildays = (JSONArray) jsonObject.get("hoildays");
+
+		for(int i=0;i<hoildays.size();i++){
+			JSONObject jsonHoilday  = (JSONObject)hoildays.get(i);
+			
+			DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			
+			String jsonDate = null;
+			String comparingDate = null;
+			
+			jsonDate = jsonHoilday.get("date").toString();
+			comparingDate = df.format(date);
+			
+			if(jsonDate.equals(comparingDate)){
+				hoildays.remove(i);
+				break;
+			}
+		}
+		updateFile(JSONDAO.hoildayPath,this.jsonObject);
+	}
+	
+	private void parseJSON(JSONObject jsonObject){
+		if(this.jsonObject != null){
+			JSONArray hoildays = (JSONArray) jsonObject.get("hoildays");
+			JSONObject jsonHoilday;
+			for(int i=0;i<hoildays.size();i++){
+				jsonHoilday = (JSONObject)hoildays.get(i);
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+				Date date = null;
+				try {
+					date = format.parse(jsonHoilday.get("date").toString());
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				if(this.hoildays==null)
+					this.hoildays= new ArrayList<Date>();
+				if(date!=null)
+					this.hoildays.add(date);
+			}
+		}
+	}
+}

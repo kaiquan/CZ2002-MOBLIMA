@@ -1,0 +1,92 @@
+package model;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+
+public class Booking {
+	private String transactionid;
+	private Movie movie;
+	private double totalPrice;
+	private int numberOfSeniors;
+	private ArrayList<String> seats;
+	private Guest guest;
+	private Cinema cinema;
+	
+	public Booking(Movie movie, int numberOfSeniors, ArrayList<String> seats, Guest guest, Cinema cinema ){
+		setMovie(movie);
+		setNumberOfSeniors(numberOfSeniors);
+		setSeats(seats);
+		setGuest(guest);
+		setCinema(cinema);
+		
+		LocalDate date = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYYMMDDhhmm");
+		String dateString = date.format(formatter);
+		  
+		setTransactionid(cinema.getCinemaCode()+dateString);
+		setTotalPrice(caculateTotalPrice());
+	}
+	
+	public double caculateTotalPrice(){
+		//TODO
+		return 0.0;
+	}
+
+	public String getTransactionid() {
+		return transactionid;
+	}
+
+	public void setTransactionid(String transactionid) {
+		this.transactionid = transactionid;
+	}
+
+	public Movie getMovie() {
+		return movie;
+	}
+
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public int getNumberOfSeniors() {
+		return numberOfSeniors;
+	}
+
+	public void setNumberOfSeniors(int numberOfSeniors) {
+		this.numberOfSeniors = numberOfSeniors;
+	}
+
+	public ArrayList<String> getSeats() {
+		return seats;
+	}
+
+	public void setSeats(ArrayList<String> seats) {
+		this.seats = seats;
+	}
+
+	public Guest getGuest() {
+		return guest;
+	}
+
+	public void setGuest(Guest guest) {
+		this.guest = guest;
+	}
+
+	public Cinema getCinema() {
+		return cinema;
+	}
+
+	public void setCinema(Cinema cinema) {
+		this.cinema = cinema;
+	}
+	
+}

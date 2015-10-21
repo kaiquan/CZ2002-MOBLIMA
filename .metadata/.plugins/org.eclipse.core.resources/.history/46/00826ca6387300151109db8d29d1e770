@@ -1,0 +1,40 @@
+package dao_module;
+
+import java.io.FileReader;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+public class JSONDAO {
+	public static final String adminPath="";
+	public static final String guestPath="";
+	public static final String cineplexPath="";
+	public static final String bookingPath="";
+	public static final String moviePath="";
+	public static final String showtimePath="";
+	public static final String hoildayPath="";
+
+	//@Purpose	: Update .json file
+	//@param	: (name) filepath required
+	//			: (JSONObject) the data to write required
+	public void updateFile(String name, JSONObject data){
+		//TODO update/file
+	}
+	
+	//@purpose	: read .json file
+	//@param	: (name) filepath required
+	//@return	: JSONObject
+	public JSONObject readFile(String name){
+		JSONParser parser = new JSONParser();
+		JSONObject jsonObject = null;
+		try {
+            Object obj = parser.parse(new FileReader(name));
+            jsonObject = (JSONObject) obj;           
+        } 
+		catch (Exception e) {
+            e.printStackTrace();
+        }		
+		return jsonObject;
+	}
+}

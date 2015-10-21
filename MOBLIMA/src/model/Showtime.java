@@ -1,18 +1,44 @@
 package model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.StringTokenizer;
+
 public class Showtime {
 	private String id;
-	private String dateTime;
-	private MOVIETYPE movieType;
+	private Date dateTime;
+	private String movieId;
+	private String cinemaCode;
+	private String cineplexName;
+	
 	private Movie movie;
 	private Cinema cinema;
+
 	
-	public Showtime(String dateTime, MOVIETYPE movieType, Movie movie, Cinema cinema){
+	public Showtime(Date dateTime, Movie movie, Cinema cinema){
 		setDateTime(dateTime);
-		setMovieType(movieType);
 		setMovie(movie);
+		setMovieId(movie.getId());
 		setCinema(cinema);
-		setId(cinema.getCinemaCode()+dateTime);
+		setCinemaCode(cinema.getCinemaCode());
+		setCineplexName(cinema.getCineplex().getName());
+	
+		String dateString = new SimpleDateFormat("YYYY-MM-DD-hh-mm").format(dateTime);
+		
+		StringTokenizer st = new StringTokenizer(cinema.getCineplex().getName(), " /n");
+		String cinemaLetters="";
+	    while (st.hasMoreTokens()) {
+	        String word = st.nextToken();
+	        word = word.toUpperCase();
+	        char firstChar = word.charAt(0);
+	        cinemaLetters+=firstChar;
+	        cinemaLetters.toUpperCase();
+	    }
+		setId(cinema.getCinemaCode()+"-"+dateString);
+	}
+
+	public Showtime() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getId() {
@@ -23,20 +49,12 @@ public class Showtime {
 		this.id = id;
 	}
 
-	public String getDateTime() {
+	public Date getDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(String dateTime) {
-		this.dateTime = dateTime;
-	}
-
-	public MOVIETYPE getMovieType() {
-		return movieType;
-	}
-
-	public void setMovieType(MOVIETYPE movieType) {
-		this.movieType = movieType;
+	public void setDateTime(Date dateTime2) {
+		this.dateTime = dateTime2;
 	}
 
 	public Movie getMovie() {
@@ -53,6 +71,30 @@ public class Showtime {
 
 	public void setCinema(Cinema cinema) {
 		this.cinema = cinema;
+	}
+
+	public String getMovieId() {
+		return movieId;
+	}
+
+	public void setMovieId(String movieId) {
+		this.movieId = movieId;
+	}
+
+	public String getCinemaCode() {
+		return cinemaCode;
+	}
+
+	public void setCinemaCode(String cinemaCode) {
+		this.cinemaCode = cinemaCode;
+	}
+
+	public String getCineplexName() {
+		return cineplexName;
+	}
+
+	public void setCineplexName(String cineplexName) {
+		this.cineplexName = cineplexName;
 	}
 	
 }

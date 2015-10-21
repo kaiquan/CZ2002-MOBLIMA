@@ -1,0 +1,11 @@
+1445252471724	Encapsulate field 'cineplexName'
+1445252526431	Encapsulate field 'cineplexName'
+1445252753861	Encapsulate field 'guestName'
+1445254870741	Encapsulate field 'movieId'
+1445254905363	Encapsulate field 'cinemaCode'
+1445254954536	Encapsulate field 'cineplexName'
+1445263744648	Rename type 'main'
+1445308347202	Delete element
+1445310952086	Encapsulate field 'cinemaId'
+1445314968085	Encapsulate field 'cineplexName'
+1445315101821	Encapsulate field 'movies'

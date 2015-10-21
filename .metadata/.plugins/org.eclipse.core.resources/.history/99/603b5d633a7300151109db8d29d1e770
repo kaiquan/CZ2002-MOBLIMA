@@ -1,0 +1,19 @@
+package dao_module;
+
+import java.util.ArrayList;
+
+import model.Guest;
+import model.Movie;
+import model.Review;
+
+public class ReviewDAO {
+	
+	public void createNewReview(Guest guest, Review review){
+		
+	}
+	public ArrayList<Review> getReviewByMovieWithGuestDetails(Movie movie){
+		ArrayList<Review> resutls = null;
+		
+		return resutls;
+	}
+}

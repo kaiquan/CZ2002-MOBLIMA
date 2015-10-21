@@ -1,0 +1,28 @@
+package dao_module;
+import java.util.ArrayList;
+
+import model.Cineplex;
+import model.Movie;
+import model.Showtime;
+
+public class ShowTimeDAO {
+	public void createNewShowTime(Showtime showTime){
+		
+	}
+	public void updateShowTime(Showtime showtime){
+		
+	}
+	public ArrayList<Showtime> getShowTimesByCineplexAndMovie(Cineplex cineplex, Movie movie){
+		ArrayList<Showtime> results = null;
+		
+		return results;
+	}
+	
+	//????
+	public ArrayList<Showtime> getShowTimeWithMoviewByCineplex(Cineplex cineplex){
+		ArrayList<Showtime> results = null;
+		
+		return results;
+	}
+	
+}
