@@ -24,7 +24,6 @@ public class AdminDAO extends JSONDAO{
 		if(username.isEmpty()||password.isEmpty()){
 			return result;
 		}
-
 		if(this.admins!=null&&this.admins.size()>0){
 			Admin temp = null;
 			for(int i=0;i<this.admins.size();i++){

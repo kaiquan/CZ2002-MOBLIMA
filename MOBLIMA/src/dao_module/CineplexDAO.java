@@ -25,6 +25,7 @@ public class CineplexDAO extends JSONDAO{
 		}
 		return results;
 	}
+
 	public Cineplex getCineplexByName(String name){
 		Cineplex result=null;
 		if(this.cineplexes!=null&&this.cineplexes.size()>0){

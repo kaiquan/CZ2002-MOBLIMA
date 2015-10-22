@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 
+import controller.WelcomeMenuMgr;
 import dao_module.AdminDAO;
 import dao_module.CineplexDAO;
 import dao_module.GuestDAO;
@@ -25,14 +26,18 @@ public class SysStart {
 	//SHOWTIME DAO  completed
 	
 	public static void main(String a[]) throws IOException{
+		int choice;
 		sc= new Scanner(System.in);
 		showOptions();
+		WelcomeMenuMgr mMgr = new WelcomeMenuMgr();
+		choice = sc.nextInt();
+		mMgr.processOptions(choice);
 		
 //		new AdminDAO(); //completed
 //		new CineplexDAO();
 		//new HoildayDAO().addHoilday(new Date());
 		//new HoildayDAO().removeHoilday(new Date());
-		new MovieDAO();
+		//new MovieDAO();
 //		new GuestDAO();
 	}
 	
@@ -43,6 +48,7 @@ public class SysStart {
 		System.out.println("1.List all available movies");
 		System.out.println("2.List movies by cineplex");
 		System.out.println("3.Admin Login");
+		
 		
 		
 		
