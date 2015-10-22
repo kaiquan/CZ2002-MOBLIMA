@@ -30,6 +30,7 @@ public class SysStart {
 		sc= new Scanner(System.in);
 		showOptions();
 		StartMenuMgr mMgr = new StartMenuMgr();
+		
 		choice = sc.nextInt();
 		mMgr.processOptions(choice);
 		
@@ -48,6 +49,7 @@ public class SysStart {
 		System.out.println("1.List all available movies");
 		System.out.println("2.List movies by cineplex");
 		System.out.println("3.Admin Login");
+		System.out.print("Choice: ");
 		
 		
 		

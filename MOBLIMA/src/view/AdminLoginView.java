@@ -1,12 +1,10 @@
 package view;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import controller.AdminLoginMgr;
 
-public class AdminLoginView {
-	
-	private Scanner sc;
+public class AdminLoginView extends AView{
+
 	private String username;
 	private String password;
 	private AdminLoginMgr mAdminLoginMgr;
@@ -15,12 +13,9 @@ public class AdminLoginView {
 	private int cineplexChoice;
 	
 	public AdminLoginView(){
-		if(sc == null)
-			sc= new Scanner(System.in);	
 		if(mAdminLoginMgr == null)
 			mAdminLoginMgr= new AdminLoginMgr(this);	
 	}
-	
 	
 	public void loginForm(ArrayList<String> cpl){
 		this.cineplexes = cpl;
@@ -28,10 +23,11 @@ public class AdminLoginView {
 	}
 	
 	public void loginForm(){
+		System.out.println();
 		for(int i=0; i<cineplexes.size(); i++)
 			System.out.println(i+". "+cineplexes.get(i));
 		
-		System.out.print("Enter cineplexe choice: ");
+		System.out.print("Enter cineplex choice: ");
 		cineplexChoice = sc.nextInt();
 		sc.nextLine();
 		System.out.print("Enter username: ");
