@@ -5,7 +5,7 @@ import view.AdminLoginView;
 
 import java.util.ArrayList;
 
-public class WelcomeMenuMgr {
+public class StartMenuMgr {
 	
 	AdminLoginView mAdminLogin;
 	CineplexDAO cDao;

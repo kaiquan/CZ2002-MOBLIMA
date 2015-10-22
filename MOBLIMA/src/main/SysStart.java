@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 
-import controller.WelcomeMenuMgr;
+import controller.StartMenuMgr;
 import dao_module.AdminDAO;
 import dao_module.CineplexDAO;
 import dao_module.GuestDAO;
@@ -29,7 +29,7 @@ public class SysStart {
 		int choice;
 		sc= new Scanner(System.in);
 		showOptions();
-		WelcomeMenuMgr mMgr = new WelcomeMenuMgr();
+		StartMenuMgr mMgr = new StartMenuMgr();
 		choice = sc.nextInt();
 		mMgr.processOptions(choice);
 		
