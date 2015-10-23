@@ -1,0 +1,25 @@
+package dao_module;
+
+import org.json.simple.JSONObject;
+
+import model.Price;
+
+public class PriceDAO extends JSONDAO {
+	
+	private JSONObject jsonObject;
+	
+	public PriceDAO(){
+		jsonObject = readFile(pricePath);
+		parseJson(this.jsonObject);
+	}
+	
+	
+	public void updatePrice(Price price){
+		
+	}
+	
+	
+	public void parseJson(JSONObject jsonObject){
+		
+	}
+}
