@@ -29,11 +29,11 @@
 <fullyQualifiedTypeName name="dao_module.MovieDAO"/>
 <fullyQualifiedTypeName name="dao_module.AdminDAO"/>
 <fullyQualifiedTypeName name="dao_module.HoildayDAO"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="dao_module.GuestDAO"/>
 <fullyQualifiedTypeName name="model.Guest"/>
 <fullyQualifiedTypeName name="model.Booking"/>
 <fullyQualifiedTypeName name="model.Cineplex"/>
 <fullyQualifiedTypeName name="dao_module.CineplexDAO"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

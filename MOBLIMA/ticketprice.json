@@ -35,7 +35,8 @@
 			"daylimit":[
 				{"dayofweek":"MONDAY"}.
 				{"dayofweek":"TUESDAY"}.
-				{"dayofweek":"WEDNESDAY"}
+				{"dayofweek":"WEDNESDAY"},
+				{"dayofweek":"THURSDAY"}
 			]
 		},
 		{

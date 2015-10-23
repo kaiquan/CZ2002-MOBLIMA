@@ -40,3 +40,11 @@
 .metadata/.plugins/org.eclipse.core.resources/.projects/MOBLIMA/.markers.snap
 
 *.snap
+
+*.png
+
+.metadata/.plugins/org.eclipse.core.resources/.history/29/f02256a56d79001510fed34c22726bcc
+
+*.index
+
+.metadata/.plugins/org.eclipse.core.resources/.projects/MOBLIMA/.indexes/e4/b9/history.index

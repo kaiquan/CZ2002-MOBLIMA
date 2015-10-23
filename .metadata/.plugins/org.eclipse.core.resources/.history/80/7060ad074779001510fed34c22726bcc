@@ -16,7 +16,6 @@ public class JSONDAO {
 	public static final String moviePath="movie.json";
 	public static final String showtimePath="showtime.json";
 	public static final String hoildayPath="hoilday.json";
-	public static final String pricePath="price.json";
 
 	//@Purpose	: Update .json file
 	//@param	: (name) filepath required
