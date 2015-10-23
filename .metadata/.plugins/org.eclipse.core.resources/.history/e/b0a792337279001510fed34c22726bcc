@@ -23,7 +23,7 @@ public class DAOTest {
 		//TestHoildayDAO();
 		//TestCineplexDAO();
 		//TestCinemaDAO();
-		//TestMovieDAO();
+		TestMovieDAO();
 		//TestShowTimeDAO();
 		//TestBookingDAO();
 		
@@ -165,10 +165,11 @@ public class DAOTest {
 		cast.add("mickey mouse");
 		cast.add("mini mouse");
 		Movie superman= new Movie(cineplex,"SUPERMAN",MOVIETYPE.THREE_DIMENATION,MOVIESTATUS.NOW_SHOWING,"superman the movie..why is his uncerware red","donnal trump",cast,90,AGELIMIT.G,null);
+		System.out.println(cineplex.getName()());
+		//new MovieDAO().createNewMovie(superman);
+		//new MovieDAO();
 		
-		new MovieDAO().createNewMovie(superman);
-		
-		new MovieDAO().getMovieByid("TCC-SUPERMAN-THREE_DIMENATION-2015-10-296-06-45");
+		//new MovieDAO().getMovieByid("TCC-SUPERMAN-THREE_DIMENATION-2015-10-296-06-22");
 	}
 	public static void TestShowTimeDAO(){
 		

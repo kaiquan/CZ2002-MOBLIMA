@@ -32,7 +32,7 @@ public class Movie {
 		setReviews(reviews);
 		setAgeLimit(ageLimit);
 		setMovieType(movieType);
-		setCineplexName(cineplex.getName());
+		System.out.println(cineplex.getName());
 		setCineplex(cineplex);
 		
 		String dateString = new SimpleDateFormat("YYYY-MM-DD-hh-mm").format(new Date());

@@ -62,12 +62,15 @@ public class CineplexDAO extends JSONDAO{
 			JSONObject jsonCineplex;
 			for(int i=0;i<cineplexs.size();i++){
 				jsonCineplex = (JSONObject) cineplexs.get(i);
+				//System.out.println(jsonCineplex.get("companyname").toString());
 				
 				//loop through to get the cinemas in the cineplex
 				JSONArray jsonCinemas = (JSONArray) jsonCineplex.get("cinemas");
 				ArrayList<Cinema> cinemas = new ArrayList<Cinema>(); 
 				for(int x=0;x<jsonCinemas.size();x++){
 					JSONObject jsonCinema = (JSONObject) jsonCinemas.get(x);
+					
+					//System.out.println(jsonCinema.toJSONString());
 					
 					//loop the seat to get the rows
 					JSONArray jsonSeats = (JSONArray) jsonCinema.get("seats");
@@ -78,8 +81,10 @@ public class CineplexDAO extends JSONDAO{
 						String rowletter="row_"+(char)((y + 'A'));
 						JSONArray jsonCol = (JSONArray) jsonRow.get(rowletter.toLowerCase());
 						ArrayList<String> row = new ArrayList<String>();
+//						System.out.println(rowletter);
 						for(int z=0;z<jsonCol.size();z++){
 							row.add(((JSONObject)jsonCol.get(z)).get("seatno").toString());
+							//System.out.println(((JSONObject)jsonCol.get(z)).get("seatno"));
 						}
 						seats.add(row);
 					}

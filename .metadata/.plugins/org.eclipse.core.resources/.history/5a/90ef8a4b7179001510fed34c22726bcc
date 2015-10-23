@@ -24,7 +24,7 @@ public class MovieDAO extends JSONDAO{
 	//@param	: required
 	//@return	: void
 	@SuppressWarnings("unchecked")
-	public boolean createNewMovie(Movie movie){
+	public void createNewMovie(Movie movie){
 		JSONArray jsonMovies = (JSONArray) jsonObject.get("movies");
 		JSONObject jsonMovie = new JSONObject();
 		
@@ -50,8 +50,6 @@ public class MovieDAO extends JSONDAO{
 		
 		jsonMovies.add(jsonMovie);
 		updateFile(JSONDAO.moviePath,this.jsonObject);
-		
-		return true;
 	}
 	
 	//@purpose	: update the movie listing with reviews
@@ -176,6 +174,7 @@ public class MovieDAO extends JSONDAO{
 				movie.setTitle(jsonMovie.get("title").toString());
 				movie.setMovieType(MOVIETYPE.valueOf(jsonMovie.get("movietype").toString()));
 				movie.setMovieStatus(MOVIESTATUS.valueOf(jsonMovie.get("moviestatus").toString()));
+				System.out.println(jsonMovie.get("cineplexname").toString());
 				movie.setCineplexName(jsonMovie.get("cineplexname").toString());
 				movie.setSynopsis(jsonMovie.get("synopsis").toString());
 				movie.setDirector(jsonMovie.get("director").toString());

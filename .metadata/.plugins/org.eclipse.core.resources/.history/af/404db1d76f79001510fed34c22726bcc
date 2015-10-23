@@ -8,24 +8,21 @@ import dao_module.CinemaDAO;
 import dao_module.CineplexDAO;
 import dao_module.GuestDAO;
 import dao_module.HoildayDAO;
-import dao_module.MovieDAO;
-import model.AGELIMIT;
 import model.Cineplex;
 import model.Guest;
 import model.MOVIESTATUS;
 import model.MOVIETYPE;
-import model.Movie;
 
 public class DAOTest {
 	public static void main(String a[]){
 		//TestAdminDAO();
 		//TestGuestDAO();
 		//TestHoildayDAO();
-		//TestCineplexDAO();
-		//TestCinemaDAO();
-		//TestMovieDAO();
-		//TestShowTimeDAO();
-		//TestBookingDAO();
+		TestCineplexDAO();
+		TestCinemaDAO();
+		TestMovieDAO();
+		TestShowTimeDAO();
+		TestBookingDAO();
 		
 	}
 	
@@ -160,15 +157,10 @@ public class DAOTest {
 		
 	}
 	public static void TestMovieDAO(){
-		Cineplex cineplex =new CineplexDAO().getCineplexByName("THE CATHAY CINEPLEX");
 		ArrayList<String> cast = new ArrayList<String>();
 		cast.add("mickey mouse");
 		cast.add("mini mouse");
-		Movie superman= new Movie(cineplex,"SUPERMAN",MOVIETYPE.THREE_DIMENATION,MOVIESTATUS.NOW_SHOWING,"superman the movie..why is his uncerware red","donnal trump",cast,90,AGELIMIT.G,null);
-		
-		new MovieDAO().createNewMovie(superman);
-		
-		new MovieDAO().getMovieByid("TCC-SUPERMAN-THREE_DIMENATION-2015-10-296-06-45");
+		Movie superman= new Movie(new CineplexDAO().getCineplexByName("THE CATHAY CINEPLEX"),"SUPERMAN",MOVIETYPE.THREE_DIMENATION,MOVIESTATUS.NOW_SHOWING,"superman the movie..why is his uncerware red","donnal trump",casts,);
 	}
 	public static void TestShowTimeDAO(){
 		
