@@ -3,7 +3,7 @@ package view;
 import java.util.ArrayList;
 import controller.AdminLoginMgr;
 
-public class AdminLoginView extends AView{
+public class AdminLoginView extends Aview{
 
 	private String username;
 	private String password;
@@ -15,6 +15,10 @@ public class AdminLoginView extends AView{
 	public AdminLoginView(){
 		if(mAdminLoginMgr == null)
 			mAdminLoginMgr= new AdminLoginMgr(this);	
+	}
+	
+	public AdminLoginView(AdminLoginMgr mAdmLgnMgr){
+		this.mAdminLoginMgr = mAdmLgnMgr;
 	}
 	
 	public void loginForm(ArrayList<String> cpl){
@@ -29,12 +33,12 @@ public class AdminLoginView extends AView{
 		
 		System.out.print("Enter cineplex choice: ");
 		cineplexChoice = sc.nextInt();
-		sc.nextLine();
+		
 		System.out.print("Enter username: ");
-		username = sc.nextLine();
+		username = sc.next();
 	
 		System.out.print("Enter password: ");
-		password = sc.nextLine();
+		password = sc.next();
 		
 		mAdminLoginMgr.authAdmin(username, password, cineplexes.get(cineplexChoice));
 		

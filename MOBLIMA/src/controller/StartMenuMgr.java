@@ -8,7 +8,7 @@ public class StartMenuMgr {
 		{
 		
 		case 3:
-			AdminLoginMgr mAdminLoginMgr = new AdminLoginMgr();			
+			AdminLoginMgr mAdminLoginMgr = new AdminLoginMgr();	
 			mAdminLoginMgr.prepareloginForm();
 		}
 		
