@@ -82,6 +82,7 @@ public class MovieDAO extends JSONDAO{
 				for(int x=0;x<movie.getCasts().size();x++){
 					jsonCast = new JSONObject();
 					jsonCast.put("actor", movie.getCasts().get(x));
+					System.out.println("casts: "+movie.getCasts().get(x));
 					jsonCasts.add(jsonCast);
 				}
 				jsonMovie.remove("casts");

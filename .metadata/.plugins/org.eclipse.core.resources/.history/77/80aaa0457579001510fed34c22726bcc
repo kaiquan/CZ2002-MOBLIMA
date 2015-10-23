@@ -82,6 +82,7 @@ public class MovieDAO extends JSONDAO{
 				for(int x=0;x<movie.getCasts().size();x++){
 					jsonCast = new JSONObject();
 					jsonCast.put("actor", movie.getCasts().get(x));
+					System.out.println("casts: "+movie.getCasts().get(x));
 					jsonCasts.add(jsonCast);
 				}
 				jsonMovie.remove("casts");
@@ -92,16 +93,13 @@ public class MovieDAO extends JSONDAO{
 				if(movie.getReviews()!=null){
 					for(int y=0;y<movie.getReviews().size();y++){
 						jsonReview = new JSONObject();
-						jsonReview.put("review", movie.getReviews().get(y).getReview());
-						jsonReview.put("rating", movie.getReviews().get(y).getRating());
-						jsonReview.put("guestname", movie.getReviews().get(y).getGuestName());
-						jsonReview.put("guestid", movie.getReviews().get(y).getGuestId());
-						jsonReviews.add(jsonReview);
+						jsonReview.put("actor", movie.getReviews().get(y));
+						jsonReviews.add(jsonCast);
 					}
 				}
 				
 				jsonMovie.remove("reviews");
-				jsonMovie.put("reviews", jsonReviews);
+				jsonMovie.put("reviews", jsonCasts);
 				
 				jsonMovies.remove(i);
 				jsonMovies.add(jsonMovie);

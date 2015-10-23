@@ -23,7 +23,7 @@ public class DAOTest {
 		//TestHoildayDAO();
 		//TestCineplexDAO();
 		//TestCinemaDAO();
-		TestMovieDAO();
+		//TestMovieDAO();
 		//TestShowTimeDAO();
 		//TestBookingDAO();
 		
@@ -174,7 +174,7 @@ public class DAOTest {
 		
 		new MovieDAO().updateMovie(superman);
 		
-//		new MovieDAO().getMovieByid("TCC-SUPERMAN-THREE_DIMENATION-2015-10-296-06-45");
+		new MovieDAO().getMovieByid("TCC-SUPERMAN-THREE_DIMENATION-2015-10-296-06-45");
 	}
 	public static void TestShowTimeDAO(){
 		
