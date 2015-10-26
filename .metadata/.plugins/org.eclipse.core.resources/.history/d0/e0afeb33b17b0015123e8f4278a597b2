@@ -86,7 +86,7 @@ public class ShowTimeDAO extends JSONDAO{
 		return results;
 	}
 	
-	public Showtime getShowTimeByID(String showtimeID){
+	private Showtime getShowTimeByID(String showtimeID){
 		Showtime result=null;
 		if(this.showtimes!=null&&this.showtimes.size()>0){
 			for(int i=0;i<this.showtimes.size();i++){
@@ -115,7 +115,7 @@ public class ShowTimeDAO extends JSONDAO{
 				showtime.setCinemaCode(jsonShowTime.get("cinemacode").toString());
 				showtime.setMovieId(jsonShowTime.get("movieid").toString());
 				
-				DateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh:mm", Locale.ENGLISH);
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd-:hh:mm", Locale.ENGLISH);
 				Date date = null;
 				try {
 					date = format.parse(jsonShowTime.get("datetime").toString());

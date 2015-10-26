@@ -15,13 +15,11 @@ public class Booking {
 	private String cinemaId;
 	private String movieTitle;
 	private String movieId;
-	private String showtimeId;
 	
 	
 	private Guest guest;
 	private Cinema cinema;
 	private Movie movie;
-	private Showtime showTime;
 	
 	public Booking(Movie movie, int numberOfSeniors, ArrayList<String> seats, Guest guest, Cinema cinema ){
 		setMovie(movie);
@@ -142,18 +140,6 @@ public class Booking {
 	}
 	public void setCinemaId(String cinemaId) {
 		this.cinemaId = cinemaId;
-	}
-	public String getShowtimeId() {
-		return showtimeId;
-	}
-	public void setShowtimeId(String showtimeId) {
-		this.showtimeId = showtimeId;
-	}
-	public Showtime getShowTime() {
-		return showTime;
-	}
-	public void setShowTime(Showtime showTime) {
-		this.showTime = showTime;
 	}
 	
 }

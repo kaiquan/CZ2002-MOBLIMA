@@ -115,7 +115,7 @@ public class ShowTimeDAO extends JSONDAO{
 				showtime.setCinemaCode(jsonShowTime.get("cinemacode").toString());
 				showtime.setMovieId(jsonShowTime.get("movieid").toString());
 				
-				DateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh:mm", Locale.ENGLISH);
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd-:hh:mm", Locale.ENGLISH);
 				Date date = null;
 				try {
 					date = format.parse(jsonShowTime.get("datetime").toString());

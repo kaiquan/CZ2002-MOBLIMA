@@ -94,7 +94,6 @@ public class BookingDAO extends JSONDAO {
 				jsonBooking = (JSONObject)jsonBookings.get(i);
 				booking = new Booking();
 				booking.setTransactionid(jsonBooking.get("transactionid").toString());
-				booking.setShowtimeId(jsonBooking.get("showtimeid").toString());
 				booking.setMovieTitle(jsonBooking.get("movietitle").toString());
 				booking.setMovieId(jsonBooking.get("moiveid").toString());
 				booking.setCineplexName(jsonBooking.get("cineplexname").toString());
@@ -102,8 +101,6 @@ public class BookingDAO extends JSONDAO {
 				booking.setNumberOfSeniors(Integer.parseInt(jsonBooking.get("numberofseniors").toString()));
 				booking.setGuestId(jsonBooking.get("guestid").toString());
 				booking.setCinemaId(jsonBooking.get("cinemaid").toString());
-				
-				booking.setShowTime(new ShowTimeDAO().getShowTimeByID(booking.getShowtimeId()));
 				
 				//loop to get the booked seats
 				JSONArray jsonSeats = (JSONArray) jsonBooking.get("seats");

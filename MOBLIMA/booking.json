@@ -15,7 +15,9 @@
 					{"seatno":"A2"},
 					{"seatno":"A3"}
 				],
-				"guestid":"john86886234"
+				"guestid":"john86886234",
+				"showtimeid":"TCCT1-201510241130"
+
 			},
 			{
 				"transactionid":"CCDE-T2-201510202359",
@@ -27,11 +29,13 @@
 				"numberofseniors":2,
 				"seats":
 				[
-					{"seatno":"A1"},
-					{"seatno":"A2"},
-					{"seatno":"A3"}
+					{"seatno":"B1"},
+					{"seatno":"B2"},
+					{"seatno":"B3"}
 				],
-				"guestid":"john86886234"
+				"guestid":"john86886234",
+				"showtimeid":"TCCT1-201510241130"
+
 			}
 		]
 }

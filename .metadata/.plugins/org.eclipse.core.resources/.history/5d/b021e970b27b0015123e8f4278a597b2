@@ -27,7 +27,7 @@ public class DAOTest {
 		//TestMovieDAO();
 		//TestShowTimeDAO();
 		//TestBookingDAO();
-//		new BookingDAO().getBookingsByMovie(movie);
+		new BookingDAO().getBookingsByMovie(movie);
 	}
 	
 	public static void TestAdminDAO(){

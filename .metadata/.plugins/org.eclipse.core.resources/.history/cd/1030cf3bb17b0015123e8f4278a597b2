@@ -103,8 +103,6 @@ public class BookingDAO extends JSONDAO {
 				booking.setGuestId(jsonBooking.get("guestid").toString());
 				booking.setCinemaId(jsonBooking.get("cinemaid").toString());
 				
-				booking.setShowTime(new ShowTimeDAO().getShowTimeByID(booking.getShowtimeId()));
-				
 				//loop to get the booked seats
 				JSONArray jsonSeats = (JSONArray) jsonBooking.get("seats");
 				JSONObject jsonSeat;

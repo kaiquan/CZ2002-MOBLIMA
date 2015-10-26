@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import dao_module.AdminDAO;
-import dao_module.BookingDAO;
 import dao_module.CinemaDAO;
 import dao_module.CineplexDAO;
 import dao_module.GuestDAO;
@@ -27,7 +26,7 @@ public class DAOTest {
 		//TestMovieDAO();
 		//TestShowTimeDAO();
 		//TestBookingDAO();
-//		new BookingDAO().getBookingsByMovie(movie);
+		
 	}
 	
 	public static void TestAdminDAO(){
