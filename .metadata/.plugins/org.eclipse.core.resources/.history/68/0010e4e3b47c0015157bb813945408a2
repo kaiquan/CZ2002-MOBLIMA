@@ -4,18 +4,30 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import dao_module.AdminDAO;
+import dao_module.BookingDAO;
+import dao_module.CinemaDAO;
 import dao_module.CineplexDAO;
 import dao_module.GuestDAO;
 import dao_module.HoildayDAO;
+import dao_module.MovieDAO;
+import model.AGELIMIT;
 import model.Cineplex;
 import model.Guest;
+import model.MOVIESTATUS;
+import model.MOVIETYPE;
+import model.Movie;
 
 public class DAOTest {
 	public static void main(String a[]){
 		//TestAdminDAO();
 		//TestGuestDAO();
 		//TestHoildayDAO();
-		TestCineplexDAO();
+		//TestCineplexDAO();
+		//TestCinemaDAO();
+		//TestMovieDAO();
+		//TestShowTimeDAO();
+		//TestBookingDAO();
+//		new BookingDAO().getBookingsByMovie(movie);
 	}
 	
 	public static void TestAdminDAO(){
@@ -134,13 +146,41 @@ public class DAOTest {
 			for(int x=0;x<cineplexs.get(i).getCinemas().size();x++){
 				
 			}
-			System.out.println(cineplexs.get(i).getMovies().size());
-			//for(int y=0;y<cineplexs.get(i).getMovies().size();y++){
-				System.out.println(cineplexs.get(i).getMovies().get(0).getTitle());
-			//}
+			if(cineplexs.get(i).getMovies()!=null){
+				for(int y=0;y<cineplexs.get(i).getMovies().size();y++){
+					System.out.println(cineplexs.get(i).getMovies().get(y).getTitle()+"("+cineplexs.get(i).getMovies().get(y).getMovieType().toString()+")");
+				}
+			}
+			
 		}
 		
 		System.out.println("\n\nEND OF CINEPLEX DAO FUNCTION TEST");
 		System.out.println("====================================");
+	}
+	public static void TestCinemaDAO(){
+		
+	}
+	public static void TestMovieDAO(){
+		
+		Cineplex cineplex =new CineplexDAO().getCineplexByName("THE CATHAY CINEPLEX");
+		ArrayList<String> cast = new ArrayList<String>();
+		cast.add("mickey mouse");
+		cast.add("mini mouse");
+		
+		Movie superman= new Movie(cineplex,"SUPERMAN",MOVIETYPE.THREE_DIMENATION,MOVIESTATUS.NOW_SHOWING,"superman the movie..why is his uncerware red","donnal trump",cast,90,AGELIMIT.G,null);
+		
+		new MovieDAO().createNewMovie(superman);
+		
+		superman.getCasts().add("donnal duck");
+		
+		new MovieDAO().updateMovie(superman);
+		
+//		new MovieDAO().getMovieByid("TCC-SUPERMAN-THREE_DIMENATION-2015-10-296-06-45");
+	}
+	public static void TestShowTimeDAO(){
+		
+	}
+	public static void TestBookingDAO(){
+		
 	}
 }

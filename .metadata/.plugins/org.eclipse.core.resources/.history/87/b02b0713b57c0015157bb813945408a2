@@ -118,6 +118,7 @@ public class MovieDAO extends JSONDAO{
 		ArrayList<Movie> results = null;
 		
 		if(this.movies!=null&&this.movies.size()>0){
+			
 			for(int i = 0;i<this.movies.size();i++){
 				if(results==null){
 					results = new ArrayList<Movie>();

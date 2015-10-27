@@ -28,6 +28,8 @@ public class DAOTest {
 		//TestShowTimeDAO();
 		//TestBookingDAO();
 //		new BookingDAO().getBookingsByMovie(movie);
+		ArrayList<Movie> movies=new MovieDAO().getAllMovieswithReviews(true);
+		System.out.println(movies.size());
 	}
 	
 	public static void TestAdminDAO(){

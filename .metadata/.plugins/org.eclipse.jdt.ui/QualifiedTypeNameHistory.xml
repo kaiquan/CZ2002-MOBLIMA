@@ -39,4 +39,5 @@
 <fullyQualifiedTypeName name="model.AGELIMIT"/>
 <fullyQualifiedTypeName name="model.Movie"/>
 <fullyQualifiedTypeName name="dao_module.MovieDAO"/>
+<fullyQualifiedTypeName name="dao_module.BookingDAO"/>
 </qualifiedTypeNameHistroy>
