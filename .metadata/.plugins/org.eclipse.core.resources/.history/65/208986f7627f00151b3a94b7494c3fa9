@@ -1,0 +1,203 @@
+package dao_module;
+
+import java.util.ArrayList;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import model.CINEMACLASS;
+import model.DAYOFWEEK;
+import model.Movie;
+import model.Price;
+import model.TICKETTYPE;
+
+public class PriceDAO extends JSONDAO {
+	
+	private JSONObject jsonObject;
+	private Price ticketPrice;
+	
+	public PriceDAO(){
+		jsonObject = readFile(pricePath);
+		parseJson(this.jsonObject);
+	}
+	
+	
+	public void updatePrice(Price price){
+		
+	}
+	
+	
+	
+	public double getPrice(CINEMACLASS cinemaType, TICKETTYPE ticketType, DAYOFWEEK dayOfWeek, boolean is_After6){
+		double price = 0;
+		
+		if(cinemaType==CINEMACLASS.PLANTIUM_CLASS){
+			price = 100;
+		}
+		else{
+			if(ticketType == TICKETTYPE.Regular){
+				switch(dayOfWeek){
+					case  MON :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case TUE :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  WED :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  THUR :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  FRI :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  SAT :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  SUN :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+				}
+			}
+			else if(ticketType == TICKETTYPE.Senior_citizens){
+				switch(dayOfWeek){
+					case  MON :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case TUE :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  WED :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  THUR :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  FRI :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  SAT :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  SUN :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+				}
+			}
+			else if(ticketType == TICKETTYPE.Student){
+				switch(dayOfWeek){
+					case  MON :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case TUE :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  WED :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  THUR :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  FRI :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  SAT :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  SUN :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+				}
+			}
+		}
+		return price;
+	}
+	
+	
+	private void parseJson(JSONObject jsonObject){
+		ArrayList<ArrayList<ArrayList<Object>>> ticketPrices = new ArrayList<ArrayList<ArrayList<Object>>>();
+		
+		if(this.jsonObject != null){
+			JSONArray jsonPrice = (JSONArray) jsonObject.get("prices");
+			
+			if(this.ticketPrice==null)
+				this.ticketPrice = new Price();
+			
+			//get the phantium price
+			JSONObject phantium = (JSONObject) jsonPrice.get(0);
+			this.ticketPrice.setPlantiumCinemaPrice(Double.parseDouble(phantium.get("platinumcinema").toString()));
+			
+			//get the student price
+			JSONObject jsonStudentPriceObject = (JSONObject)jsonPrice.get(1);
+			JSONArray jsonStudentPriceArray = (JSONArray)jsonStudentPriceObject.get("studentprices");
+			
+			ArrayList<ArrayList<Object>> studentArray = new ArrayList<ArrayList<Object>>();
+			ArrayList<Object> prices = new ArrayList<Object>();
+			
+			//get price for mon
+			JSONObject studentDays = (JSONObject)jsonStudentPriceArray.get(0);
+			JSONArray studentPriceTIming = (JSONArray)studentDays.get("monday");
+			JSONObject priceBefore6 = (JSONObject)studentPriceTIming.get(0);
+			JSONObject priceAfter6 = (JSONObject)studentPriceTIming.get(1);
+			prices.add(Double.parseDouble(priceBefore6.get("pricebefore6").toString()));
+			prices.add(Double.parseDouble(priceAfter6.get("priceafter6").toString()));
+			studentArray.add(prices);
+			
+			//get prive for tue
+			prices = new ArrayList<Object>();
+			studentDays = (JSONObject)jsonStudentPriceArray.get(1);
+			studentPriceTIming = (JSONArray)studentDays.get("tuesday");
+			priceBefore6 = (JSONObject)studentPriceTIming.get(0);
+			priceAfter6 = (JSONObject)studentPriceTIming.get(1);
+			prices.add(Double.parseDouble(priceBefore6.get("pricebefore6").toString()));
+			prices.add(Double.parseDouble(priceAfter6.get("priceafter6").toString()));
+			studentArray.add(prices);
+			
+
+			
+		}
+	}
+}

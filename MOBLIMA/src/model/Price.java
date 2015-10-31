@@ -1,11 +1,22 @@
 package model;
 
+import java.util.ArrayList;
 
 public class Price {
-	private double movieClassPrice;//only if gold class 
+	private double plantiumCinemaPrice;
+	private ArrayList<ArrayList<ArrayList<Object>>> pricings;
 	
-	private TICKETTYPE ticketType;
-	private DAYOFWEEK dayOfWeek;
-	private double regularMoviePrice;
-//	private double 3DMoviePrice;
+	
+	public ArrayList<ArrayList<ArrayList<Object>>> getPricings() {
+		return pricings;
+	}
+	public void setPricings(ArrayList<ArrayList<ArrayList<Object>>> pricings) {
+		this.pricings = pricings;
+	}
+	public double getPlantiumCinemaPrice() {
+		return plantiumCinemaPrice;
+	}
+	public void setPlantiumCinemaPrice(double plantiumCinemaPrice) {
+		this.plantiumCinemaPrice = plantiumCinemaPrice;
+	}
 }

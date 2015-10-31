@@ -1,7 +1,0 @@
-package main;
-
-public class SysStart {
-	public static void main(String a[]){
-		
-	}
-}

@@ -1,0 +1,7 @@
+package model;
+
+
+public class Price {
+	private double plantiumCinemaPrice;
+	private double ticketprices[][];
+}

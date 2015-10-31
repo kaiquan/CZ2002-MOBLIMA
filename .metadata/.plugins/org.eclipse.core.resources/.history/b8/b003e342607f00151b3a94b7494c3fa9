@@ -1,0 +1,173 @@
+package dao_module;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import model.CINEMACLASS;
+import model.DAYOFWEEK;
+import model.Movie;
+import model.Price;
+import model.TICKETTYPE;
+
+public class PriceDAO extends JSONDAO {
+	
+	private JSONObject jsonObject;
+	private Price ticketPrice;
+	
+	public PriceDAO(){
+		jsonObject = readFile(pricePath);
+		parseJson(this.jsonObject);
+	}
+	
+	
+	public void updatePrice(Price price){
+		
+	}
+	
+	
+	
+	public double getPrice(CINEMACLASS cinemaType, TICKETTYPE ticketType, DAYOFWEEK dayOfWeek, boolean is_After6){
+		double price = 0;
+		
+		if(cinemaType==CINEMACLASS.PLANTIUM_CLASS){
+			price = 100;
+		}
+		else{
+			if(ticketType == TICKETTYPE.Regular){
+				switch(dayOfWeek){
+					case  MON :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case TUE :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  WED :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  THUR :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  FRI :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  SAT :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  SUN :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+				}
+			}
+			else if(ticketType == TICKETTYPE.Senior_citizens){
+				switch(dayOfWeek){
+					case  MON :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case TUE :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  WED :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  THUR :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  FRI :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  SAT :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  SUN :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+				}
+			}
+			else if(ticketType == TICKETTYPE.Student){
+				switch(dayOfWeek){
+					case  MON :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case TUE :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  WED :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  THUR :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  FRI :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  SAT :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+					case  SUN :
+						if(is_After6)
+							price = 7;
+						else
+							price = 7.5;
+				}
+			}
+		}
+		return price;
+	}
+	
+	
+	public void parseJson(JSONObject jsonObject){
+		if(this.jsonObject != null){
+			JSONArray jsonPrice = (JSONArray) jsonObject.get("prices");
+			
+			System.out.println(jsonPrice.toString());
+			
+			if(this.ticketPrice==null)
+				this.ticketPrice = new Price();
+			
+			JSONObject phantium = (JSONObject) jsonPrice.get(0);
+			this.ticketPrice.setPlantiumCinemaPrice(Double.parseDouble(phantium.get("platinumcinema").toString()));
+			
+			
+		}
+	}
+}

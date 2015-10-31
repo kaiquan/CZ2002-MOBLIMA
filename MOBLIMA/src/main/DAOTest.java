@@ -10,12 +10,16 @@ import dao_module.CineplexDAO;
 import dao_module.GuestDAO;
 import dao_module.HoildayDAO;
 import dao_module.MovieDAO;
+import dao_module.PriceDAO;
 import model.AGELIMIT;
+import model.CINEMACLASS;
 import model.Cineplex;
+import model.DAYOFWEEK;
 import model.Guest;
 import model.MOVIESTATUS;
 import model.MOVIETYPE;
 import model.Movie;
+import model.TICKETTYPE;
 
 public class DAOTest {
 	public static void main(String a[]){
@@ -28,8 +32,8 @@ public class DAOTest {
 		//TestShowTimeDAO();
 		//TestBookingDAO();
 //		new BookingDAO().getBookingsByMovie(movie);
-		ArrayList<Movie> movies=new MovieDAO().getAllMovieswithReviews(true);
-		System.out.println(movies.size());
+//		System.out.println(new PriceDAO().getPrice(CINEMACLASS.GOLD_CLASS, TICKETTYPE.Senior_citizens, DAYOFWEEK.FRI, false));
+//		new PriceDAO().updatePrice(null);
 	}
 	
 	public static void TestAdminDAO(){
