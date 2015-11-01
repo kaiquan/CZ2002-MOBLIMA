@@ -422,7 +422,6 @@ public class PriceDAO extends JSONDAO {
 			JSONObject seniorDays = (JSONObject)jsonSeniorPriceArray.get(0);
 			
 			JSONArray seniorPriceTiming = (JSONArray)seniorDays.get("monday");
-			prices = new ArrayList<Object>();
 			priceBefore6 = (JSONObject)seniorPriceTiming.get(0);
 			priceAfter6 = (JSONObject)seniorPriceTiming.get(1);
 			prices.add(Double.parseDouble(priceBefore6.get("pricebefore6").toString()));
@@ -430,7 +429,6 @@ public class PriceDAO extends JSONDAO {
 			seniorArray.add(prices);
 			//get price for tue
 			seniorDays = (JSONObject)jsonSeniorPriceArray.get(1);
-			prices = new ArrayList<Object>();
 			seniorPriceTiming = (JSONArray)seniorDays.get("tuesday");
 			priceBefore6 = (JSONObject)seniorPriceTiming.get(0);
 			priceAfter6 = (JSONObject)seniorPriceTiming.get(1);
@@ -439,7 +437,6 @@ public class PriceDAO extends JSONDAO {
 			seniorArray.add(prices);
 			//get price for wednesday
 			seniorDays = (JSONObject)jsonSeniorPriceArray.get(2);
-			prices = new ArrayList<Object>();
 			seniorPriceTiming = (JSONArray)seniorDays.get("wednesday");
 			priceBefore6 = (JSONObject)seniorPriceTiming.get(0);
 			priceAfter6 = (JSONObject)seniorPriceTiming.get(1);
@@ -448,7 +445,6 @@ public class PriceDAO extends JSONDAO {
 			seniorArray.add(prices);
 			//get price for thursday
 			seniorDays = (JSONObject)jsonSeniorPriceArray.get(3);
-			prices = new ArrayList<Object>();
 			seniorPriceTiming = (JSONArray)seniorDays.get("thursday");
 			priceBefore6 = (JSONObject)seniorPriceTiming.get(0);
 			priceAfter6 = (JSONObject)seniorPriceTiming.get(1);
@@ -457,7 +453,6 @@ public class PriceDAO extends JSONDAO {
 			seniorArray.add(prices);
 			//get price for friday
 			seniorDays = (JSONObject)jsonSeniorPriceArray.get(4);
-			prices = new ArrayList<Object>();
 			seniorPriceTiming = (JSONArray)seniorDays.get("friday");
 			priceBefore6 = (JSONObject)seniorPriceTiming.get(0);
 			priceAfter6 = (JSONObject)seniorPriceTiming.get(1);
@@ -466,7 +461,6 @@ public class PriceDAO extends JSONDAO {
 			seniorArray.add(prices);
 			//get price for saturday
 			seniorDays = (JSONObject)jsonSeniorPriceArray.get(5);
-			prices = new ArrayList<Object>();
 			seniorPriceTiming = (JSONArray)seniorDays.get("saturday");
 			priceBefore6 = (JSONObject)seniorPriceTiming.get(0);
 			priceAfter6 = (JSONObject)seniorPriceTiming.get(1);
@@ -475,7 +469,6 @@ public class PriceDAO extends JSONDAO {
 			seniorArray.add(prices);
 			//get price for sunday
 			seniorDays = (JSONObject)jsonSeniorPriceArray.get(6);
-			prices = new ArrayList<Object>();
 			seniorPriceTiming = (JSONArray)seniorDays.get("sunday");
 			priceBefore6 = (JSONObject)seniorPriceTiming.get(0);
 			priceAfter6 = (JSONObject)seniorPriceTiming.get(1);
@@ -493,7 +486,6 @@ public class PriceDAO extends JSONDAO {
 			
 			//get price for mon
 			JSONObject regularDays = (JSONObject)jsonRegularPriceArray.get(0);
-			prices = new ArrayList<Object>();
 			JSONArray regularPriceTiming = (JSONArray)regularDays.get("monday");
 			priceBefore6 = (JSONObject)regularPriceTiming.get(0);
 			priceAfter6 = (JSONObject)regularPriceTiming.get(1);
@@ -502,7 +494,6 @@ public class PriceDAO extends JSONDAO {
 			regularArray.add(prices);
 			//get price for tuesday
 			regularDays = (JSONObject)jsonRegularPriceArray.get(1);
-			prices = new ArrayList<Object>();
 			regularPriceTiming = (JSONArray)regularDays.get("tuesday");
 			priceBefore6 = (JSONObject)regularPriceTiming.get(0);
 			priceAfter6 = (JSONObject)regularPriceTiming.get(1);
@@ -511,7 +502,6 @@ public class PriceDAO extends JSONDAO {
 			regularArray.add(prices);
 			//get price for wednesday
 			regularDays = (JSONObject)jsonRegularPriceArray.get(2);
-			prices = new ArrayList<Object>();
 			regularPriceTiming = (JSONArray)regularDays.get("wednesday");
 			priceBefore6 = (JSONObject)regularPriceTiming.get(0);
 			priceAfter6 = (JSONObject)regularPriceTiming.get(1);
@@ -520,7 +510,6 @@ public class PriceDAO extends JSONDAO {
 			regularArray.add(prices);
 			//get price for thursday
 			regularDays = (JSONObject)jsonRegularPriceArray.get(3);
-			prices = new ArrayList<Object>();
 			regularPriceTiming = (JSONArray)regularDays.get("thursday");
 			priceBefore6 = (JSONObject)regularPriceTiming.get(0);
 			priceAfter6 = (JSONObject)regularPriceTiming.get(1);
@@ -529,7 +518,6 @@ public class PriceDAO extends JSONDAO {
 			regularArray.add(prices);
 			//get price for friday
 			regularDays = (JSONObject)jsonRegularPriceArray.get(4);
-			prices = new ArrayList<Object>();
 			regularPriceTiming = (JSONArray)regularDays.get("friday");
 			priceBefore6 = (JSONObject)regularPriceTiming.get(0);
 			priceAfter6 = (JSONObject)regularPriceTiming.get(1);
@@ -546,7 +534,6 @@ public class PriceDAO extends JSONDAO {
 			regularArray.add(prices);
 			//get price for sunday
 			regularDays = (JSONObject)jsonRegularPriceArray.get(6);
-			prices = new ArrayList<Object>();
 			regularPriceTiming = (JSONArray)regularDays.get("sunday");
 			priceBefore6 = (JSONObject)regularPriceTiming.get(0);
 			priceAfter6 = (JSONObject)regularPriceTiming.get(1);

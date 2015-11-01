@@ -32,7 +32,7 @@ public class DAOTest {
 		//TestShowTimeDAO();
 		//TestBookingDAO();
 //		new BookingDAO().getBookingsByMovie(movie);
-		System.out.println(new PriceDAO().getPrice(CINEMACLASS.GOLD_CLASS, TICKETTYPE.Senior_citizens, DAYOFWEEK.SAT, true));
+		System.out.println(new PriceDAO().getPrice(CINEMACLASS.GOLD_CLASS, TICKETTYPE.Senior_citizens, DAYOFWEEK.SAT, false));
 //		new PriceDAO().updatePrice(null);
 	}
 	

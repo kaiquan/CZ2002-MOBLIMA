@@ -1,6 +1,0 @@
-package model;
-
-public class Price {
-	private double studentPrice;
-	private double seniorPrice;
-}

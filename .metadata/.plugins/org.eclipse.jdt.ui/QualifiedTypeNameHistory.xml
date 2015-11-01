@@ -17,7 +17,6 @@
 <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
 <fullyQualifiedTypeName name="model.Cinema"/>
 <fullyQualifiedTypeName name="java.lang.Character"/>
-<fullyQualifiedTypeName name="model.CINEMACLASS"/>
 <fullyQualifiedTypeName name="java.text.DateFormat"/>
 <fullyQualifiedTypeName name="java.util.Locale"/>
 <fullyQualifiedTypeName name="model.Review"/>
@@ -32,7 +31,6 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
 <fullyQualifiedTypeName name="model.Price"/>
-<fullyQualifiedTypeName name="model.DAYOFWEEK"/>
 <fullyQualifiedTypeName name="dao_module.CinemaDAO"/>
 <fullyQualifiedTypeName name="model.MOVIETYPE"/>
 <fullyQualifiedTypeName name="model.MOVIESTATUS"/>
@@ -40,4 +38,8 @@
 <fullyQualifiedTypeName name="model.Movie"/>
 <fullyQualifiedTypeName name="dao_module.MovieDAO"/>
 <fullyQualifiedTypeName name="dao_module.BookingDAO"/>
+<fullyQualifiedTypeName name="dao_module.PriceDAO"/>
+<fullyQualifiedTypeName name="model.CINEMACLASS"/>
+<fullyQualifiedTypeName name="model.TICKETTYPE"/>
+<fullyQualifiedTypeName name="model.DAYOFWEEK"/>
 </qualifiedTypeNameHistroy>

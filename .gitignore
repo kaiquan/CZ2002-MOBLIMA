@@ -48,3 +48,9 @@
 *.index
 
 .metadata/.plugins/org.eclipse.core.resources/.projects/MOBLIMA/.indexes/e4/b9/history.index
+
+*.zip
+
+*.zip
+
+.metadata/.log

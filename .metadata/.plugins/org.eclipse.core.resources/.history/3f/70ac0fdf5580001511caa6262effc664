@@ -13,8 +13,6 @@ public class Booking {
 	private String guestId;
 	private String cineplexName;
 	private String cinemaId;
-	
-	//todo remove movie title
 	private String movieTitle;
 	private String movieId;
 	private String showtimeId;
