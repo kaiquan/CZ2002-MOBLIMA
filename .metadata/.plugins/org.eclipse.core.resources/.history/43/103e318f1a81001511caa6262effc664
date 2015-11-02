@@ -1,0 +1,125 @@
+package controller;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+import model.Booking;
+import model.Cinema;
+import model.DAYOFWEEK;
+import model.Guest;
+import model.Movie;
+import model.Showtime;
+import model.TICKETTYPE;
+import dao_module.BookingDAO;
+import dao_module.MovieDAO;
+import dao_module.PriceDAO;
+import dao_module.ShowTimeDAO;
+import view.BookingView;
+
+public class BookingMgr {
+
+	private BookingView bookingView;
+	
+	private ArrayList<String> selectedSeats;
+	private Movie selectedMovie;
+	private Cinema selectedCinema;
+	private Showtime showtime;
+	private String selectedCineplexName;
+	private int numOfSenior;
+	private int numOfStudent;
+	private Guest guest;
+	private double totalPrice;
+	
+	public BookingMgr(ArrayList<String> selectedSeats, Movie selectedMovie, Cinema selectedCinema, Showtime showtime, String cineplexName){
+		if(this.bookingView == null){
+			this.bookingView = new BookingView(this);
+		}
+		
+		this.selectedSeats = selectedSeats;
+		this.selectedMovie = selectedMovie;
+		this.selectedCinema = selectedCinema;
+		this.showtime = showtime;
+		this.selectedCineplexName = cineplexName;
+	}
+	
+	public void displayBookingDetails(){
+		this.bookingView.showBookingDetails(selectedSeats, selectedMovie.getTitle(), selectedCinema.getCinemaCode(), showtime.getDateTime(), selectedCineplexName);
+	}
+	
+	public void getMovieGoerDetails(){
+		this.bookingView.getMovieGoersDetails();
+	}
+	
+	public void setMovieGoerDetails(String name, String email, int mobileNo){
+		this.guest = new Guest(name, email, mobileNo, selectedCineplexName);
+	}
+	
+	public void getSeniorAndChildCount(){
+		this.bookingView.getSeniorAndChildCount(selectedSeats.size());
+	}
+	
+	public void setSeniorAndStudentCount(int numOfSenior, int numOfStudent){
+		this.numOfSenior = numOfSenior;
+		this.numOfStudent = numOfStudent;
+	}
+	
+	public void calculateAndDisplayTicketCosts(){
+		int numOfAdult = this.selectedSeats.size()-numOfSenior-numOfStudent;
+		PriceDAO pd = new PriceDAO();
+		Date date = new Date();
+		int day = Integer.parseInt(new SimpleDateFormat("u").format(date)) - 1;
+		boolean afterSix = Integer.parseInt(new SimpleDateFormat("H").format(date)) >= 18;
+		
+		double adultCost = pd.getPrice(selectedCinema.getCinemaClass(), TICKETTYPE.Regular, DAYOFWEEK.values()[day], afterSix);
+		double studentCost = pd.getPrice(selectedCinema.getCinemaClass(), TICKETTYPE.Student, DAYOFWEEK.values()[day], afterSix);
+		double seniorCost = pd.getPrice(selectedCinema.getCinemaClass(), TICKETTYPE.Senior_citizens, DAYOFWEEK.values()[day], afterSix);
+		
+		double totalCost = (numOfAdult * adultCost) + (numOfStudent * studentCost) + (numOfSenior * seniorCost);
+		this.totalPrice = totalCost;
+		this.bookingView.displayTotalBookingCost(selectedSeats.size(), numOfAdult, numOfSenior, numOfStudent, adultCost, seniorCost, studentCost, totalCost);
+		
+	}
+	
+	private String createTransactionID(){
+		String tid = "";
+		tid += this.selectedCinema.getCinemaCode();
+		tid += "-";
+		tid += new SimpleDateFormat("YYYYMMDDhhmm").format(new Date());
+		return tid;
+	}
+	
+	public void proceedBooking(){
+		
+		BookingDAO bd = new BookingDAO();
+		String tid = createTransactionID();
+		Booking book = new Booking(tid, selectedMovie, numOfSenior, numOfStudent, selectedSeats, guest, selectedCinema, this.totalPrice);
+		bd.createNewBooking(book);
+		this.bookingView.displaySuccessfulOrUnsuccessfulBooking(true);
+	}
+	
+	public void checkBookingHistory(){
+		ArrayList<Booking> bookingHistory = new ArrayList<Booking>();
+		BookingDAO bookingDAO = new BookingDAO(true);
+		this.bookingView.getMovieGoersDetails();
+		
+		bookingHistory = bookingDAO.getBookingsByGuest(this.guest);
+		this.bookingView.displayBookingHistory(bookingHistory);
+	}
+	
+	public String getMovieTitlePlusType(String movieId){
+		MovieDAO md = new MovieDAO();
+		Movie selectedMovie;
+		selectedMovie = md.getMovieByid(movieId);
+		return selectedMovie.getTitle() + " " + selectedMovie.getMovieType().toString();
+	}
+	
+	public String getShowtime(String showtimeId){
+		ShowTimeDAO sd = new ShowTimeDAO();
+		Showtime st;
+		st = sd.getShowTimeByID(showtimeId);
+		return new SimpleDateFormat("E hh:mm a, dd-MM-yyyy").format(st.getDateTime());
+	}
+	
+}

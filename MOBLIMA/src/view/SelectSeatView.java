@@ -1,0 +1,81 @@
+package view;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import controller.SelectSeatMgr;
+import model.Movie;
+
+
+public class SelectSeatView {
+	private Scanner sc;
+	private SelectSeatMgr mSelectSeatMgr;
+	ArrayList<Object> testingList = new ArrayList<Object>();
+	ArrayList<String> showingList = new ArrayList<String>();
+	ArrayList<String> movieList = new ArrayList<String>();
+	ArrayList<String> cineplexList = new ArrayList<String>();
+	Movie movies = new Movie();
+	private int firstDecision;
+	private int secondDecision;
+	private int thirdDecision;
+	private int showtimeDecision;
+	private String bookSeat;
+	private ArrayList<String> bookingSeat =  new ArrayList<String>();
+	
+	public SelectSeatView(){
+		if(sc == null)
+			sc= new Scanner(System.in);	
+		if(mSelectSeatMgr == null)
+			mSelectSeatMgr= new SelectSeatMgr(this);	
+	}
+	
+	public void listMovie(ArrayList<String> movL,ArrayList<String> cplL){
+		this.movieList = movL;
+		this.cineplexList = cplL;
+		chooseCplorMov();
+		selectSeat();
+	}
+	
+	public void	chooseCplorMov(){
+		System.out.println("Please Enter An Option (1 or 2): ");
+		System.out.println("1. Choose Cineplex ");
+		System.out.println("2. Choose Movie ");
+		firstDecision = sc.nextInt();
+		showingList=mSelectSeatMgr.proceedDecision(firstDecision);
+		System.out.println("--------------------------");
+		for(int i=0;i<showingList.size();i++){
+			System.out.println((i+1)+"."+showingList.get(i));
+		}
+		secondDecision= sc.nextInt();
+		showingList= mSelectSeatMgr.proceedSecondDecision(secondDecision);
+		for(int i=0;i<showingList.size();i++){
+			System.out.println((i+1)+"."+showingList.get(i));
+		}
+		thirdDecision=sc.nextInt();
+		showingList=mSelectSeatMgr.proceedThirdDecision(thirdDecision);
+		for(int i=0;i<showingList.size();i++){
+			System.out.println((i+1)+"."+showingList.get(i));
+		}
+		showtimeDecision=sc.nextInt();
+		mSelectSeatMgr.proceedShowtimeDecision(showtimeDecision);
+	}
+	
+	public void selectSeat(){
+		System.out.println("How many seat you need?: ");
+		int numberOfSeat=sc.nextInt();
+		for(int i=0;i<numberOfSeat;i++){
+			System.out.println("Please select your "+(i+1)+" seat: ");
+			bookSeat=sc.nextLine();
+			mSelectSeatMgr.verifySeat(bookSeat);
+		}
+	}
+	
+	public void invalidSeat(String seatNumber){
+		System.out.println("The seat number "+seatNumber+" is invalid.");
+		System.out.println("Please Select A New Seat: ");
+		bookSeat=sc.nextLine();
+		mSelectSeatMgr.verifySeat(bookSeat);
+	}
+	
+
+}
