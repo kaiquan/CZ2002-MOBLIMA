@@ -22,7 +22,7 @@ public class GuestDAO extends JSONDAO{
 		JSONArray jsonGuests = (JSONArray) jsonObject.get("guests");
 		boolean exists=  false;
 		for(int i=0;i<this.guests.size();i++){
-			if(this.guests.get(i).getEmail().equals(guest.getEmail())&&this.guests.get(i).getMobileNo()==guest.getMobileNo()&&this.guests.get(i).getCineplexName().equals(cineplexName)){
+			if(this.guests.get(i).getEmail().equalsIgnoreCase(guest.getEmail())&&this.guests.get(i).getMobileNo()==guest.getMobileNo()&&this.guests.get(i).getCineplexName().equals(cineplexName)){
 				//System.out.println("Account already exists");
 				exists=true;
 				break;
@@ -30,10 +30,10 @@ public class GuestDAO extends JSONDAO{
 		}
 		if(!exists){
 			JSONObject jsonGuest = new JSONObject();
-			jsonGuest.put("id", guest.getId());
+			jsonGuest.put("id", guest.getId().toLowerCase());
 			jsonGuest.put("name", guest.getName());
 			jsonGuest.put("mobileno", guest.getMobileNo());
-			jsonGuest.put("email", guest.getEmail());
+			jsonGuest.put("email", guest.getEmail().toLowerCase());
 			jsonGuest.put("cineplexname", cineplexName);
 			
 			jsonGuests.add(jsonGuest);

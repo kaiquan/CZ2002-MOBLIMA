@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="org.json.JSONObject"/>
 <fullyQualifiedTypeName name="java.io.FileReader"/>
-<fullyQualifiedTypeName name="model.Showtime"/>
 <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
@@ -15,7 +14,6 @@
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
-<fullyQualifiedTypeName name="model.Cinema"/>
 <fullyQualifiedTypeName name="java.lang.Character"/>
 <fullyQualifiedTypeName name="java.text.DateFormat"/>
 <fullyQualifiedTypeName name="java.util.Locale"/>
@@ -25,7 +23,6 @@
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="dao_module.GuestDAO"/>
 <fullyQualifiedTypeName name="model.Guest"/>
-<fullyQualifiedTypeName name="model.Booking"/>
 <fullyQualifiedTypeName name="model.Cineplex"/>
 <fullyQualifiedTypeName name="dao_module.CineplexDAO"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -42,4 +39,8 @@
 <fullyQualifiedTypeName name="model.CINEMACLASS"/>
 <fullyQualifiedTypeName name="model.TICKETTYPE"/>
 <fullyQualifiedTypeName name="model.DAYOFWEEK"/>
+<fullyQualifiedTypeName name="model.Booking"/>
+<fullyQualifiedTypeName name="model.Cinema"/>
+<fullyQualifiedTypeName name="model.Showtime"/>
+<fullyQualifiedTypeName name="controller.BookingMgr"/>
 </qualifiedTypeNameHistroy>

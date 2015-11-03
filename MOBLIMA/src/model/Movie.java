@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.StringTokenizer;
 
-public class Movie {
+@SuppressWarnings("rawtypes")
+public class Movie  implements Comparable{
 	private String id;
 	private String title;
 	private MOVIESTATUS movieStatus;
@@ -19,7 +20,6 @@ public class Movie {
 	private String cineplexName;
 	
 	private Cineplex cineplex;
-	
 	
 
 	public Movie(Cineplex cineplex, String title, MOVIETYPE movieType, MOVIESTATUS movieStatus, String synopsis, String director, ArrayList<String>casts, int showDuration, AGELIMIT ageLimit, ArrayList<Review>reviews){
@@ -51,7 +51,6 @@ public class Movie {
 	}
 	
 	public Movie() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Cineplex getCineplex() {
@@ -154,7 +153,29 @@ public class Movie {
 		this.cineplexName = cineplexName;
 	}
 	
+	public double getOverallRatings(){
+		double sum = 0;
+		for(int i = 0; i < this.reviews.size(); i++){
+			sum += this.reviews.get(i).getRating();
+		}
+		return sum/(double)this.reviews.size();
+	}
 	
+	
+	public int compareTo(Object o){
+		Movie newM = (Movie)o;
+		if(this.getOverallRatings() < newM.getOverallRatings()){
+			return -1;
+		}
+		else {
+			return 1;
+		}
+	}
+	
+	public boolean equals(Object o){
+		Movie newM = (Movie)o;
+		return this.id.equals(newM.getId());
+	}
 }
 
 
