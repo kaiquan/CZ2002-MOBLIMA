@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import controller.ListMovieMgr;
+import model.Cineplex;
 import model.Movie;
 
 
@@ -33,6 +34,8 @@ public class ListMovieView {
 		System.out.print("Enter cineplex choice: ");
 		cineplexChoice = sc.nextInt();
 		this.movies=mlistMovieMgr.getCineplexMovie(cineplexChoice);
+		
+		
 		System.out.println("=== "+cineplexes.get(cineplexChoice-1)+" Movie List ===");
 		for(int i=0; i<movies.size(); i++){
 			System.out.println((i+1)+". "+movies.get(i).getTitle());
@@ -41,5 +44,6 @@ public class ListMovieView {
 		}
 		System.out.println("---------------------------------------------");
 	}
+	
 	
 }

@@ -155,10 +155,16 @@ public class Movie  implements Comparable{
 	
 	public double getOverallRatings(){
 		double sum = 0;
-		for(int i = 0; i < this.reviews.size(); i++){
-			sum += this.reviews.get(i).getRating();
+		try{
+			for(int i = 0; i < this.reviews.size(); i++){
+				if(this.reviews.get(i) != null)
+					sum += this.reviews.get(i).getRating();
+				}
+			return sum/(double)this.reviews.size();
+		}catch(NullPointerException e){
+			//e.printStackTrace();
 		}
-		return sum/(double)this.reviews.size();
+		return 0;
 	}
 	
 	
