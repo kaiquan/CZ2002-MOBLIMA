@@ -1,8 +1,0 @@
-package model;
-
-import java.util.ArrayList;
-
-public class Price {
-	private double plantiumCinemaPrice;
-	private ArrayList<ArrayList<Object>> pricings;
-}

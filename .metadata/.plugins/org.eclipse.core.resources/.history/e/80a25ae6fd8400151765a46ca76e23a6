@@ -3,7 +3,6 @@ package view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import controller.MovieDetailsMgr;
 import controller.SelectSeatMgr;
 import model.Movie;
 
@@ -43,18 +42,16 @@ public class SelectSeatView {
 		System.out.println("2. Choose Movie ");
 		firstDecision = sc.nextInt();
 		showingList=mSelectSeatMgr.proceedDecision(firstDecision);
-		System.out.println("------------------------------------------");
+		System.out.println("--------------------------");
 		for(int i=0;i<showingList.size();i++){
 			System.out.println((i+1)+"."+showingList.get(i));
 		}
 		secondDecision= sc.nextInt();
-		System.out.println("------------------------------------------");
 		showingList= mSelectSeatMgr.proceedSecondDecision(secondDecision);
 		for(int i=0;i<showingList.size();i++){
 			System.out.println((i+1)+"."+showingList.get(i));
 		}
 		thirdDecision=sc.nextInt();
-		//System.out.println("------------------------------------------");
 		showingList=mSelectSeatMgr.proceedThirdDecision(thirdDecision);
 		for(int i=0;i<showingList.size();i++){
 			System.out.println((i+1)+"."+showingList.get(i));
@@ -66,17 +63,14 @@ public class SelectSeatView {
 	public void selectSeat(){
 		System.out.println("How many seat you need?: ");
 		int numberOfSeat=sc.nextInt();
-		sc = new Scanner(System.in);
 		for(int i=0;i<numberOfSeat;i++){
 			System.out.println("Please select your "+(i+1)+" seat: ");
 			bookSeat=sc.nextLine();
 			mSelectSeatMgr.verifySeat(bookSeat);
 		}
-		mSelectSeatMgr.doBooking();
 	}
 	
 	public void invalidSeat(String seatNumber){
-
 		System.out.println("The seat number "+seatNumber+" is invalid.");
 		System.out.println("Please Select A New Seat: ");
 		bookSeat=sc.nextLine();

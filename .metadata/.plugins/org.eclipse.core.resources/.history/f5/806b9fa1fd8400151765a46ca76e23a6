@@ -110,7 +110,7 @@ public class BookingView {
 	
 	public void displayBookingHistory(ArrayList<Booking> bookingHistory){
 		System.out.println("=================== BOOKING HISTORY ==========================");
-		if(bookingHistory != null && !bookingHistory.isEmpty()){
+		if(bookingHistory != null){
 			for(Booking b : bookingHistory){
 				String transactionTime;
 				try {

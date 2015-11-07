@@ -43,7 +43,7 @@ public class MovieGoerMenuMgr {
 				movDAO = new MovieDAO();
 			}
 			for(int i=0; i<movDAO.getAllMovieswithReviews(true).size(); i++){
-				movieList.add(movDAO.getAllMovieswithReviews(true).get(i).getTitle()+" "+movDAO.getAllMovieswithReviews(true).get(i).getMovieType());
+				movieList.add(movDAO.getAllMovieswithReviews(true).get(i).getTitle());
 			}
 			mMovieDetailsView.listMovie(movieList);
 			break;

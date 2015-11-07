@@ -118,7 +118,6 @@ public class MovieDAO extends JSONDAO{
 		ArrayList<Movie> results = null;
 		
 		if(this.movies!=null&&this.movies.size()>0){
-			
 			for(int i = 0;i<this.movies.size();i++){
 				if(results==null){
 					results = new ArrayList<Movie>();
@@ -175,6 +174,18 @@ public class MovieDAO extends JSONDAO{
 		return result;
 	}
 	
+	// New Added
+	public Movie getMovieByTitle(String title) {
+		Movie result = null;
+		if (this.movies != null & this.movies.size() > 0) {
+			for (int i = 0; i < this.movies.size(); i++) {
+				if (this.movies.get(i).getTitle().equals(title)) {
+					result = this.movies.get(i);
+				}
+			}
+		}
+		return result;
+	}
 	
 	private void parseJSON(JSONObject jsonObject){
 		if(this.jsonObject != null){

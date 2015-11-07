@@ -3,12 +3,10 @@ package controller;
 import java.util.ArrayList;
 
 import dao_module.BookingDAO;
-import dao_module.CinemaDAO;
 import dao_module.CineplexDAO;
 import dao_module.MovieDAO;
 import dao_module.ShowTimeDAO;
 import model.Booking;
-import model.Cinema;
 import model.Cineplex;
 import model.Movie;
 import model.Showtime;
@@ -21,10 +19,9 @@ public class SelectSeatMgr {
 	private CineplexDAO cplDAO;
 	private ShowTimeDAO stDAO;
 	private BookingDAO bookDAO;
-	private CinemaDAO cnDAO=new CinemaDAO();
 	private ArrayList<Movie> mMovie;
 	private ArrayList<Cineplex> mCineplex;
-	private ArrayList<String> showingList=new ArrayList<String>();;
+	private ArrayList<String> showingList;
 	private ArrayList<Movie> movieSearchByCineplex=new ArrayList<Movie>();;
 	private ArrayList<Cineplex> cineplexSearchByMovie=new ArrayList<Cineplex>();;
 	private ArrayList<Showtime> showtimeByCineplexAndMovie= new ArrayList<Showtime>();
@@ -37,10 +34,8 @@ public class SelectSeatMgr {
 	private Movie mov;
 	private Showtime st;
 	private String cinemaCode;
-	private Cinema cinema;
 	private int cinemaRow;
 	private int cinemaCol;
-	private boolean setShowTime=false;
 	String[] rowList={"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"};
 	
 	public SelectSeatMgr(SelectSeatView selectSeatView){
@@ -73,11 +68,11 @@ public class SelectSeatMgr {
 	public ArrayList<String> proceedThirdDecision(int choice){
 		//Choose the Movie Last
 		if(decisionMake==1){
-			getCineplexByMovie(movieSearchByCineplex.get(choice-1).getTitle());
+			getCineplexByMovie(mMovie.get(choice-1).getTitle());
 		}
 		//Choose the Cineplex Last
 		else if (decisionMake==2){
-			getMovieByCineplex(cineplexSearchByMovie.get(choice-1).getName());
+			getMovieByCineplex(mCineplex.get(choice-1).getName());
 		}
 		return showingList;
 	}
@@ -89,88 +84,70 @@ public class SelectSeatMgr {
 		getCinemaSeatSize();
 		showSeat(cinemaRow,cinemaCol);
 	}
-//------------------------Asking For First Decision------------------------------------------------//
+//------------------------Asking For First Decision--------------------------------//
 	public void listCineplex(){
-		showingList.clear();
 		if(cplDAO==null){
 			cplDAO=new CineplexDAO();
 		}
+		showingList=new ArrayList<String>();
 		if(mCineplex==null){
 			mCineplex=cplDAO.getAllCineplex();
 		}
 		for(int i=0;i<mCineplex.size();i++){
 			showingList.add(mCineplex.get(i).getName());
 		}
-		System.out.println("------------------------------------------");
+		System.out.println("--------------------------");
 		System.out.println("Please Select One of The Listed Cineplex: ");
 	}
 	
 	public void listMovie(){
-		showingList.clear();
 		if(movDAO == null){
 			movDAO = new MovieDAO();
 		}
+		showingList=new ArrayList<String>();
 		if(mMovie==null){
 			mMovie=movDAO.getAllMovieswithReviews(false);
 		}
 		
 		for(int i=0;i<mMovie.size();i++){
-			showingList.add(mMovie.get(i).getTitle()+" "+mMovie.get(i).getMovieType());
+			showingList.add(mMovie.get(i).getTitle());
 		}
-		System.out.println("------------------------------------------");
+		System.out.println("--------------------------");
 		System.out.println("Please Select One of The Listed Movie: ");
 	}
 //------------------------Asking For Second and Third Decision------------------//	
-	public void getMovieByCineplex(String cineplex){
-		showingList.clear();
-		this.cpl=cplDAO.getCineplexByName(cineplex);
-		if(movDAO == null){
-			movDAO = new MovieDAO();
-		}
-		if(mMovie==null){
-			mMovie=movDAO.getAllMovieswithReviews(false);
-		}
-		if(!setShowTime){
-			for(int i=0;i<mMovie.size();i++){
-				if(mMovie.get(i).getCineplexName().equals(cineplex)){
-					showingList.add(mMovie.get(i).getTitle());
-					movieSearchByCineplex.add(mMovie.get(i));
-				}
+	public void getMovieByCineplex(String cpl){
+		showingList=new ArrayList<String>();
+		this.cpl=cplDAO.getCineplexByName(cpl);
+		for(int i=0;i<mMovie.size();i++){
+			if(mMovie.get(i).getCineplexName().equals(cpl)){
+				showingList.add(mMovie.get(i).getCineplexName());
+				movieSearchByCineplex.add(mMovie.get(i));
 			}
-			System.out.println("Please Select One of The Listed Movie: ");
-			setShowTime=true;
-		}else{
-			getShowTimeInfo(cpl,mov);
 		}
+		System.out.println("--------------------------");
+		System.out.println("Please Select One of The Listed Movie: ");
 	}
 	
-	public  void getCineplexByMovie(String movie){
-		showingList.clear();
-		this.mov=movDAO.getMovieByTitle(movie);
-		if(cplDAO==null){
-			cplDAO=new CineplexDAO();
-		}
+	public  void getCineplexByMovie(String mov){
+		showingList=new ArrayList<String>();
+		this.mov=movDAO.getMovieByTitle(mov);
 		if(mCineplex==null){
 			mCineplex=cplDAO.getAllCineplex();
 		}
-		if(!setShowTime){
-			for(int i=0;i<mCineplex.size();i++){
+		for(int i=0;i<mCineplex.size();i++){
+			if(mCineplex.get(i).getMovies().equals(mov)){
 				for(int j=0;j<mCineplex.get(i).getMovies().size();j++){
-					if(mCineplex.get(i).getMovies().get(j).getTitle().equals(movie)){
-						showingList.add(mCineplex.get(i).getMovies().get(j).getCineplexName());
-					}
-					cineplexSearchByMovie.add(mCineplex.get(i));
+					showingList.add(mCineplex.get(i).getMovies().get(j).getCineplexName());
 				}
+				cineplexSearchByMovie.add(mCineplex.get(i));
 			}
-			System.out.println("Please Select One of The Listed Cineplex: ");
-			setShowTime=true;
-		}else{
-			getShowTimeInfo(cpl,mov);
 		}
+		System.out.println("--------------------------");
+		System.out.println("Please Select One of The Listed Cineplex: ");
 	}
-//------------------------Asking for Showtime------------------------------------------------------//
+//------------------------Asking for Showtime--------------------------------------//
 	public void getShowTimeInfo(Cineplex cpl, Movie mov){
-		showingList.clear();
 		if(stDAO==null){
 			stDAO=new ShowTimeDAO();
 		}
@@ -178,20 +155,18 @@ public class SelectSeatMgr {
 		for(int i=0;i<showtimeByCineplexAndMovie.size();i++){
 			showingList.add(showtimeByCineplexAndMovie.get(i).getDateTime().toString());
 		}
-		System.out.println("------------------------------------------");
+		System.out.println("--------------------------");
 		System.out.println("Please Select One of The Listed ShowTime: ");
 	}
 //------------------------Retrieve Cinema Code and The Seat-------------------------//
 	public String getCinemaCode(int choice){
 		this.cinemaCode=showtimeByCineplexAndMovie.get(choice).getCinemaCode();
-		System.out.println(cinemaCode);
-		cinema=cnDAO.getCinemaByCinemaId(cinemaCode);
 		return cinemaCode;
 	}
 	
 	public void getCinemaSeatSize(){
 		for(int i=0;i<cpl.getCinemas().size();i++){
-			if(cpl.getCinemas().get(i).getCinemaCode().equals(cinemaCode)){
+			if(cpl.getCinemas().get(i).getCinemaCode()==cinemaCode){
 				this.cinemaRow=cpl.getCinemas().get(i).getSeats().size();
 				this.cinemaCol=cpl.getCinemas().get(i).getSeats().get(0).size();
 			}
@@ -202,8 +177,7 @@ public class SelectSeatMgr {
 		if(bookDAO==null){
 			bookDAO=new BookingDAO();
 		}
-		//bookingRecord=bookDAO.getBookingsByMovie(mov);
-		bookingRecord=bookDAO.getBookingsByMovieID(mov.getId());
+		bookingRecord=bookDAO.getBookingsByMovie(mov);
 		for(int i=0;i<bookingRecord.size();i++){
 			if(bookingRecord.get(i).getCinemaId().equals(cinemaCode)
 					&&bookingRecord.get(i).getCineplexName().equals(cpl.getName())){
@@ -213,18 +187,13 @@ public class SelectSeatMgr {
 				}
 			}
 		}
-
 	}
 		
 	public void showSeat(int row,int col){
 		boolean occupied=false;
 		System.out.print(" ");
 		for(int i=0;i<col;i++){
-			if(i==7){
-				System.out.print("\t\t"+(i+1));
-			}else{
-				System.out.print("\t"+(i+1));
-			}
+			System.out.print("\t"+(i+1));
 		}
 		System.out.println();
 		for(int i=0;i<row;i++){
@@ -237,22 +206,17 @@ public class SelectSeatMgr {
 						break;
 					}
 				}
-				if(j==7){
-					System.out.print("\t\t");
-				}else{
-					System.out.print("\t");
-				}
 				if(occupied){
-					System.out.print("[x]");
+					System.out.print("\t[x]");
 					occupied=false;
 				}else{
-					System.out.print("[ ]");
+					System.out.print("\t[ ]");
 				}
 			}
 			System.out.println();
 		}
 		System.out.println();
-		System.out.println(" \t================================================  S  C  R  E  E  N  =================================================");
+		System.out.println(" \t===================================================  S  C  R  E  E  N  ====================================================");
 		System.out.println("[x] = Unavailable / Sold");
 		System.out.println("[ ] = Available");
 	}
@@ -260,35 +224,22 @@ public class SelectSeatMgr {
 	public void verifySeat(String seatNumber){
 		String[] part = seatNumber.split("(?<=\\D)(?=\\d)");
 		boolean add=true;
-		System.out.println(seatNumber);
-		//while(true){
+		while(true){
 			if(part[0].compareTo("A")<0 ||part[0].compareTo(rowList[cinemaRow-1])>0||Integer.parseInt(part[1])<1||Integer.parseInt(part[1])>cinemaCol){
-				System.out.println("invalid");
 				mSelectSeatView.invalidSeat(seatNumber);
 				add=false;
-			//	break;
+				break;
 			}
 			for(int i=0;i<unavailableSeat.size();i++){
-				
 				if(seatNumber.equals(unavailableSeat.get(i))){
 					mSelectSeatView.invalidSeat(seatNumber);
 					add=false;
-			//		break;
+					break;
 				}
 			}
-		//}
+		}
 		if(add){
 			newBookingSeat.add(seatNumber);
 		}
 	}
-//------------------------Booking Seat----------------------------------------------//
-	public void doBooking(){
-		BookingMgr bm = new BookingMgr(newBookingSeat, mov, cinema, st, cpl.getName());
-		bm.displayBookingDetails();
-		bm.getSeniorAndChildCount();
-		bm.getMovieGoerDetails();
-		bm.calculateAndDisplayTicketCosts();
-		bm.proceedBooking();
-	}
-	
 }

@@ -42,17 +42,6 @@ public class BookingMgr {
 		this.selectedCineplexName = cineplexName;
 	}
 	
-	public BookingMgr(){
-		if(this.bookingView == null){
-			this.bookingView = new BookingView(this);
-		}
-		this.selectedSeats = new ArrayList<String>();
-		this.selectedMovie = null;
-		this.selectedCinema = null;
-		this.showtime = null;
-		this.selectedCineplexName = null;
-	}
-	
 	public void displayBookingDetails(){
 		this.bookingView.showBookingDetails(selectedSeats, selectedMovie.getTitle(), selectedCinema.getCinemaCode(), showtime.getDateTime(), selectedCineplexName);
 	}

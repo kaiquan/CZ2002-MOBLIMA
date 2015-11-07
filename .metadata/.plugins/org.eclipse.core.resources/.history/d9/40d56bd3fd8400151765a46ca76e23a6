@@ -37,7 +37,7 @@ public class MovieDetailsView {
 		movieChoice = sc.nextInt();
 		this.movies=mMovieDetailsMgr.movieDetails(movieChoice);
 		System.out.println("============= Movie Details =============");
-		System.out.println("Title \t\t\t:"+movies.getTitle()+" "+movies.getMovieType());
+		System.out.println("Title \t\t\t:"+movies.getTitle());
 		System.out.println("Director \t\t:"+movies.getDirector());
 		System.out.println("Duration \t\t:"+movies.getShowDuration());
 		System.out.println("Film Classification \t:"+movies.getAgeLimit());
