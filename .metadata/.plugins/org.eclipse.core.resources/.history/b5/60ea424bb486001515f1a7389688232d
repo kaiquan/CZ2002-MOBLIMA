@@ -1,0 +1,37 @@
+package controller;
+
+public class StartMenuMgr {
+
+	
+	public static void showMainOptions(){
+		
+		System.out.println("Welcome");
+		System.out.println("Please select an option");
+		System.out.println("1.List all available movies");
+		System.out.println("2.List movies by cineplex");
+		System.out.println("3.Admin Login");
+		System.out.print("Choice: ");
+		
+		//fill in the blanks
+		
+		
+	}
+
+	public void processOptions(int choice){
+		
+		
+		
+		
+		
+		
+		switch(choice)
+		{
+		
+		case 3:
+			AdminLoginMgr mAdminLoginMgr = new AdminLoginMgr();	
+			mAdminLoginMgr.prepareloginForm();
+		}
+		
+	}
+
+}

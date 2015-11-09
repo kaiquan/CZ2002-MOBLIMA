@@ -2,9 +2,13 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
+import dao_module.HoildayDAO;
 import dao_module.MovieDAO;
+import dao_module.ShowTimeDAO;
 import model.AGELIMIT;
+import model.Cinema;
 import model.Cineplex;
 import model.MOVIESTATUS;
 import model.MOVIETYPE;
@@ -12,6 +16,7 @@ import view.AdminView;
 import view.ListMovieView;
 import model.Movie;
 import model.Review;
+import model.Showtime;
 
 public class AdminMgr {
 	private String username;
@@ -19,7 +24,8 @@ public class AdminMgr {
 	
 	private AdminView mAdminView;
 	private MovieDAO movieDao;
-	
+	private ShowTimeDAO showtimeDAO;
+	private HoildayDAO holidayDAO;
 	
 	
 	public AdminMgr(String username, Cineplex mCineplex) {
@@ -132,6 +138,73 @@ public class AdminMgr {
 	
 	}
 
+	public void addShowTime(int cinemaIndex, int movieIndex, Date showtime) {
+		Cinema selectedCinema = mCineplex.getCinemas().get(cinemaIndex);
+		Movie selectedMovie = mCineplex.getMovies().get(movieIndex);
+		
+		Showtime newShowTime = new Showtime(showtime, selectedMovie, selectedCinema);
+
+		showtimeDAO = new ShowTimeDAO();
+		boolean success = showtimeDAO.createNewShowTime(newShowTime);
+
+		if(success) mAdminView.displayShowTimeAdded();	
+	}
+
+	public ArrayList<Showtime> listShowTimes(int movieIndex) {
+		Movie selectedMovie = mCineplex.getMovies().get(movieIndex);
+		ArrayList<Showtime> showTimesSelectedMovie = new ArrayList<Showtime>();
+
+		showtimeDAO = new ShowTimeDAO();
+		showTimesSelectedMovie = showtimeDAO.getShowTimesByCineplexAndMovie(mCineplex, selectedMovie);
+
+		return showTimesSelectedMovie;
+	}
+
+	public void updateShowTime(String showtimeID, Date updatedShowTime) {
+		Showtime selectedShowTime = null;
+
+		showtimeDAO = new ShowTimeDAO();
+		selectedShowTime = showtimeDAO.getShowTimeByID(showtimeID);
+
+		selectedShowTime.setDateTime(updatedShowTime);
+
+		boolean success = showtimeDAO.updateShowTime(selectedShowTime);
+
+		if(success) mAdminView.displayShowTimeUpdated();
+	}
+
+	public void removeShowTime(String showtimeID) {
+		Showtime selectedShowTime = null;
+
+		showtimeDAO = new ShowTimeDAO();
+		selectedShowTime = showtimeDAO.getShowTimeByID(showtimeID);
+		boolean success = showtimeDAO.removeShowTime(selectedShowTime);
+
+		if(success) mAdminView.displayShowTimeRemoved();
+	}
+
+	public ArrayList<Date> listHolidays() {
+		ArrayList<Date> listPublicHolidays = new ArrayList<Date>();
+
+		holidayDAO = new HoildayDAO();
+		listPublicHolidays = holidayDAO.getAllHoildays();
+
+		return listPublicHolidays;
+	}
+
+	public void addHoliday(Date newHoliday) {
+		holidayDAO = new HoildayDAO();
+		boolean success = holidayDAO.addHoilday(newHoliday);
+
+		if(success) mAdminView.displayHolidayAdded();
+	}
+
+	public void removeHoliday(Date selectedHoliday) {
+		holidayDAO = new HoildayDAO();
+		boolean success = holidayDAO.removeHoilday(selectedHoliday);
+
+		if(success) mAdminView.displayHolidayRemoved();
+	}
 	
 
 }

@@ -25,6 +25,7 @@ public class MovieDetailsMgr {
 		}
 		movieList=movDAO.getAllMovieswithReviews(true);
 		dMovie=movDAO.getMovieByid(movieList.get(movieChoice-1).getId());
+		System.out.println(dMovie.getCasts().get(0));
 		return dMovie;
 	}
 		
@@ -32,7 +33,7 @@ public class MovieDetailsMgr {
 		for(int i=0;i<dMovie.getCasts().size();i++){
 			moviesCasts.add(dMovie.getCasts().get(i));
 		}
-		return moviesReviews;
+		return moviesCasts;
 	}
 	
 	public ArrayList<String> getMovieReviews(){

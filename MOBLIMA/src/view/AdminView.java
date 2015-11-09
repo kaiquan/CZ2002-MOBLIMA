@@ -1,11 +1,15 @@
 package view;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import controller.AdminMgr;
-import model.MOVIESTATUS;
+import model.Cinema;
 import model.Movie;
+import model.Showtime;
 
 public class AdminView extends Aview{
 	
@@ -18,7 +22,6 @@ public class AdminView extends Aview{
 		this.username = username;
 		this.cineplex = cineplex;
 		this.mAdminMgr = mAdminMgr;
-		
 	}
 	
 	
@@ -37,9 +40,9 @@ public class AdminView extends Aview{
 			System.out.println("Welcome "+username+", you are editing cineplex: "+cineplex);
 			System.out.println("1. Add New Movie");
 			System.out.println("2. Edit Movie Details");
-			//System.out.println("3. Edit Movie Status");
-			//System.out.println("3. Schedule Show Time");
-			//System.out.println("4. Logout");
+			System.out.println("3. Edit Movie Status");
+			System.out.println("3. Schedule Show Time");
+			System.out.println("4. Logout");
 			System.out.print("Enter Choice: ");
 			choice = sc.nextInt();
 			mAdminMgr.optionSelected(choice);
@@ -192,5 +195,177 @@ public class AdminView extends Aview{
 	}
 
 
+	public void displayShowTimeAdded() {
+		System.out.println("Showtime Added Successfully!!!");
+		displayAdminOptions();
+	}
 
+	public void displayShowTimeUpdated() {
+		System.out.println("Showtime Updated Successfully!!!");
+		displayAdminOptions();
+	}
+
+	public void displayShowTimeRemoved() {
+		System.out.println("Showtime Removed Successfully!!!");
+		displayAdminOptions();
+	}
+
+	public void displayAddShowTimeForm(ArrayList<Movie> movies, ArrayList<Cinema> cinemas) {
+		System.out.println("Cinemas");
+		for(int i=0; i<cinemas.size(); i++){
+			System.out.println((i+1)+". Cinema "+cinemas.get(i).getCinemaCode());
+			System.out.println();
+		}
+		System.out.println("---------------------------------------------");
+		System.out.print("Enter index of cinema to add showtime for: ");
+		int cinemaIndex = sc.nextInt();
+
+		System.out.println("Movies");
+		for(int i=0; i<movies.size(); i++){
+			System.out.println((i+1)+". "+movies.get(i).getTitle());
+			System.out.println();
+		}
+		System.out.println("---------------------------------------------");
+		System.out.print("Enter index of movie to add showtime for: ");
+		int movieIndex = sc.nextInt();
+
+		System.out.println("Enter a showtime (YYYY-MM-DD-HH-mm): ");
+		String showtimeString = sc.next();
+
+		SimpleDateFormat showtimeFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm");
+		Date newShowTime = null;
+		try {
+			newShowTime = showtimeFormat.parse(showtimeString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		mAdminMgr.addShowTime(cinemaIndex-1, movieIndex-1, newShowTime);
+	}
+
+	public void displayUpdateShowTimeMenu(ArrayList<Movie> movies) {
+		System.out.println("Movies");
+		for(int i=0; i<movies.size(); i++){
+			System.out.println((i+1)+". "+movies.get(i).getTitle());
+			System.out.println();
+		}
+		System.out.println("---------------------------------------------");
+		System.out.print("Enter index of movie to update showtime for: ");
+		int movieIndex = sc.nextInt();
+
+		ArrayList<Showtime> listShowTimes = mAdminMgr.listShowTimes(movieIndex-1);
+
+		SimpleDateFormat showtimeFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm");
+
+		for(int i=0; i<listShowTimes.size(); i++){
+			System.out.println((i+1)+". "+showtimeFormat.format(listShowTimes.get(i).getDateTime()));
+			System.out.println();
+		}
+		System.out.println("---------------------------------------------");
+		System.out.print("Enter index of showtime to update: ");
+		int showtimeIndex = sc.nextInt();
+		String showtimeID="";
+		for(int i=0; i<listShowTimes.size(); i++){
+			if(showtimeIndex-1 == i) {
+				showtimeID = listShowTimes.get(i).getId();
+				break;
+			}
+		}
+
+		System.out.println("Enter updated showtime (YYYY-MM-DD-HH-mm): ");
+		String showtimeString = sc.next();
+
+		showtimeFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm");
+		Date updatedShowTime = null;
+		try {
+			updatedShowTime = showtimeFormat.parse(showtimeString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		mAdminMgr.updateShowTime(showtimeID, updatedShowTime);
+	}
+
+	public void displayRemoveShowTimeMenu(ArrayList<Movie> movies) {
+		System.out.println("Movies");
+		for(int i=0; i<movies.size(); i++){
+			System.out.println((i+1)+". "+movies.get(i).getTitle());
+			System.out.println();
+		}
+		System.out.println("---------------------------------------------");
+		System.out.print("Enter index of movie to remove showtime for: ");
+		int movieIndex = sc.nextInt();
+
+		ArrayList<Showtime> listShowTimes = mAdminMgr.listShowTimes(movieIndex-1);
+
+		SimpleDateFormat showtimeFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm");
+
+		System.out.println("Showtimes");
+		for(int i=0; i<listShowTimes.size(); i++){
+			System.out.println((i+1)+". "+showtimeFormat.format(listShowTimes.get(i).getDateTime()));
+			System.out.println();
+		}
+		System.out.println("---------------------------------------------");
+		System.out.print("Enter index of showtime to remove: ");
+		int showtimeIndex = sc.nextInt();
+		String showtimeID="";
+		for(int i=0; i<listShowTimes.size(); i++){
+			if(showtimeIndex-1 == i) {
+				showtimeID= listShowTimes.get(i).getId();
+				break;
+			}
+		}
+
+		mAdminMgr.removeShowTime(showtimeID);
+	}
+
+	public void displayHolidayAdded() {
+		System.out.println("Public Holiday Added Successfully!!!");
+		displayAdminOptions();
+	}
+
+	public void displayHolidayRemoved() {
+		System.out.println("Public Holiday Removed Successfully!!!");
+		displayAdminOptions();
+	}
+
+	public void displayAddHolidayForm() {
+		System.out.print("Enter a new public holiday to add (yyyy-MM-dd): ");
+		String newHolidayString = sc.next();
+
+		SimpleDateFormat holidayFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date newHoliday = null;
+		try {
+			newHoliday = holidayFormat.parse(newHolidayString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		mAdminMgr.addHoliday(newHoliday);
+	}
+
+	public void displayRemoveHolidayMenu() {
+		ArrayList<Date> listPublicHolidays = mAdminMgr.listHolidays();
+		SimpleDateFormat holidayFormat = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println("List of Public Holidays");
+		for(int i=0; i<listPublicHolidays.size(); i++){
+			System.out.println((i+1)+". "+holidayFormat.format(listPublicHolidays.get(i)));
+			System.out.println();
+		}
+		System.out.println("---------------------------------------------");
+		System.out.print("Enter index of public holiday to remove: ");
+		int holidayIndex = sc.nextInt();
+		Date selectedHoliday=null;
+		for(int i=0; i<listPublicHolidays.size(); i++){
+			if(holidayIndex-1 == i) {
+				selectedHoliday = listPublicHolidays.get(i);
+				break;
+			}
+		}
+
+		mAdminMgr.removeHoliday(selectedHoliday);
+	}
 }

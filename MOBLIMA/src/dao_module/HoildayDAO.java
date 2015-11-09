@@ -27,7 +27,7 @@ public class HoildayDAO extends JSONDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void addHoilday(Date date){
+	public boolean addHoilday(Date date){
 		JSONArray hoildays = (JSONArray) jsonObject.get("hoildays");
 		JSONObject jsonHoilday = new JSONObject();
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -35,9 +35,10 @@ public class HoildayDAO extends JSONDAO {
 		hoildays.add(jsonHoilday);
 		
 		updateFile(JSONDAO.hoildayPath,this.jsonObject);
+		return true;
 	}
 	
-	public void removeHoilday(Date date){
+	public boolean removeHoilday(Date date){
 		JSONArray hoildays = (JSONArray) jsonObject.get("hoildays");
 
 		for(int i=0;i<hoildays.size();i++){
@@ -57,6 +58,7 @@ public class HoildayDAO extends JSONDAO {
 			}
 		}
 		updateFile(JSONDAO.hoildayPath,this.jsonObject);
+		return true;
 	}
 	
 	private void parseJSON(JSONObject jsonObject){

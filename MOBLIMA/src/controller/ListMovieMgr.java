@@ -28,6 +28,7 @@ public class ListMovieMgr {
 			cDAO = new CineplexDAO();
 		}
 		cineplex=cDAO.getAllCineplex();
+		
 		mMovie = movDAO.getAllMoviesWithReviewsByCineplex(cineplex.get(cpl-1).getName(), true);
 		if(mMovie!=null){
 			for(int i=0;i<mMovie.size();i++){

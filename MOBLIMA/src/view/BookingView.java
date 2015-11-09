@@ -131,6 +131,8 @@ public class BookingView {
 				System.out.println("Total Ticket Prices\t: " + b.getTotalPrice());
 				System.out.println();
 			}
+			System.out.println("=================== END OF BOOKING HISTORY ====================");
+			System.out.println();
 		}
 		else{
 			System.out.println("Sorry, you have not booked any movie before.");

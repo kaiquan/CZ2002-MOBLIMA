@@ -1,0 +1,23 @@
+package main;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+import controller.StartMenuMgr;
+
+public class SysStart {
+	static Scanner sc;
+	
+	public static void main(String a[]) throws IOException{
+		int choice;
+		sc= new Scanner(System.in);
+		StartMenuMgr mMgr = new StartMenuMgr();
+		do{
+			mMgr.showMainOptions();
+			choice = sc.nextInt();
+			mMgr.processOptions(choice);
+		}while(choice!=7&&choice>7&&choice<1);
+		
+		
+	}
+}

@@ -33,7 +33,7 @@ public class MovieDetailsView {
 		for(int i=0; i<movieList.size(); i++){
 			System.out.println((i+1)+". "+movieList.get(i));
 		}
-		System.out.print("Enter the name of the movie: ");
+		System.out.print("Enter your choice of movie: ");
 		movieChoice = sc.nextInt();
 		this.movies=mMovieDetailsMgr.movieDetails(movieChoice);
 		System.out.println("============= Movie Details =============");

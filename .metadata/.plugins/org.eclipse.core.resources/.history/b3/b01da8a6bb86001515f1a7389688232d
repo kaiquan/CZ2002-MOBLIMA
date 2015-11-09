@@ -1,0 +1,60 @@
+package controller;
+
+import java.util.Scanner;
+
+import view.AdminTopFiveMoviesView;
+import view.ListMovieView;
+import view.MovieDetailsView;
+
+public class StartMenuMgr {
+
+	
+	public void showMainOptions(){
+		
+		
+		System.out.println("Please select an option");
+		System.out.println("1. List movies");
+		System.out.println("2. View movie details - including reviews and ratings");
+		System.out.println("3. Book and purchase tickets");
+		System.out.println("4. View booking history");
+		System.out.println("5. List the top 5 ranking movies");
+		System.out.println("6. Admin Login");
+		System.out.println("7. Exit");
+
+		System.out.print("Choice: ");
+	}
+
+	public void processOptions(int choice){
+		switch(choice)
+		{
+		case 1:
+			new ListMovieView().listMovie();
+			break;
+		case 2:
+			MovieDetailsView movieDetailsView = new MovieDetailsView();
+			MovieDetailsMgr movieDetailMgr = new MovieDetailsMgr(movieDetailsView);
+			
+			new ListMovieView().listMovie();
+			System.out.println("select a movie");
+			movieDetailMgr.movieDetails(new Scanner(System.in).nextInt());
+			break;
+		case 3:
+			//select the movie?
+			break;
+		case 4:
+			BookingMgr bookingMgr =  new BookingMgr();
+			bookingMgr.checkBookingHistory();
+			break;
+		case 5:
+			//this is a guest module. so guest need to select a cineplex b4 hand
+//			new AdminTopFiveMoviesView(new AdminTopFiveMoviesMgr()).displayTopFiveMovies();
+			break;
+		case 6:
+			AdminLoginMgr mAdminLoginMgr = new AdminLoginMgr();	
+			mAdminLoginMgr.prepareloginForm();
+			break;
+		}
+		
+	}
+
+}

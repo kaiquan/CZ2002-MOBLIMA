@@ -1,0 +1,42 @@
+package controller;
+
+public class StartMenuMgr {
+
+	
+	public void showMainOptions(){
+		
+		System.out.println("Welcome");
+		System.out.println("Please select an option");
+		System.out.println("1. Search/Listmovies");
+		System.out.println("2. View movie details - including reviews and ratings");
+		System.out.println("3. Book and purchase tickets");
+		System.out.println("4. View booking history");
+		System.out.println("5. List the top 5 ranking movies");
+		System.out.println("6. Admin Login");
+		System.out.print("Choice: ");
+	}
+
+	public void processOptions(int choice){
+		
+		switch(choice)
+		{
+		case 1:
+			listMovie();
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			AdminLoginMgr mAdminLoginMgr = new AdminLoginMgr();	
+			mAdminLoginMgr.prepareloginForm();
+			break;
+		}
+		
+	}
+
+}

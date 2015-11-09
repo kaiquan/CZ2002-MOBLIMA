@@ -1,0 +1,28 @@
+{
+		"showtimes":
+		[
+			{
+				"showtimeid":"TCCT1-201510241130",
+				"datetime":"2015-10-24-11:30",
+				"cineplexname":"THE CATHAY CINEPLEX",
+				"movieid":"CCPL-2015-07-13-24-59",
+				"cinemacode":"TCCC1"
+			},
+			{
+				"showtimeid":"CCDET1-201510241130",
+				"datetime":"2015-10-24-11:30",
+				"cineplexname":"CATHAY CINEPLEX DOWNTOWN EAST",
+				"movieid":"DDDE-2015-07-13-24-59",
+				"cinemacode":"CCDET1"
+			},
+			{
+				"showtimeid":"CCDET1-201510241130",
+				"datetime":"2015-10-24-11:30",
+				"cineplexname":"CATHAY CINEPLEX DOWNTOWN EAST",
+				"movieid":"DDDE-BATMAN-3D-2015-07-13-24-59",
+				"cinemacode":"CCDE-T1"
+			}
+		]
+}
+
+

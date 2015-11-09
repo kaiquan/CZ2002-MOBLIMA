@@ -1,0 +1,55 @@
+package controller;
+
+import view.AdminTopFiveMoviesView;
+import view.ListMovieView;
+
+public class StartMenuMgr {
+
+	
+	public void showMainOptions(){
+		
+		
+		System.out.println("Please select an option");
+		System.out.println("1. List movies");
+		System.out.println("2. View movie details - including reviews and ratings");
+		System.out.println("3. Book and purchase tickets");
+		System.out.println("4. View booking history");
+		System.out.println("5. List the top 5 ranking movies");
+		System.out.println("6. Admin Login");
+		System.out.println("7. Exit");
+
+		System.out.print("Choice: ");
+	}
+
+	public void processOptions(int choice){
+		switch(choice)
+		{
+		case 1:
+			new ListMovieView().listMovie();
+			break;
+		case 2:
+			ListMovieView movieView = new ListMovieView();
+			System.out.println("Select a movie");
+			movieView.listMovie();
+			
+			
+			break;
+		case 3:
+			//select the movie?
+			break;
+		case 4:
+			//view booking history, how to get the user?
+			break;
+		case 5:
+			//???
+//			new AdminTopFiveMoviesView(new AdminTopFiveMoviesMgr()).displayTopFiveMovies();
+			break;
+		case 6:
+			AdminLoginMgr mAdminLoginMgr = new AdminLoginMgr();	
+			mAdminLoginMgr.prepareloginForm();
+			break;
+		}
+		
+	}
+
+}

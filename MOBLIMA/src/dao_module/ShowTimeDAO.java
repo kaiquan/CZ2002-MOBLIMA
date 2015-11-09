@@ -26,7 +26,7 @@ public class ShowTimeDAO extends JSONDAO{
 	//@param	: required
 	//@return	: void
 	@SuppressWarnings("unchecked")
-	public void createNewShowTime(Showtime showTime){
+	public boolean createNewShowTime(Showtime showTime){
 		JSONArray jsonShowTimes = (JSONArray) jsonObject.get("showtimes");
 		JSONObject jsonShowTime = new JSONObject();
 		
@@ -40,12 +40,13 @@ public class ShowTimeDAO extends JSONDAO{
 		
 		jsonShowTimes.add(jsonShowTime);
 		updateFile(JSONDAO.showtimePath,this.jsonObject);
+		return true;
 	}
 	//@purpose	: update a new showtime
 	//@param	: required
 	//@return	: void
 	@SuppressWarnings("unchecked")
-	public void updateShowTime(Showtime showtime){
+	public boolean updateShowTime(Showtime showtime){
 		JSONArray jsonShowTimes = (JSONArray) jsonObject.get("showtimes");
 		JSONObject jsonShowTime = new JSONObject();
 		for(int i=0;i<jsonShowTimes.size();i++){
@@ -67,7 +68,24 @@ public class ShowTimeDAO extends JSONDAO{
 			}
 		}
 		updateFile(JSONDAO.showtimePath,this.jsonObject);
+		return true;
 	}
+		//@purpose	: remove a showtime
+		//@param	: required
+		//@return	: boolean
+		public boolean removeShowTime(Showtime showtime){
+			JSONArray jsonShowTimes = (JSONArray) jsonObject.get("showtimes");
+			JSONObject jsonShowTime = new JSONObject();
+			for(int i=0;i<jsonShowTimes.size();i++){
+				jsonShowTime = (JSONObject)jsonShowTimes.get(i);
+				if(jsonShowTime.get("showtimeid").toString().equals(showtime.getId())){
+					jsonShowTimes.remove(i);
+					break;
+				}
+			}
+			updateFile(JSONDAO.showtimePath,this.jsonObject);
+			return true;
+		}
 	
 	//@purpose	: retrieve showtimes by cineplex n movie
 	//@param	: required
@@ -76,6 +94,8 @@ public class ShowTimeDAO extends JSONDAO{
 		ArrayList<Showtime> results = null;
 		if(this.showtimes!=null&&this.showtimes.size()>0){
 			for(int i=0;i<this.showtimes.size();i++){
+				System.out.println(movie.getId());
+				System.out.println(cineplex.getName());
 				if(this.showtimes.get(i).getMovieId().equals(movie.getId())&&this.showtimes.get(i).getCineplexName().equals(cineplex.getName())){
 					if(results==null)
 						results = new ArrayList<Showtime>();
