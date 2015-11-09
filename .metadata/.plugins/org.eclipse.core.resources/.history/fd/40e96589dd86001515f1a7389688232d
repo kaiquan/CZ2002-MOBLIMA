@@ -64,26 +64,26 @@ public class AdminView extends Aview{
 		System.out.print("Movie Name: ");
 		String movieName = sc.nextLine();
 		
-		System.out.print("Movie type (THREE_DIMENATION, TWO_DIMENATION, HD): ");
-		String movieType = sc.nextLine();
+		System.out.print("\nMovie type (THREE_DIMENATION, TWO_DIMENATION, HD): ");
+		String movieType = sc.next();
 		
 		
-		System.out.print("Moviestatus (NOW_SHOWING, COMING_SOON, PREVIEW, END_OF_SHOWING): ");
-		String movieStatus = sc.nextLine();
+		System.out.print("\nMoviestatus (NOW_SHOWING, COMING_SOON, PREVIEW, END_OF_SHOWING): ");
+		String movieStatus = sc.next();
 		
-		System.out.print("Synopsis: ");
+		System.out.print("\nSynopsis: ");
 		String synopsis = sc.nextLine();
 		
-		System.out.print("Director: ");
+		System.out.print("\nDirector: ");
 		String director = sc.nextLine();
 		
-		System.out.print("Age limit (G, PG13, M16, R21): ");
+		System.out.print("\nAge limit (G, PG13, M16, R21): ");
 		String ageLimit = sc.next();
 		
-		System.out.print("casts: ");
+		System.out.print("\ncasts: ");
 		String casts = sc.nextLine();
 		
-		System.out.print("show duration: ");
+		System.out.print("\nshow duration: ");
 		int duration = sc.nextInt();
 		
 		mAdminMgr.addMovie(movieName, movieType, movieStatus, synopsis, director, casts, duration, ageLimit);
@@ -161,7 +161,7 @@ public class AdminView extends Aview{
 				System.out.print("Change movie type to?(THREE_DIMENATION, TWO_DIMENATION, HD): ");
 			else
 				System.out.print("Change field to?: ");		
-			String value = sc.nextLine();
+			String value = sc.next();
 					
 			boolean editSuccessful = mAdminMgr.changeMovieDetails(movieIndex-1, keyIndex, value);
 			
@@ -181,7 +181,7 @@ public class AdminView extends Aview{
 		System.out.println("2. Directed by\t\t: " + movies.get(movieIndex).getDirector());
 		System.out.println("3. Duration\t\t: " + movies.get(movieIndex).getShowDuration() + " mins");
 		System.out.println("4. Synopsis\t\t: " + movies.get(movieIndex).getSynopsis());
-		System.out.print("5. Casts\t\t\t: ");
+		System.out.print("5. Casts\t\t: ");
 		ArrayList<String> casts = movies.get(movieIndex).getCasts();
 		for(int j = 0; j < casts.size(); j++){
 			System.out.print(casts.get(j));
@@ -195,7 +195,6 @@ public class AdminView extends Aview{
 		System.out.println("8. Movie Type\t\t: " + movies.get(movieIndex).getMovieType().toString());
 		System.out.println();
 	}
-
 
 
 	public void displayShowTimeAdded() {

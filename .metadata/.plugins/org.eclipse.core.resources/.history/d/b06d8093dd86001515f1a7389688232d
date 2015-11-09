@@ -161,7 +161,7 @@ public class AdminView extends Aview{
 				System.out.print("Change movie type to?(THREE_DIMENATION, TWO_DIMENATION, HD): ");
 			else
 				System.out.print("Change field to?: ");		
-			String value = sc.nextLine();
+			String value = sc.next();
 					
 			boolean editSuccessful = mAdminMgr.changeMovieDetails(movieIndex-1, keyIndex, value);
 			
