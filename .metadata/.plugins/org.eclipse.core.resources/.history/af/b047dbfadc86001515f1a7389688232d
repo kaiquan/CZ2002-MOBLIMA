@@ -72,7 +72,6 @@ public class AdminMgr {
 			break;
 		case 6:
 			//edit pricing
-			
 			break;
 		case 7:
 			AdminTopFiveMoviesView topFiveMovieView = new AdminTopFiveMoviesView(new AdminTopFiveMoviesMgr(this.mCineplex));

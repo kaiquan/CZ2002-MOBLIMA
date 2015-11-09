@@ -94,8 +94,8 @@ public class ShowTimeDAO extends JSONDAO{
 		ArrayList<Showtime> results = null;
 		if(this.showtimes!=null&&this.showtimes.size()>0){
 			for(int i=0;i<this.showtimes.size();i++){
-			//	System.out.println(movie.getId());
-				//System.out.println(cineplex.getName());
+				System.out.println(movie.getId());
+				System.out.println(cineplex.getName());
 				if(this.showtimes.get(i).getMovieId().equals(movie.getId())&&this.showtimes.get(i).getCineplexName().equals(cineplex.getName())){
 					if(results==null)
 						results = new ArrayList<Showtime>();

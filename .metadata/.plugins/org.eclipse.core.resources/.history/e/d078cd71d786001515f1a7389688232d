@@ -40,15 +40,13 @@ public class AdminView extends Aview{
 			System.out.println("1. Add New Movie");
 			System.out.println("2. Edit Movie Details");
 			System.out.println("3. Edit Movie Status");
-			System.out.println("4. Schedule Show Time");
-			System.out.println("5. Edit hoildays");
-			System.out.println("6. Edit pricings");
-			System.out.println("7. List top 5 ranking movies");
-			System.out.println("8. Logout");
+			System.out.println("3. Schedule Show Time");
+			System.out.println("4. List top 5 ranking movies");
+			System.out.println("5. Logout");
 			System.out.print("Enter Choice: ");
 			choice = sc.nextInt();
 			mAdminMgr.optionSelected(choice);
-		}while(choice >0&&choice!=8);
+		}while(choice >0&&choice!=5);
 
 	}
 	
@@ -61,32 +59,32 @@ public class AdminView extends Aview{
 	public void displayAddMovieForm() {
 		System.out.println("Please enter the following");
 
-		System.out.print("Movie Name: ");
-		String movieName = sc.nextLine();
+		System.out.print("Movie Name: \n");
+		String movieName = sc.next();
 		
-		System.out.print("\nMovie type (THREE_DIMENATION, TWO_DIMENATION, HD): ");
-		String movieType = sc.next();
+//		System.out.print("Movie type (THREE_DIMENATION, TWO_DIMENATION, HD): ");
+//		String movieType = sc.next();
+//		
+//		
+//		System.out.print("Moviestatus (NOW_SHOWING, COMING_SOON, PREVIEW, END_OF_SHOWING): ");
+//		String movieStatus = sc.next();
+//		
+//		System.out.print("Synopsis: ");
+//		String synopsis = sc.nextLine();
+//		
+//		System.out.print("Director: ");
+//		String director = sc.next();
+//		
+//		System.out.print("Age limit (G, PG13, M16, R21): ");
+//		String ageLimit = sc.next();
+//		
+//		System.out.print("casts: ");
+//		String casts = sc.next();
+//		
+//		System.out.print("show duration: ");
+//		int duration = sc.nextInt();
 		
-		
-		System.out.print("\nMoviestatus (NOW_SHOWING, COMING_SOON, PREVIEW, END_OF_SHOWING): ");
-		String movieStatus = sc.next();
-		
-		System.out.print("\nSynopsis: ");
-		String synopsis = sc.nextLine();
-		
-		System.out.print("\nDirector: ");
-		String director = sc.nextLine();
-		
-		System.out.print("\nAge limit (G, PG13, M16, R21): ");
-		String ageLimit = sc.next();
-		
-		System.out.print("\ncasts: ");
-		String casts = sc.nextLine();
-		
-		System.out.print("\nshow duration: ");
-		int duration = sc.nextInt();
-		
-		mAdminMgr.addMovie(movieName, movieType, movieStatus, synopsis, director, casts, duration, ageLimit);
+//		mAdminMgr.addMovie(movieName, movieType, movieStatus, synopsis, director, casts, duration, ageLimit);
 		
 	}
 	
@@ -181,8 +179,8 @@ public class AdminView extends Aview{
 		System.out.println("2. Directed by\t\t: " + movies.get(movieIndex).getDirector());
 		System.out.println("3. Duration\t\t: " + movies.get(movieIndex).getShowDuration() + " mins");
 		System.out.println("4. Synopsis\t\t: " + movies.get(movieIndex).getSynopsis());
-		System.out.print("5. Casts\t\t: ");
-		ArrayList<String> casts = movies.get(movieIndex).getCasts();
+		System.out.print("5. Casts\t\t\t: ");
+		ArrayList<String> casts = movies.get(movieIndex-1).getCasts();
 		for(int j = 0; j < casts.size(); j++){
 			System.out.print(casts.get(j));
 			if(j < casts.size()-1){
@@ -224,7 +222,7 @@ public class AdminView extends Aview{
 
 		System.out.println("Movies");
 		for(int i=0; i<movies.size(); i++){
-			System.out.println((i+1)+". "+movies.get(i).getTitle()+"("+movies.get(i).getMovieType()+")");
+			System.out.println((i+1)+". "+movies.get(i).getTitle());
 			System.out.println();
 		}
 		System.out.println("---------------------------------------------");

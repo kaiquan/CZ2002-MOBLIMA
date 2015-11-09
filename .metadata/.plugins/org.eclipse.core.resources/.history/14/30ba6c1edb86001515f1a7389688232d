@@ -52,11 +52,10 @@ public class AdminMgr {
 			mAdminView.displayEditMovieMenu(mCineplex.getMovies());
 			break;
 		case 3:
-			//edit ovie status??
-			mAdminView.displayEditMovieMenu(mCineplex.getMovies());
+			//edit ovie status
 			break;
 		case 4:
-			mAdminView.displayAddShowTimeForm(this.mCineplex.getMovies(), this.mCineplex.getCinemas());
+			//schedule show time
 			break;
 		case 5:
 			int c;
@@ -72,7 +71,6 @@ public class AdminMgr {
 			break;
 		case 6:
 			//edit pricing
-			
 			break;
 		case 7:
 			AdminTopFiveMoviesView topFiveMovieView = new AdminTopFiveMoviesView(new AdminTopFiveMoviesMgr(this.mCineplex));

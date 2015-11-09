@@ -22,8 +22,9 @@ public class StartMenuMgr {
 		System.out.println("2. View movie details - including reviews and ratings");
 		System.out.println("3. Book and purchase tickets");
 		System.out.println("4. View booking history");
-		System.out.println("5. Admin Login");
-		System.out.println("6. Exit");
+		System.out.println("5. List the top 5 ranking movies");
+		System.out.println("6. Admin Login");
+		System.out.println("7. Exit");
 
 		System.out.print("Choice: ");
 	}
@@ -66,6 +67,10 @@ public class StartMenuMgr {
 			bookingMgr.checkBookingHistory();
 			break;
 		case 5:
+			//this is a guest module. so guest need to select a cineplex b4 hand
+//			new AdminTopFiveMoviesView(new AdminTopFiveMoviesMgr()).displayTopFiveMovies();
+			break;
+		case 6:
 			AdminLoginMgr mAdminLoginMgr = new AdminLoginMgr();	
 			mAdminLoginMgr.prepareloginForm();
 			break;

@@ -52,27 +52,25 @@ public class AdminMgr {
 			mAdminView.displayEditMovieMenu(mCineplex.getMovies());
 			break;
 		case 3:
-			//edit ovie status??
-			mAdminView.displayEditMovieMenu(mCineplex.getMovies());
+			//edit ovie status
 			break;
 		case 4:
-			mAdminView.displayAddShowTimeForm(this.mCineplex.getMovies(), this.mCineplex.getCinemas());
+			//schedule show time
 			break;
 		case 5:
 			int c;
 			do{
 				System.out.println("Select 1 to add a new hoilday, 2 to remove an existing hoilday");
-				c=new Scanner(System.in).nextInt();
+				int c=new Scanner(System.in).nextInt();
 				if(c==1)
 					mAdminView.displayAddHolidayForm();
 				else
-					mAdminView.displayRemoveHolidayMenu();
-			}while(c!=1||c!=2);
+					mAdminView.displayRemoveHolidayMenu();();
+			}while(c!=1||c!=2)
 			
 			break;
 		case 6:
 			//edit pricing
-			
 			break;
 		case 7:
 			AdminTopFiveMoviesView topFiveMovieView = new AdminTopFiveMoviesView(new AdminTopFiveMoviesMgr(this.mCineplex));
