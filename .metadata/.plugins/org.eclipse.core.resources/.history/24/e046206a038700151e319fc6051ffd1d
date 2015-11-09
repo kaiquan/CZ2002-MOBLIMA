@@ -32,67 +32,26 @@ public class BookingView {
 	
 	public void getSeniorAndChildCount(int selectedSeatSize){
 		int seatsBookedCount = selectedSeatSize;
-		int numOfSenior = 0, numOfStudent = 0;
-		String input;
-		boolean isValidInput = false;
+		int numOfSenior, numOfStudent = 0;
 		
 		System.out.println("=============== Senior & Children Privileges ===============");
 		System.out.println("NOTE: SENIOR AND STUDENT TICKET(S) WILL BE VERIFIED UPON CHECKING-IN.");
 		System.out.print("1. Please tell us how many senior(s) you have: ");
-		
-		while(!isValidInput){
-			input = s.nextLine();
-			boolean isNumber = false;
-			boolean isSmallerThanSeatBookedCount = false;
-		
-			if(!input.matches("[0-9]+")){
-				System.out.print("*** Error: Invalid Number. *** ");
-			}
-			else{
-				isNumber = true;
-				numOfSenior = Integer.parseInt(input);
-				if(numOfSenior > seatsBookedCount){
-					System.out.print("*** Impossible, you have entered more than the number of tickets you have booked! *** ");
-				}
-				else{
-					isSmallerThanSeatBookedCount = true;
-				}
-			}
-			
-			isValidInput = isNumber && isSmallerThanSeatBookedCount;
-			if(!isValidInput){
-				System.out.print("Please Re-enter the number of Senior(s): ");
-			}
+		numOfSenior = s.nextInt();
+		while(numOfSenior > seatsBookedCount){
+			System.out.println("      *\tImpossible, you have entered more than the number of tickets you have booked!");
+			System.out.print("      *\tPlease be honest and tell us how many senior(s) you have: ");
+			numOfSenior = s.nextInt();
 		}
 		seatsBookedCount -= numOfSenior;
 		
 		if(seatsBookedCount > 0){
-			isValidInput = false;
 			System.out.print("2. Please tell us how many student(s) you have: ");
-			
-			while(!isValidInput){
-				input = s.nextLine();
-				boolean isNumber = false;
-				boolean isSmallerThanSeatBookedCount = false;
-			
-				if(!input.matches("[0-9]+")){
-					System.out.print("*** Error: Invalid Number. *** ");
-				}
-				else{
-					isNumber = true;
-					numOfStudent = Integer.parseInt(input);
-					if(numOfStudent > seatsBookedCount){
-						System.out.print("*** Impossible, you have entered more than the number of tickets you have booked! *** ");
-					}
-					else{
-						isSmallerThanSeatBookedCount = true;
-					}
-				}
-				
-				isValidInput = isNumber && isSmallerThanSeatBookedCount;
-				if(!isValidInput){
-					System.out.print("Please Re-enter the number of Student(s): ");
-				}
+			numOfStudent = s.nextInt();
+			while(numOfStudent > seatsBookedCount){
+				System.out.println("      *\tImpossible, you have entered more than the number of tickets you have booked!");
+				System.out.print("      *\tPlease be honest and tell us how many student(s) you have: ");
+				numOfStudent = s.nextInt();
 			}
 		}
 		System.out.println("\n");
@@ -101,31 +60,23 @@ public class BookingView {
 	}
 	
 	public void getMovieGoersDetails(){
-		s = new Scanner(System.in);
-		String name, email, input;
+		String name, email;
 		int mobileNo;
 		System.out.println("================ Personal Details ================");
 		System.out.print("Enter your Name: ");
-		name = s.nextLine();
+		name = s.next();
 		while(name == ""){
 			System.out.print("\nName is required. Please enter your name: ");
-			name = s.nextLine();
+			name = s.next();
 		}
-		name = name.trim();
 		System.out.print("Enter your Email: ");
-		email = s.nextLine();
-		while(!email.matches("[a-zA-Z0-9\\_]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]{2,3}")){
-			System.out.print("Invalid email. Please enter your Email: ");
-			email = s.nextLine();
+		email = s.next();
+		while(email == ""){
+			System.out.print("\nEmail is required. Please enter your email: ");
+			email = s.next();
 		}
-		
 		System.out.print("Enter your Mobile No: ");
-		input = s.nextLine();
-		while(!input.matches("[0-9]{8}")){
-			System.out.println("Invalid Number. Please enter your Mobile No: ");
-			input = s.nextLine();
-		}
-		mobileNo = Integer.parseInt(input);
+		mobileNo = s.nextInt();
 		System.out.println();
 		this.bookingMgr.setMovieGoerDetails(name, email, mobileNo);
 	}

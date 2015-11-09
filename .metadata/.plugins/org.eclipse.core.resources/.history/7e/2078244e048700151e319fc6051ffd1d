@@ -14,9 +14,7 @@ public class ListMovieView {
 	private ListMovieMgr mlistMovieMgr;
 	ArrayList<String> cineplexes = new ArrayList<String>();
 	ArrayList<Movie> movies = new ArrayList<Movie>();
-	private ArrayList<Cineplex> cplDAO;
 	private int cineplexChoice;
-	private String decisionMake;
 	
 	public ListMovieView(){
 		if(sc == null)
@@ -31,19 +29,15 @@ public class ListMovieView {
 	}
 	
 	public void listMovie(){
-		cplDAO=new CineplexDAO().getAllCineplex();		
-		do{
-			System.out.print("\nSelect which cineplex you would like to query from:\n");
-			for(int i=0; i<cplDAO.size(); i++)
-				System.out.println((i+1)+". "+new CineplexDAO().getAllCineplex().get(i).getName());
-			System.out.println("------------------------------------------");
-			System.out.print("Enter cineplex choice: ");
-			decisionMake=sc.nextLine();
-		}while(!mlistMovieMgr.verifyInput(cplDAO.size(), decisionMake));
-		int cineplexChoice = Integer.parseInt(decisionMake);
+		System.out.print("\nSelect which cineplex you would like to query from:\n");
+		for(int i=0; i<new CineplexDAO().getAllCineplex().size(); i++)
+			System.out.println((i+1)+". "+new CineplexDAO().getAllCineplex().get(i).getName());
+		
+		System.out.print("Enter cineplex choice: ");
+		cineplexChoice = sc.nextInt();
 		this.movies=mlistMovieMgr.getCineplexMovie(cineplexChoice);
 		
-		
+		System.out.println(this.movies.size());
 		System.out.println("=== "+new CineplexDAO().getAllCineplex().get(cineplexChoice-1).getName()+"'s Movie List ===");
 		for(int i=0; i<movies.size(); i++){
 			System.out.println((i+1)+". "+movies.get(i).getTitle());

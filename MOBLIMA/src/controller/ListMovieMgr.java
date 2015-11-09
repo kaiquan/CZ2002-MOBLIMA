@@ -14,28 +14,44 @@ public class ListMovieMgr {
 	private ArrayList<Movie> mMovie;
 	private CineplexDAO cDAO;
 	ArrayList<Movie> movies = new ArrayList<Movie>();
-	ArrayList<Cineplex>cineplex=new ArrayList<Cineplex>();
-	
-	public ListMovieMgr(ListMovieView listMovieView){
-		this.mListMovieView=listMovieView;
+	ArrayList<Cineplex> cineplex = new ArrayList<Cineplex>();
+
+	public ListMovieMgr(ListMovieView listMovieView) {
+		this.mListMovieView = listMovieView;
 	}
-	
-	public ArrayList<Movie> getCineplexMovie(int cpl){
-		if(movDAO == null){
+
+	public ArrayList<Movie> getCineplexMovie(int cpl) {
+		if (movDAO == null) {
 			movDAO = new MovieDAO();
 		}
-		if(cDAO == null){
+		if (cDAO == null) {
 			cDAO = new CineplexDAO();
 		}
-		cineplex=cDAO.getAllCineplex();
-		
-		mMovie = movDAO.getAllMoviesWithReviewsByCineplex(cineplex.get(cpl-1).getName(), true);
-		if(mMovie!=null){
-			for(int i=0;i<mMovie.size();i++){
+		cineplex = cDAO.getAllCineplex();
+
+		mMovie = movDAO.getAllMoviesWithReviewsByCineplex(cineplex.get(cpl - 1).getName(), true);
+		if (mMovie != null) {
+			for (int i = 0; i < mMovie.size(); i++) {
 				movies.add(mMovie.get(i));
-				
+
 			}
 		}
 		return movies;
 	}
+
+// ------------------------Verify User input-----------------------------------------//
+	public boolean verifyInput(int limit, String userInput) {
+		String regex = "[0-9]+";
+		int input;
+		if (!userInput.matches(regex)) {
+			return false;
+		} else {
+			input = Integer.parseInt(userInput);
+		}
+		if (input <= 0 || input > limit) {
+			return false;
+		}
+		return true;
+	}
+
 }

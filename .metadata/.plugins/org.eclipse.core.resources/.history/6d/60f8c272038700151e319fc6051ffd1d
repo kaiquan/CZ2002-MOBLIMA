@@ -77,8 +77,7 @@ public class BookingMgr {
 	public void calculateAndDisplayTicketCosts(){
 		int numOfAdult = this.selectedSeats.size()-numOfSenior-numOfStudent;
 		PriceDAO pd = new PriceDAO();
-		
-		Date date = this.showtime.getDateTime();
+		Date date = new Date();
 		int day = Integer.parseInt(new SimpleDateFormat("u").format(date)) - 1;
 		boolean afterSix = Integer.parseInt(new SimpleDateFormat("H").format(date)) >= 18;
 		
@@ -89,6 +88,7 @@ public class BookingMgr {
 		double totalCost = (numOfAdult * adultCost) + (numOfStudent * studentCost) + (numOfSenior * seniorCost);
 		this.totalPrice = totalCost;
 		this.bookingView.displayTotalBookingCost(selectedSeats.size(), numOfAdult, numOfSenior, numOfStudent, adultCost, seniorCost, studentCost, totalCost);
+		
 	}
 	
 	private String createTransactionID(){

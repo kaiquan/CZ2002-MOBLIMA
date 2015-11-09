@@ -50,18 +50,4 @@ public class MovieDetailsMgr {
 		}
 		return rating/dMovie.getReviews().size();
 	}
-// ------------------------Verify User input-----------------------------------------//
-	public boolean verifyInput(int limit, String userInput) {
-		String regex = "[0-9]+";
-		int input;
-		if (!userInput.matches(regex)) {
-			return false;
-		} else {
-			input = Integer.parseInt(userInput);
-		}
-		if (input <= 0 || input > limit) {
-			return false;
-		}
-		return true;
-	}
 }

@@ -115,9 +115,7 @@ public class SelectSeatMgr {
 		}
 		
 		for(int i=0;i<mMovie.size();i++){
-			if(mMovie.get(i).getMovieStatus().equals("NOW_SHOWING")){
-				showingList.add(mMovie.get(i).getTitle()+" "+mMovie.get(i).getMovieType());
-			}
+			showingList.add(mMovie.get(i).getTitle()+" "+mMovie.get(i).getMovieType());
 		}
 		System.out.println("------------------------------------------");
 		System.out.println("Please Select One of The Listed Movie: ");
@@ -135,10 +133,8 @@ public class SelectSeatMgr {
 		if(!setShowTime){
 			for(int i=0;i<mMovie.size();i++){
 				if(mMovie.get(i).getCineplexName().equals(cineplex)){
-					if(mMovie.get(i).getMovieStatus().equals("NOW_SHOWING")){
-						showingList.add(mMovie.get(i).getTitle()+" "+mMovie.get(i).getMovieType());
-						movieSearchByCineplex.add(mMovie.get(i));
-					}
+					showingList.add(mMovie.get(i).getTitle());
+					movieSearchByCineplex.add(mMovie.get(i));
 				}
 			}
 			System.out.println("Please Select One of The Listed Movie: ");
@@ -182,7 +178,8 @@ public class SelectSeatMgr {
 		for(int i=0;i<showtimeByCineplexAndMovie.size();i++){
 			showingList.add(showtimeByCineplexAndMovie.get(i).getDateTime().toString());
 		}
-		
+		System.out.println("------------------------------------------");
+		System.out.println("Please Select One of The Listed ShowTime: ");
 	}
 //------------------------Retrieve Cinema Code and The Seat-------------------------//
 	public String getCinemaCode(int choice){
@@ -294,20 +291,4 @@ public class SelectSeatMgr {
 		bm.proceedBooking();
 	}
 	
-//------------------------Verify User input-----------------------------------------//
-		public boolean verifyInput(int limit, String userInput){
-			String regex = "[0-9]+";
-			int input;
-			if(!userInput.matches(regex)){
-				return false;
-			}else{
-				input=Integer.parseInt(userInput);
-			}
-			if(input<=0 || input >limit){
-				return false;
-			}
-			return true;
-		}	
 }
-
-
