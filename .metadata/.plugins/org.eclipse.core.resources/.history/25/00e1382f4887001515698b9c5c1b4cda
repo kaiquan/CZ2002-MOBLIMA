@@ -77,7 +77,7 @@ public class AdminMgr {
 			break;
 		case 6:
 			//edit pricing
-			new AdminView().displayEditPricings();
+			
 			break;
 		case 7:
 			AdminTopFiveMoviesView topFiveMovieView = new AdminTopFiveMoviesView(new AdminTopFiveMoviesMgr(this.mCineplex));
@@ -241,70 +241,21 @@ public class AdminMgr {
 		if(success) mAdminView.displayHolidayRemoved();
 	}
 	
-	@SuppressWarnings("resource")
-	public void editPrice(int category){
+	public void editPrice(int category, double value){
 		Price ticketPricing = new Price();
 		ticketPricing = new PriceDAO().getTickestPrices();
 		
-		if(category==1){
-			System.out.println("Current Platinumcinema price is :$"+ticketPricing.getPlantiumCinemaPrice());
-			System.out.println("Enter the new value :");
-			ticketPricing.setPlantiumCinemaPrice(new Scanner(System.in).nextDouble());
-		}
+		if(category==1)
+			ticketPricing.setPlantiumCinemaPrice(value);
 		else if(category==2){
 			//student
-			int day=-1;
-			int timing=-1;
-			System.out.println("Select which day would you like to edit(1-7):");
-			do{
-				day=new Scanner(System.in).nextInt();
-			}while(day<1&&day>7);
-			System.out.println("Enter '1' to edit pricing before 6pm, '2' for after 6pm:");
-			do{
-				timing=new Scanner(System.in).nextInt();
-			}while(timing<1&&timing>2);
-			
-			System.out.println("Current student price selected is :$"+ticketPricing.getPricings().get(0).get(day-1).get(timing-1));
-			System.out.println("Enter the new value :");
-			ticketPricing.getPricings().get(0).get(day-1).set(timing-1, new Scanner(System.in).nextDouble());
 		}
 		else if(category==3){
 			//senior
-			int day=-1;
-			int timing=-1;
-			System.out.println("Select which day would you like to edit(1-7):");
-			do{
-				day=new Scanner(System.in).nextInt();
-			}while(day<1&&day>7);
-			System.out.println("Enter '1' to edit pricing before 6pm, '2' for after 6pm:");
-			do{
-				timing=new Scanner(System.in).nextInt();
-			}while(timing<1&&timing>2);
-			
-			System.out.println("Current Senior citizen price selected is :$"+ticketPricing.getPricings().get(1).get(day-1).get(timing-1));
-			System.out.println("Enter the new value :");
-			ticketPricing.getPricings().get(1).get(day-1).set(timing-1, new Scanner(System.in).nextDouble());
 		}
 		else if(category==4){
 			//regular
-			int day=-1;
-			int timing=-1;
-			System.out.println("Select which day would you like to edit(1-7):");
-			do{
-				day=new Scanner(System.in).nextInt();
-			}while(day<1&&day>7);
-			System.out.println("Enter '1' to edit pricing before 6pm, '2' for after 6pm:");
-			do{
-				timing=new Scanner(System.in).nextInt();
-			}while(timing<1&&timing>2);
-			
-			System.out.println("Current Regular citizen price selected is :$"+ticketPricing.getPricings().get(2).get(day-1).get(timing-1));
-			System.out.println("Enter the new value :");
-			ticketPricing.getPricings().get(2).get(day-1).set(timing-1, new Scanner(System.in).nextDouble());
 		}
-		
-		new PriceDAO().updatePrice(ticketPricing);
-		System.out.println("Prices hae been updated successfully.");
 	}
 
 }

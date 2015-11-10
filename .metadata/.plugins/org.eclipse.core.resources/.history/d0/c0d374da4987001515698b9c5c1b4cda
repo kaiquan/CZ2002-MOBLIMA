@@ -304,7 +304,7 @@ public class AdminMgr {
 		}
 		
 		new PriceDAO().updatePrice(ticketPricing);
-		System.out.println("Prices hae been updated successfully.");
+		System.out.println("Prices hae been updated successfully.")
 	}
 
 }

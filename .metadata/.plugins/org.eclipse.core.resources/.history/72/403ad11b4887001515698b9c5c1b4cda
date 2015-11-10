@@ -28,10 +28,6 @@ public class AdminView extends Aview{
 	}
 	
 	
-	public AdminView() {
-	}
-
-
 	public void displayAdminOptions(){
 		System.out.println("Login Successful!");
 		int choice;
@@ -381,6 +377,8 @@ public class AdminView extends Aview{
 	
 	public void displayEditPricings(){
 		int choice=0;
+		Price ticketPricing = new Price();
+		ticketPricing = new PriceDAO().getTickestPrices();
 		System.out.println("Select which prices to edit.");
 		System.out.println("1. Platinumcinema prices");
 		System.out.println("2. Student prices");
@@ -389,7 +387,21 @@ public class AdminView extends Aview{
 		System.out.println("5. Exit and head back");
 		choice = new Scanner(System.in).nextInt();
 		
-		new AdminMgr().editPrice(choice);
+		do{
+			switch(choice){
+				case 1:
+					System.out.println("Current Platinumcinema price is :$"+ticketPricing.getPlantiumCinemaPrice());
+					System.out.println("Enter the new value :");
+					ticketPricing.setPlantiumCinemaPrice(new Scanner(System.in).nextDouble());
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+			}
+		}while(!(choice>0)||choice!=5);
 		
 	}
 }
