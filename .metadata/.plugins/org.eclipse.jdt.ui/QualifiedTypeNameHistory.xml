@@ -23,7 +23,6 @@
 <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
 <fullyQualifiedTypeName name="dao_module.CinemaDAO"/>
 <fullyQualifiedTypeName name="model.MOVIETYPE"/>
-<fullyQualifiedTypeName name="model.MOVIESTATUS"/>
 <fullyQualifiedTypeName name="model.AGELIMIT"/>
 <fullyQualifiedTypeName name="dao_module.BookingDAO"/>
 <fullyQualifiedTypeName name="model.CINEMACLASS"/>
@@ -48,4 +47,5 @@
 <fullyQualifiedTypeName name="model.Price"/>
 <fullyQualifiedTypeName name="dao_module.PriceDAO"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="model.MOVIESTATUS"/>
 </qualifiedTypeNameHistroy>

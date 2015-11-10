@@ -1,1 +1,179 @@
-{"prices":[{"platinumcinema":99},{"studentprices":[{"monday":[{"pricebefore6":101},{"priceafter6":1000}]},{"tuesday":[{"pricebefore6":10},{"priceafter6":20}]},{"wednesday":[{"pricebefore6":10},{"priceafter6":20}]},{"thursday":[{"pricebefore6":10},{"priceafter6":20}]},{"friday":[{"pricebefore6":10},{"priceafter6":20}]},{"saturday":[{"pricebefore6":10},{"priceafter6":20}]},{"sunday":[{"pricebefore6":10},{"priceafter6":20}]}]},{"seniorprices":[{"monday":[{"pricebefore6":10},{"priceafter6":20}]},{"tuesday":[{"pricebefore6":10},{"priceafter6":20}]},{"wednesday":[{"pricebefore6":10},{"priceafter6":20}]},{"thursday":[{"pricebefore6":10},{"priceafter6":20}]},{"friday":[{"pricebefore6":10},{"priceafter6":20}]},{"saturday":[{"pricebefore6":10},{"priceafter6":20}]},{"sunday":[{"pricebefore6":10},{"priceafter6":20}]}]},{"regularprices":[{"monday":[{"pricebefore6":10},{"priceafter6":20}]},{"tuesday":[{"pricebefore6":10},{"priceafter6":20}]},{"wednesday":[{"pricebefore6":10},{"priceafter6":20}]},{"thursday":[{"pricebefore6":10},{"priceafter6":20}]},{"friday":[{"pricebefore6":10},{"priceafter6":20}]},{"saturday":[{"pricebefore6":10},{"priceafter6":20}]},{"sunday":[{"pricebefore6":10},{"priceafter6":20}]}]}]}
+{
+	"prices": [{
+		"platinumcinema": 99
+	},
+	{
+		"studentprices": [{
+			"monday": [{
+				"pricebefore6": 101
+			},
+			{
+				"priceafter6": 1000
+			}]
+		},
+		{
+			"tuesday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"wednesday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"thursday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"friday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"saturday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"sunday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		}]
+	},
+	{
+		"seniorprices": [{
+			"monday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"tuesday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"wednesday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"thursday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"friday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"saturday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"sunday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		}]
+	},
+	{
+		"regularprices": [{
+			"monday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"tuesday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"wednesday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"thursday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"friday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"saturday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		},
+		{
+			"sunday": [{
+				"pricebefore6": 10
+			},
+			{
+				"priceafter6": 20
+			}]
+		}]
+	}]
+}

@@ -10,6 +10,7 @@ import java.util.Scanner;
 import controller.AdminMgr;
 import dao_module.PriceDAO;
 import model.Cinema;
+import model.MOVIESTATUS;
 import model.Movie;
 import model.Price;
 import model.Showtime;
@@ -142,20 +143,36 @@ public class AdminView extends Aview{
 			
 	}*/
 	
-	public void displayEditMovieMenu(ArrayList<Movie> movies){
+public void displayEditMovieMenu(ArrayList<Movie> movies){
 		
-		for(int i = 0; i < movies.size(); i++){
-			if(movies.get(i) != null){
-				movieDetail(movies, i);
+		System.out.println("1. Show all movie listings except End of Showing");
+		System.out.println("2. Show all movie listings including End of Showing");
+		System.out.print("Choice: ");
+		int choice = sc.nextInt();  
+		
+		if(choice == 2){
+			for(int i = 0; i < movies.size(); i++){	
+				if(movies.get(i) != null && movies.get(i).getMovieStatus() != MOVIESTATUS.END_OF_SHOWING){
+					System.out.println("Index: " + (i+1));
+					movieDetail(movies, i);
+				}
 			}
 		}
+		else{
+			for(int i = 0; i < movies.size(); i++){	
+				if(movies.get(i) != null){
+					System.out.println("Index: " + (i+1));
+					movieDetail(movies, i);
+				}
+			}
+		}
+
 		
 		System.out.print("Enter index of movie to edit: ");
 		int movieIndex = sc.nextInt();
 		boolean continueEdit=false;
-		
-		do{
-			System.out.println("You Selected Movie: "+(movieIndex));
+		System.out.println("You Selected Movie: "+(movieIndex));
+		do{		
 			movieDetail(movies, movieIndex-1);
 			System.out.print("Enter index field to edit:");
 			int keyIndex = sc.nextInt();
@@ -177,10 +194,20 @@ public class AdminView extends Aview{
 				movieDetail(movies, movieIndex-1);
 			}else System.out.println("Movie Status change unsuccessfully");
 			
-			System.out.print("Continue editing the movie?: ");
+			System.out.print("Continue editing the movie?(true or false): ");
 			continueEdit = sc.nextBoolean();
 			
 		}while(continueEdit);
+		
+		boolean commitChangeSuccess = mAdminMgr.commitUpdateMovie(movieIndex-1);
+		if(commitChangeSuccess){
+			System.out.print("All changes made successful!");
+			movieDetail(movies, movieIndex-1);
+		}
+		else{
+			System.out.print("All changes made unsuccessful!");
+		}
+			
 	}
 	
 	private void movieDetail(ArrayList<Movie> movies, int movieIndex){

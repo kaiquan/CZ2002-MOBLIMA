@@ -1,1 +1,263 @@
-{"movies":[{"showduration":90,"moviestatus":"NOW_SHOWING","casts":[{"actor":"jonny english"},{"actor":"jack neo"}],"reviews":[{"review":"the users review","rating":5,"guestname":"john86886234","guestid":"john@gmail.com_868866234"},{"review":"the users review","rating":5,"guestname":"dick86886123","guestid":"dick@gmail.com_868866123"}],"director":"stephen chow","id":"TCC-BATMAN-HD-2015-09-13-24-59","synopsis":"some description of ironman movie","title":"Batman","cineplexname":"THE CATHAY CINEPLEX","agelimit":"PG13","movietype":"HD"},{"showduration":90,"moviestatus":"NOW_SHOWING","casts":[{"actor":"Robert Downey, Jr."},{"actor":"Gwyneth Paltrow"}],"reviews":[{"review":"the users review","rating":5,"guestname":"john86886234","guestid":"john@gmail.com_868866234"},{"review":"the users review","rating":5,"guestname":"dick86886123","guestid":"dick@gmail.com_868866123"}],"director":"Jon Favreau","id":"CCCO-IRONMAN-HD-2015-07-13-24-59","synopsis":"some description of ironman movie","title":"Ironman","cineplexname":"CATHAY CINEPLEX CINELEISURE ORCHARD","agelimit":"PG13","movietype":"HD"},{"showduration":90,"moviestatus":"NOW_SHOWING","casts":[{"actor":"jonny english"},{"actor":"jack neo"}],"reviews":[],"director":"stephen chow","id":"CCDE-BATMAN-3D-2015-07-13-24-59","synopsis":"some description of Batman movie","title":"Batman","cineplexname":"CATHAY CINEPLEX DOWNTOWN EAST","agelimit":"PG13","movietype":"THREE_DIMENATION"},{"showduration":150,"moviestatus":"NOW_SHOWING","casts":[{"actor":"jonny english"},{"actor":"jack neo"}],"reviews":[{"review":"the users review","rating":5,"guestname":"john86886234","guestid":"john@gmail.com_868866234"},{"review":"the users review","rating":5,"guestname":"dick86886123","guestid":"dick@gmail.com_868866123"}],"director":"stephen chow","id":"CCDE-2015-09-13-24-59","synopsis":"some description of ironman movie","title":"Batman","cineplexname":"THE CATHAY CINEPLEX","agelimit":"PG13","movietype":"THREE_DIMENATION"},{"showduration":150,"moviestatus":"NOW_SHOWING","casts":[{"actor":"Robert Downey, Jr."},{"actor":"Gwyneth Paltrow"}],"reviews":[{"review":"the users review","rating":3,"guestname":"john86886234","guestid":"john@gmail.com_868866234"},{"review":"the users review","rating":4,"guestname":"dick86886123","guestid":"dick@gmail.com_868866123"}],"director":"Jon Favreau","id":"TCC-IRONMAN-3D-2015-07-13-24-59","synopsis":"some description of ironman movie","title":"Ironman","cineplexname":"THE CATHAY CINEPLEX","agelimit":"PG13","movietype":"THREE_DIMENATION"},{"showduration":90,"moviestatus":"NOW_SHOWING","casts":[{"actor":"Robert Downey, Jr."},{"actor":"Gwyneth Paltrow"}],"reviews":[{"review":"the users review","rating":5,"guestname":"john86886234","guestid":"john@gmail.com_868866234"},{"review":"the users review","rating":5,"guestname":"dick86886123","guestid":"dick@gmail.com_868866123"}],"director":"Jon Favreau","id":"TCC-IRONMAN-HD-2015-07-13-24-59","synopsis":"some description of ironman movie","title":"Ironman","cineplexname":"THE CATHAY CINEPLEX","agelimit":"PG13","movietype":"HD"}]}
+{
+	"movies": [{
+		"id": "TCC-BATMAN-HD-2015-09-13-24-59",
+		"title": "Batman",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Bruce Wayne"
+		},
+		{
+			"actor": "Alfred"
+		}],
+		"reviews": [{
+			"review": "The HD is awesome! and the batman succeeds because it's rooted in real-world experiences and fears.",
+			"rating": 4,
+			"guestname": "john86886234",
+			"guestid": "john@gmail.com_868866234"
+		},
+		{
+			"review": "Maybe not quite up to the standard of the first two in the series, but deserving of a very honourable mention.",
+			"rating": 3,
+			"guestname": "dick86886123",
+			"guestid": "dick@gmail.com_868866123"
+		}],
+		"director": "Christopher Nolan",
+		"synopsis": "When his parents were killed, billionaire playboy Bruce Wayne relocates to Asia when he is mentored by Henri Ducard and Ra's Al Ghul in how to fight evil.",
+		"cineplexname": "THE CATHAY CINEPLEX",
+		"agelimit": "PG13",
+		"movietype": "HD"
+	},
+	{
+		"id": "TCC-BATMAN-2D-2015-09-13-24-59",
+		"title": "Batman",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Bruce Wayne"
+		},
+		{
+			"actor": "Alfred"
+		}],
+		"reviews": [{
+			"review": "Very typical 2D experience, but it is already quite fine for this movie! Recommend!",
+			"rating": 4,
+			"guestname": "john86886234",
+			"guestid": "john@gmail.com_868866234"
+		}],
+		"director": "Christopher Nolan",
+		"synopsis": "When his parents were killed, billionaire playboy Bruce Wayne relocates to Asia when he is mentored by Henri Ducard and Ra's Al Ghul in how to fight evil.",
+		"cineplexname": "THE CATHAY CINEPLEX",
+		"agelimit": "PG13",
+		"movietype": "TWO_DIMENATION"
+	},
+	{
+		"id": "TCC-BATMAN-3D-2015-09-13-24-59",
+		"title": "Batman",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Bruce Wayne"
+		},
+		{
+			"actor": "Alfred"
+		}],
+		"reviews": [{
+			"review": "This 3D movie really gives awesome 3D experience!",
+			"rating": 5,
+			"guestname": "john86886234",
+			"guestid": "john@gmail.com_868866234"
+		}],
+		"director": "Christopher Nolan",
+		"synopsis": "When his parents were killed, billionaire playboy Bruce Wayne relocates to Asia when he is mentored by Henri Ducard and Ra's Al Ghul in how to fight evil.",
+		"cineplexname": "THE CATHAY CINEPLEX",
+		"agelimit": "PG13",
+		"movietype": "THREE_DIMENATION"
+	},
+	{
+		"id": "CCDE-BATMAN-2D-2015-09-13-24-59",
+		"title": "Batman",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Bruce Wayne"
+		},
+		{
+			"actor": "Alfred"
+		}],
+		"reviews": [{
+			"review": "The movie is very good!",
+			"rating": 4,
+			"guestname": "john86886234",
+			"guestid": "john@gmail.com_868866234"
+		}],
+		"director": "Christopher Nolan",
+		"synopsis": "When his parents were killed, billionaire playboy Bruce Wayne relocates to Asia when he is mentored by Henri Ducard and Ra's Al Ghul in how to fight evil.",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST",
+		"agelimit": "PG13",
+		"movietype": "TWO_DIMENATION"
+	},
+	{
+		"id": "CCDE-BATMAN-3D-2015-09-13-24-59",
+		"title": "Batman",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Bruce Wayne"
+		},
+		{
+			"actor": "Alfred"
+		}],
+		"reviews": [],
+		"director": "Christopher Nolan",
+		"synopsis": "When his parents were killed, billionaire playboy Bruce Wayne relocates to Asia when he is mentored by Henri Ducard and Ra's Al Ghul in how to fight evil.",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST",
+		"agelimit": "PG13",
+		"movietype": "THREE_DIMENATION"
+	},
+	{
+		"id": "TCC-IRONMAN-HD-2015-07-13-24-59",
+		"title": "Ironman",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Robert Downey, Jr."
+		},
+		{
+			"actor": "Gwyneth Paltrow"
+		}],
+		"reviews": [],
+		"director": "Jon Favreau",
+		"synopsis": "Tony Stark. Genius, billionaire, playboy, philanthropist. Son of legendary inventor and weapons contractor Howard Stark.",
+		"cineplexname": "THE CATHAY CINEPLEX",
+		"agelimit": "PG13",
+		"movietype": "HD"
+	},
+	{
+		"id": "TCC-IRONMAN-2D-2015-07-13-24-59",
+		"title": "Ironman",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Robert Downey, Jr."
+		},
+		{
+			"actor": "Gwyneth Paltrow"
+		}],
+		"reviews": [],
+		"director": "Jon Favreau",
+		"synopsis": "Tony Stark. Genius, billionaire, playboy, philanthropist. Son of legendary inventor and weapons contractor Howard Stark.",
+		"cineplexname": "THE CATHAY CINEPLEX",
+		"agelimit": "PG13",
+		"movietype": "TWO_DIMENATION"
+	},
+		{
+		"id": "TCC-IRONMAN-3D-2015-07-13-24-59",
+		"title": "Ironman",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Robert Downey, Jr."
+		},
+		{
+			"actor": "Gwyneth Paltrow"
+		}],
+		"reviews": [],
+		"director": "Jon Favreau",
+		"synopsis": "Tony Stark. Genius, billionaire, playboy, philanthropist. Son of legendary inventor and weapons contractor Howard Stark.",
+		"cineplexname": "THE CATHAY CINEPLEX",
+		"agelimit": "PG13",
+		"movietype": "THREE_DIMENATION"
+	},
+	{
+		"id": "CCDE-IRONMAN-2D-2015-07-13-24-59",
+		"title": "Ironman",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Robert Downey, Jr."
+		},
+		{
+			"actor": "Gwyneth Paltrow"
+		}],
+		"reviews": [],
+		"director": "Jon Favreau",
+		"synopsis": "Tony Stark. Genius, billionaire, playboy, philanthropist. Son of legendary inventor and weapons contractor Howard Stark.",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST",
+		"agelimit": "PG13",
+		"movietype": "TWO_DIMENATION"
+	},
+	{
+		"id": "CCDE-IRONMAN-3D-2015-07-13-24-59",
+		"title": "Ironman",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Robert Downey, Jr."
+		},
+		{
+			"actor": "Gwyneth Paltrow"
+		}],
+		"reviews": [],
+		"director": "Jon Favreau",
+		"synopsis": "Tony Stark. Genius, billionaire, playboy, philanthropist. Son of legendary inventor and weapons contractor Howard Stark.",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST",
+		"agelimit": "PG13",
+		"movietype": "THREE_DIMENATION"
+	},
+	{
+		"id": "CCCO-ANTMAN-HD-2015-11-09-24-59",
+		"title": "Ant-Man",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Paul Rudd"
+		},
+		{
+			"actor": "Evangeline Lilly"
+		}],
+		"reviews": [],
+		"director": "Peyton Reed",
+		"synopsis": "American superhero film based on the Marvel Comics characters of the same name: Scott Lang and Hank Pym.",
+		"cineplexname": "CATHAY CINEPLEX CINELEISURE ORCHARD",
+		"agelimit": "PG13",
+		"movietype": "HD"
+	},
+	{
+		"id": "CCCO-ANTMAN-2D-2015-11-09-24-59",
+		"title": "Ant-Man",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Paul Rudd"
+		},
+		{
+			"actor": "Evangeline Lilly"
+		}],
+		"reviews": [],
+		"director": "Peyton Reed",
+		"synopsis": "American superhero film based on the Marvel Comics characters of the same name: Scott Lang and Hank Pym.",
+		"cineplexname": "CATHAY CINEPLEX CINELEISURE ORCHARD",
+		"agelimit": "PG13",
+		"movietype": "TWO_DIMENATION"
+	},
+	{
+		"id": "CCCO-ANTMAN-3D-2015-11-09-24-59",
+		"title": "Ant-Man",
+		"showduration": 90,
+		"moviestatus": "NOW_SHOWING",
+		"casts": [{
+			"actor": "Paul Rudd"
+		},
+		{
+			"actor": "Evangeline Lilly"
+		}],
+		"reviews": [],
+		"director": "Peyton Reed",
+		"synopsis": "American superhero film based on the Marvel Comics characters of the same name: Scott Lang and Hank Pym.",
+		"cineplexname": "CATHAY CINEPLEX CINELEISURE ORCHARD",
+		"agelimit": "PG13",
+		"movietype": "THREE_DIMENATION"
+	}
+	]
+}

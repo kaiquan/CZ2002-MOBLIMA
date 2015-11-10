@@ -5,11 +5,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 import controller.AdminMgr;
+import dao_module.PriceDAO;
 import model.Cinema;
-import model.MOVIESTATUS;
 import model.Movie;
+import model.Price;
 import model.Showtime;
 
 public class AdminView extends Aview{
@@ -23,10 +25,13 @@ public class AdminView extends Aview{
 		this.username = username;
 		this.cineplex = cineplex;
 		this.mAdminMgr = mAdminMgr;
-		
 	}
 	
 	
+	public AdminView() {
+	}
+
+
 	public void displayAdminOptions(){
 		System.out.println("Login Successful!");
 		int choice;
@@ -35,20 +40,22 @@ public class AdminView extends Aview{
 			try {
 				System.in.read();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
 			System.out.println("Welcome "+username+", you are editing cineplex: "+cineplex);
 			System.out.println("1. Add New Movie");
 			System.out.println("2. Edit Movie Details");
-			//System.out.println("3. Edit Movie Status");
-			//System.out.println("3. Schedule Show Time");
-			//System.out.println("4. Logout");
+			System.out.println("3. Edit Movie Status");
+			System.out.println("4. Schedule Show Time");
+			System.out.println("5. Edit hoildays");
+			System.out.println("6. Edit pricings");
+			System.out.println("7. List top 5 ranking movies");
+			System.out.println("8. Logout");
 			System.out.print("Enter Choice: ");
 			choice = sc.nextInt();
 			mAdminMgr.optionSelected(choice);
-		}while(choice >0);
+		}while(choice >0&&choice!=8);
 
 	}
 	
@@ -62,26 +69,26 @@ public class AdminView extends Aview{
 		System.out.println("Please enter the following");
 
 		System.out.print("Movie Name: ");
-		String movieName = sc.next();
+		String movieName = sc.nextLine();
 		
 		System.out.print("Movie type (THREE_DIMENATION, TWO_DIMENATION, HD): ");
-		String movieType = sc.next();
+		String movieType = sc.nextLine();
 		
 		
 		System.out.print("Moviestatus (NOW_SHOWING, COMING_SOON, PREVIEW, END_OF_SHOWING): ");
-		String movieStatus = sc.next();
+		String movieStatus = sc.nextLine();
 		
 		System.out.print("Synopsis: ");
-		String synopsis = sc.next();
+		String synopsis = sc.nextLine();
 		
 		System.out.print("Director: ");
-		String director = sc.next();
+		String director = sc.nextLine();
 		
 		System.out.print("Age limit (G, PG13, M16, R21): ");
 		String ageLimit = sc.next();
 		
 		System.out.print("casts: ");
-		String casts = sc.next();
+		String casts = sc.nextLine();
 		
 		System.out.print("show duration: ");
 		int duration = sc.nextInt();
@@ -161,7 +168,7 @@ public class AdminView extends Aview{
 				System.out.print("Change movie type to?(THREE_DIMENATION, TWO_DIMENATION, HD): ");
 			else
 				System.out.print("Change field to?: ");		
-			String value = sc.next();
+			String value = sc.nextLine();
 					
 			boolean editSuccessful = mAdminMgr.changeMovieDetails(movieIndex-1, keyIndex, value);
 			
@@ -182,7 +189,7 @@ public class AdminView extends Aview{
 		System.out.println("3. Duration\t\t: " + movies.get(movieIndex).getShowDuration() + " mins");
 		System.out.println("4. Synopsis\t\t: " + movies.get(movieIndex).getSynopsis());
 		System.out.print("5. Casts\t\t\t: ");
-		ArrayList<String> casts = movies.get(movieIndex-1).getCasts();
+		ArrayList<String> casts = movies.get(movieIndex).getCasts();
 		for(int j = 0; j < casts.size(); j++){
 			System.out.print(casts.get(j));
 			if(j < casts.size()-1){
@@ -195,6 +202,7 @@ public class AdminView extends Aview{
 		System.out.println("8. Movie Type\t\t: " + movies.get(movieIndex).getMovieType().toString());
 		System.out.println();
 	}
+
 
 
 	public void displayShowTimeAdded() {
@@ -224,7 +232,7 @@ public class AdminView extends Aview{
 
 		System.out.println("Movies");
 		for(int i=0; i<movies.size(); i++){
-			System.out.println((i+1)+". "+movies.get(i).getTitle());
+			System.out.println((i+1)+". "+movies.get(i).getTitle()+"("+movies.get(i).getMovieType()+")");
 			System.out.println();
 		}
 		System.out.println("---------------------------------------------");
@@ -278,8 +286,14 @@ public class AdminView extends Aview{
 		System.out.println("Enter updated showtime (YYYY-MM-DD-HH-mm): ");
 		String showtimeString = sc.next();
 
-		SimpleDateFormat showtimeFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm");
-		Date updatedShowTime = showtimeFormat.parse(showtimeString);
+		showtimeFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm");
+		Date updatedShowTime = null;
+		try {
+			updatedShowTime = showtimeFormat.parse(showtimeString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		mAdminMgr.updateShowTime(showtimeID, updatedShowTime);
 	}
@@ -306,10 +320,10 @@ public class AdminView extends Aview{
 		System.out.println("---------------------------------------------");
 		System.out.print("Enter index of showtime to remove: ");
 		int showtimeIndex = sc.nextInt();
-
+		String showtimeID="";
 		for(int i=0; i<listShowTimes.size(); i++){
 			if(showtimeIndex-1 == i) {
-				String showtimeID = listShowTimes.get(i).getId();
+				showtimeID= listShowTimes.get(i).getId();
 				break;
 			}
 		}
@@ -363,5 +377,19 @@ public class AdminView extends Aview{
 		}
 
 		mAdminMgr.removeHoliday(selectedHoliday);
+	}
+	
+	public void displayEditPricings(){
+		int choice=0;
+		System.out.println("Select which prices to edit.");
+		System.out.println("1. Platinumcinema prices");
+		System.out.println("2. Student prices");
+		System.out.println("3. Senior citizens prices");
+		System.out.println("4. Regular prices");
+		System.out.println("5. Exit and head back");
+		choice = new Scanner(System.in).nextInt();
+		
+		new AdminMgr().editPrice(choice);
+		
 	}
 }

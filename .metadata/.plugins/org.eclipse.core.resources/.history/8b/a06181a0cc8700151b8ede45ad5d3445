@@ -48,11 +48,7 @@ public class SelectSeatMgr {
 		this.mSelectSeatView=selectSeatView;
 	}
 	
-	/**
-	 * Let user to decide choose movie or cineplex first
-	 * @param  choice		The decision make by user
-	 * @return showingList	The correspond result (cineplex list / movie list)
-	 */
+	// List out the option and let user to decide choose movie or cineplex first
 	public ArrayList<String> proceedDecision(int choice){
 		this.decisionMake=choice;
 		if (decisionMake==1){
@@ -63,11 +59,6 @@ public class SelectSeatMgr {
 		return showingList;
 	}
 	
-	/**
-	 * Let user to decide which (Cineplex or Movie) that he/she want to see
-	 * @param  choice		The decision make by user
-	 * @return showingList	The correspond result (cineplex list / movie list)
-	 */
 	public ArrayList<String> proceedSecondDecision(int choice){
 		//Choose the Cineplex First
 		if(decisionMake==1){
@@ -75,20 +66,15 @@ public class SelectSeatMgr {
 		}
 		//Choose the Movie First
 		else if (decisionMake==2){
-			getCineplexByMovie(mMovie.get(choice-1).getId());
+			getCineplexByMovie(mMovie.get(choice-1).getTitle());
 		}
 		return showingList;
 	}
 	
-	/**
-	 * Let user to decide which (Cineplex or Movie) that he/she want to see
-	 * @param  choice		The decision make by user
-	 * @return showingList	The correspond result (cineplex list / movie list)
-	 */
 	public ArrayList<String> proceedThirdDecision(int choice){
 		//Choose the Movie Last
 		if(decisionMake==1){
-			getCineplexByMovie(movieSearchByCineplex.get(choice-1).getId());
+			getCineplexByMovie(movieSearchByCineplex.get(choice-1).getTitle());
 		}
 		//Choose the Cineplex Last
 		else if (decisionMake==2){
@@ -97,10 +83,6 @@ public class SelectSeatMgr {
 		return showingList;
 	}
 	
-	/**
-	 * Let user to decide which timing he/she want
-	 * @param  choice		The decision make by user
-	 */
 	public void proceedShowtimeDecision(int choice){
 		st=showtimeByCineplexAndMovie.get(choice-1);
 		getCinemaCode(choice-1);
@@ -109,9 +91,6 @@ public class SelectSeatMgr {
 		showSeat(cinemaRow,cinemaCol);
 	}
 //------------------------Asking For First Decision------------------------------------------------//
-	/**
-	 * Print out the cineplex list
-	 */
 	public void listCineplex(){
 		showingList.clear();
 		if(cplDAO==null){
@@ -127,9 +106,6 @@ public class SelectSeatMgr {
 		System.out.println("Please Select One of The Listed Cineplex: ");
 	}
 	
-	/**
-	 * Print out the movie list
-	 */
 	public void listMovie(){
 		showingList.clear();
 		if(movDAO == null){
@@ -141,17 +117,14 @@ public class SelectSeatMgr {
 		
 		for(int i=0;i<mMovie.size();i++){
 			if(mMovie.get(i).getMovieStatus()==MOVIESTATUS.NOW_SHOWING){
+				
 				showingList.add(mMovie.get(i).getTitle()+" "+mMovie.get(i).getMovieType());
 			}
 		}
 		System.out.println("------------------------------------------");
 		System.out.println("Please Select One of The Listed Movie: ");
 	}
-//------------------------Asking For Second and Third Decision------------------//
-	/**
-	 * Return all the movies that available in the selected cineplex
-	 * @param 	cinplex		Selected cineplex by the user
-	 */
+//------------------------Asking For Second and Third Decision------------------//	
 	public void getMovieByCineplex(String cineplex){
 		showingList.clear();
 		this.cpl=cplDAO.getCineplexByName(cineplex);
@@ -160,11 +133,12 @@ public class SelectSeatMgr {
 		}
 		if(mMovie==null){
 			mMovie=movDAO.getAllMovieswithReviews(false);
+			System.out.println(mMovie.size());
 		}
 		if(!setShowTime){
 			for(int i=0;i<mMovie.size();i++){
-				if(mMovie.get(i).getCineplexName().equals(cineplex)){	
-					if(mMovie.get(i).getMovieStatus()==MOVIESTATUS.NOW_SHOWING){
+				if(mMovie.get(i).getCineplexName().equals(cineplex)){
+					if(mMovie.get(i).getMovieStatus().equals("NOW_SHOWING")){
 						showingList.add(mMovie.get(i).getTitle()+" "+mMovie.get(i).getMovieType());
 						movieSearchByCineplex.add(mMovie.get(i));
 					}
@@ -177,13 +151,9 @@ public class SelectSeatMgr {
 		}
 	}
 	
-	/**
-	 * Return all the movies that available in the selected cineplex
-	 * @param 	cinplex		Selected cineplex by the user
-	 */
-	public  void getCineplexByMovie(String movieID){
+	public  void getCineplexByMovie(String movie){
 		showingList.clear();
-		this.mov=movDAO.getMovieByid(movieID);
+		this.mov=movDAO.getMovieByTitle(movie);
 		if(cplDAO==null){
 			cplDAO=new CineplexDAO();
 		}
@@ -193,7 +163,7 @@ public class SelectSeatMgr {
 		if(!setShowTime){
 			for(int i=0;i<mCineplex.size();i++){
 				for(int j=0;j<mCineplex.get(i).getMovies().size();j++){
-					if(mCineplex.get(i).getMovies().get(j).getId().equals(movieID)){
+					if(mCineplex.get(i).getMovies().get(j).getTitle().equals(movie)){
 						showingList.add(mCineplex.get(i).getMovies().get(j).getCineplexName());
 					}
 					cineplexSearchByMovie.add(mCineplex.get(i));

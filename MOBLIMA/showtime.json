@@ -1,1 +1,699 @@
-{"showtimes":[{"datetime":"2015-10-24-11:30","showtimeid":"TCCT1-201510241130","movieid":"CCPL-2015-07-13-24-59","cinemacode":"TCCC1","cineplexname":"THE CATHAY CINEPLEX"},{"datetime":"2015-10-24-11:30","showtimeid":"CCDET1-201510241130","movieid":"DDDE-2015-07-13-24-59","cinemacode":"CCDET1","cineplexname":"CATHAY CINEPLEX DOWNTOWN EAST"},{"datetime":"2015-10-24-11:30","showtimeid":"CCDET1-201510241130","movieid":"CCDE-BATMAN-3D-2015-07-13-24-59","cinemacode":"CCDE-T1","cineplexname":"CATHAY CINEPLEX DOWNTOWN EAST"},{"datetime":"2019-09-13-11:59","showtimeid":"TCC-T1-2019-09-256-11-59","movieid":"TCC-BATMAN-HD-2015-09-13-24-59","cinemacode":"TCC-T1","cineplexname":"THE CATHAY CINEPLEX"},{"datetime":"2099-09-13-11:59","showtimeid":"TCC-T1-2099-09-256-11-59","movieid":"TCC-IRONMAN-HD-2015-07-13-24-59","cinemacode":"TCC-T1","cineplexname":"THE CATHAY CINEPLEX"}]}
+{
+	"showtimes": [{
+		"datetime": "2015-11-13-11:30",
+		"showtimeid": "TCC-T1-201511131130",
+		"movieid": "TCC-BATMAN-HD-2015-09-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-13:25",
+		"showtimeid": "TCC-T2-201511131325",
+		"movieid": "TCC-BATMAN-HD-2015-09-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-15:30",
+		"showtimeid": "TCC-T3-201511131530",
+		"movieid": "TCC-BATMAN-HD-2015-09-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-11:30",
+		"showtimeid": "TCC-T1-201511141130",
+		"movieid": "TCC-BATMAN-HD-2015-09-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-13:25",
+		"showtimeid": "TCC-T2-201511141325",
+		"movieid": "TCC-BATMAN-HD-2015-09-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-15:30",
+		"showtimeid": "TCC-T3-201511141530",
+		"movieid": "TCC-BATMAN-HD-2015-09-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-11:30",
+		"showtimeid": "TCC-T1-201511151130",
+		"movieid": "TCC-BATMAN-HD-2015-09-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-13:25",
+		"showtimeid": "TCC-T2-201511151325",
+		"movieid": "TCC-BATMAN-HD-2015-09-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-15:30",
+		"showtimeid": "TCC-T3-201511151530",
+		"movieid": "TCC-BATMAN-HD-2015-09-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-09:30",
+		"showtimeid": "TCC-T1-201511130930",
+		"movieid": "TCC-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-15:25",
+		"showtimeid": "TCC-T2-201511131525",
+		"movieid": "TCC-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-19:30",
+		"showtimeid": "TCC-T3-201511131930",
+		"movieid": "TCC-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-09:30",
+		"showtimeid": "TCC-T1-201511140930",
+		"movieid": "TCC-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-15:25",
+		"showtimeid": "TCC-T2-201511141525",
+		"movieid": "TCC-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-19:30",
+		"showtimeid": "TCC-T3-201511141930",
+		"movieid": "TCC-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-09:30",
+		"showtimeid": "TCC-T1-201511150930",
+		"movieid": "TCC-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-15:25",
+		"showtimeid": "TCC-T2-201511151525",
+		"movieid": "TCC-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-19:30",
+		"showtimeid": "TCC-T3-201511151930",
+		"movieid": "TCC-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-07:30",
+		"showtimeid": "TCC-T1-201511130730",
+		"movieid": "TCC-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-17:25",
+		"showtimeid": "TCC-T2-201511131725",
+		"movieid": "TCC-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-21:30",
+		"showtimeid": "TCC-T3-201511132130",
+		"movieid": "TCC-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-07:30",
+		"showtimeid": "TCC-T1-201511140730",
+		"movieid": "TCC-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-17:25",
+		"showtimeid": "TCC-T2-201511141725",
+		"movieid": "TCC-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-21:30",
+		"showtimeid": "TCC-T3-201511142130",
+		"movieid": "TCC-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-07:30",
+		"showtimeid": "TCC-T1-201511150730",
+		"movieid": "TCC-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-17:25",
+		"showtimeid": "TCC-T2-201511151725",
+		"movieid": "TCC-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-21:30",
+		"showtimeid": "TCC-T3-201511152130",
+		"movieid": "TCC-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	
+	
+	{
+		"datetime": "2015-11-13-12:30",
+		"showtimeid": "CCDE-T1-201511131230",
+		"movieid": "CCDE-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T1",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-13-14:25",
+		"showtimeid": "CCDE-T2-201511131425",
+		"movieid": "CCDE-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T2",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-13-18:30",
+		"showtimeid": "CCDE-T3-201511131830",
+		"movieid": "CCDE-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T3",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-14-12:30",
+		"showtimeid": "CCDE-T1-201511141230",
+		"movieid": "CCDE-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T1",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-14-14:25",
+		"showtimeid": "CCDE-T2-201511141425",
+		"movieid": "CCDE-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T2",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-14-18:30",
+		"showtimeid": "CCDE-T3-201511141830",
+		"movieid": "CCDE-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-15-12:30",
+		"showtimeid": "CCDE-T1-201511151230",
+		"movieid": "CCDE-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T1",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-15-14:25",
+		"showtimeid": "CCDE-T2-201511151425",
+		"movieid": "CCDE-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T2",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-15-18:30",
+		"showtimeid": "CCDE-T3-201511151830",
+		"movieid": "CCDE-BATMAN-2D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T3",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-13-10:30",
+		"showtimeid": "CCDE-T1-201511131030",
+		"movieid": "CCDE-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T1",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-13-12:25",
+		"showtimeid": "CCDE-T2-201511131225",
+		"movieid": "CCDE-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T2",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-13-20:30",
+		"showtimeid": "CCDE-T3-201511132030",
+		"movieid": "CCDE-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T3",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-14-10:30",
+		"showtimeid": "CCDE-T1-201511141030",
+		"movieid": "CCDE-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T1",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-14-12:25",
+		"showtimeid": "CCDE-T2-201511141225",
+		"movieid": "CCDE-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T2",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-14-20:30",
+		"showtimeid": "CCDE-T3-201511142030",
+		"movieid": "CCDE-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-15-10:30",
+		"showtimeid": "CCDE-T1-201511151030",
+		"movieid": "CCDE-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T1",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-15-12:25",
+		"showtimeid": "CCDE-T2-201511151225",
+		"movieid": "CCDE-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T2",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-15-20:30",
+		"showtimeid": "CCDE-T3-201511152030",
+		"movieid": "CCDE-BATMAN-3D-2015-09-13-24-59",
+		"cinemacode": "CCDE-T3",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-13-13:30",
+		"showtimeid": "TCC-T1-201511131330",
+		"movieid": "TCC-IRONMAN-HD-2015-07-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-09:25",
+		"showtimeid": "TCC-T2-201511130925",
+		"movieid": "TCC-IRONMAN-HD-2015-07-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-10:30",
+		"showtimeid": "TCC-T3-201511131030",
+		"movieid": "TCC-IRONMAN-HD-2015-07-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-13:30",
+		"showtimeid": "TCC-T1-201511141330",
+		"movieid": "TCC-IRONMAN-HD-2015-07-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-09:25",
+		"showtimeid": "TCC-T2-201511140925",
+		"movieid": "TCC-IRONMAN-HD-2015-07-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-10:30",
+		"showtimeid": "TCC-T3-201511141030",
+		"movieid": "TCC-IRONMAN-HD-2015-07-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-13:30",
+		"showtimeid": "TCC-T1-201511151330",
+		"movieid": "TCC-IRONMAN-HD-2015-07-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-09:25",
+		"showtimeid": "TCC-T2-201511150925",
+		"movieid": "TCC-IRONMAN-HD-2015-07-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-10:30",
+		"showtimeid": "TCC-T3-201511151030",
+		"movieid": "TCC-IRONMAN-HD-2015-07-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-16:30",
+		"showtimeid": "TCC-T1-201511131630",
+		"movieid": "TCC-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-19:25",
+		"showtimeid": "TCC-T2-201511131925",
+		"movieid": "TCC-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-12:30",
+		"showtimeid": "TCC-T3-201511131230",
+		"movieid": "TCC-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-16:30",
+		"showtimeid": "TCC-T1-201511141630",
+		"movieid": "TCC-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-19:25",
+		"showtimeid": "TCC-T2-201511141925",
+		"movieid": "TCC-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-12:30",
+		"showtimeid": "TCC-T3-201511141230",
+		"movieid": "TCC-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-16:30",
+		"showtimeid": "TCC-T1-201511151630",
+		"movieid": "TCC-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-19:25",
+		"showtimeid": "TCC-T2-201511151925",
+		"movieid": "TCC-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-12:30",
+		"showtimeid": "TCC-T3-201511151230",
+		"movieid": "TCC-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-19:00",
+		"showtimeid": "TCC-T1-201511131900",
+		"movieid": "TCC-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-21:25",
+		"showtimeid": "TCC-T2-201511132125",
+		"movieid": "TCC-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-17:30",
+		"showtimeid": "TCC-T3-201511131730",
+		"movieid": "TCC-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-19:00",
+		"showtimeid": "TCC-T1-201511141900",
+		"movieid": "TCC-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-21:25",
+		"showtimeid": "TCC-T2-201511142125",
+		"movieid": "TCC-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-14-17:30",
+		"showtimeid": "TCC-T3-201511141730",
+		"movieid": "TCC-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-19:00",
+		"showtimeid": "TCC-T1-201511151900",
+		"movieid": "TCC-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "TCC-T1",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-21:25",
+		"showtimeid": "TCC-T2-201511152125",
+		"movieid": "TCC-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "TCC-T2",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-15-17:30",
+		"showtimeid": "TCC-T3-201511151730",
+		"movieid": "TCC-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "THE CATHAY CINEPLEX"
+	},
+	{
+		"datetime": "2015-11-13-14:30",
+		"showtimeid": "CCDE-T1-201511131430",
+		"movieid": "CCDE-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T1",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-13-10:25",
+		"showtimeid": "CCDE-T2-201511131025",
+		"movieid": "CCDE-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T2",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-13-11:30",
+		"showtimeid": "CCDE-T3-201511131130",
+		"movieid": "CCDE-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T3",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-14-14:30",
+		"showtimeid": "CCDE-T1-201511141430",
+		"movieid": "CCDE-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T1",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-14-10:25",
+		"showtimeid": "CCDE-T2-201511141025",
+		"movieid": "CCDE-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T2",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-14-11:30",
+		"showtimeid": "CCDE-T3-201511141130",
+		"movieid": "CCDE-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-15-14:30",
+		"showtimeid": "CCDE-T1-201511151430",
+		"movieid": "CCDE-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T1",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-15-10:25",
+		"showtimeid": "CCDE-T2-201511151025",
+		"movieid": "CCDE-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T2",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-15-11:30",
+		"showtimeid": "CCDE-T3-201511151130",
+		"movieid": "CCDE-IRONMAN-2D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T3",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-13-18:30",
+		"showtimeid": "CCDE-T1-201511131830",
+		"movieid": "CCDE-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T1",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-13-16:25",
+		"showtimeid": "CCDE-T2-201511131625",
+		"movieid": "CCDE-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T2",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-13-15:30",
+		"showtimeid": "CCDE-T3-201511131530",
+		"movieid": "CCDE-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T3",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-14-18:30",
+		"showtimeid": "CCDE-T1-201511141830",
+		"movieid": "CCDE-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T1",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-14-16:25",
+		"showtimeid": "CCDE-T2-201511141625",
+		"movieid": "CCDE-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T2",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-14-11:30",
+		"showtimeid": "CCDE-T3-201511141130",
+		"movieid": "CCDE-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "TCC-T3",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-15-18:30",
+		"showtimeid": "CCDE-T1-201511151830",
+		"movieid": "CCDE-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T1",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-15-16:25",
+		"showtimeid": "CCDE-T2-201511151625",
+		"movieid": "CCDE-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T2",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	{
+		"datetime": "2015-11-15-15:30",
+		"showtimeid": "CCDE-T3-201511151530",
+		"movieid": "CCDE-IRONMAN-3D-2015-07-13-24-59",
+		"cinemacode": "CCDE-T3",
+		"cineplexname": "CATHAY CINEPLEX DOWNTOWN EAST"
+	},
+	
+	{
+		"datetime": "2015-11-13-10:30",
+		"showtimeid": "CCCO-T1-201511131030",
+		"movieid": "CCCO-ANTMAN-HD-2015-11-09-24-59",
+		"cinemacode": "CCCO-T1",
+		"cineplexname": "CATHAY CINEPLEX CINELEISURE ORCHARD"
+	},
+	{
+		"datetime": "2015-11-13-12:30",
+		"showtimeid": "CCCO-T2-201511131230",
+		"movieid": "CCCO-ANTMAN-HD-2015-11-09-24-59",
+		"cinemacode": "CCCO-T2",
+		"cineplexname": "CATHAY CINEPLEX CINELEISURE ORCHARD"
+	},
+	{
+		"datetime": "2015-11-13-18:30",
+		"showtimeid": "CCCO-T3-201511131830",
+		"movieid": "CCCO-ANTMAN-HD-2015-11-09-24-59",
+		"cinemacode": "CCCO-T3",
+		"cineplexname": "CATHAY CINEPLEX CINELEISURE ORCHARD"
+	},
+		{
+		"datetime": "2015-11-14-10:30",
+		"showtimeid": "CCCO-T1-201511141030",
+		"movieid": "CCCO-ANTMAN-HD-2015-11-09-24-59",
+		"cinemacode": "CCCO-T1",
+		"cineplexname": "CATHAY CINEPLEX CINELEISURE ORCHARD"
+	},
+	{
+		"datetime": "2015-11-14-12:30",
+		"showtimeid": "CCCO-T2-201511141230",
+		"movieid": "CCCO-ANTMAN-HD-2015-11-09-24-59",
+		"cinemacode": "CCCO-T2",
+		"cineplexname": "CATHAY CINEPLEX CINELEISURE ORCHARD"
+	},
+	{
+		"datetime": "2015-11-14-18:30",
+		"showtimeid": "CCCO-T3-201511141830",
+		"movieid": "CCCO-ANTMAN-HD-2015-11-09-24-59",
+		"cinemacode": "CCCO-T3",
+		"cineplexname": "CATHAY CINEPLEX CINELEISURE ORCHARD"
+	},
+		{
+		"datetime": "2015-11-15-10:30",
+		"showtimeid": "CCCO-T1-201511151030",
+		"movieid": "CCCO-ANTMAN-HD-2015-11-09-24-59",
+		"cinemacode": "CCCO-T1",
+		"cineplexname": "CATHAY CINEPLEX CINELEISURE ORCHARD"
+	},
+	{
+		"datetime": "2015-11-15-12:30",
+		"showtimeid": "CCCO-T2-201511151230",
+		"movieid": "CCCO-ANTMAN-HD-2015-11-09-24-59",
+		"cinemacode": "CCCO-T2",
+		"cineplexname": "CATHAY CINEPLEX CINELEISURE ORCHARD"
+	},
+	{
+		"datetime": "2015-11-15-18:30",
+		"showtimeid": "CCCO-T3-201511151830",
+		"movieid": "CCCO-ANTMAN-HD-2015-11-09-24-59",
+		"cinemacode": "CCCO-T3",
+		"cineplexname": "CATHAY CINEPLEX CINELEISURE ORCHARD"
+	}
+	]
+}

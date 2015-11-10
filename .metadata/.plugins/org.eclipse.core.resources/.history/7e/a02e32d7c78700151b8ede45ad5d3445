@@ -160,7 +160,9 @@ public class AdminMgr {
 			case 8:
 				selectedMovie.setMovieType(MOVIETYPE.valueOf(value));
 				break;
-			}
+			}			
+			movieDao = new MovieDAO();
+			movieDao.updateMovie(selectedMovie);
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
@@ -169,20 +171,6 @@ public class AdminMgr {
 		
 		return changeSuccess;
 	
-	}
-	public boolean commitUpdateMovie(int movideIndex){
-		boolean changeSuccess = false;
-		try{
-			Movie selectedMovie = mCineplex.getMovies().get(movideIndex);
-			movieDao = new MovieDAO();
-			movieDao.updateMovie(selectedMovie);
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			changeSuccess = true;
-		}
-		
-		return changeSuccess;
 	}
 
 	public void addShowTime(int cinemaIndex, int movieIndex, Date showtime) {
