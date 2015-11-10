@@ -26,7 +26,7 @@ public class BookingTest {
 		selectedSeats.add("A4");
 		Movie selectedMovie = md.getMovieByid("TCC-IRONMAN-HD-2015-07-13-24-59");
 		Cinema selectedCinema = cd.getCinemaByCinemaId("TCC-T1");
-		Showtime showtime = sd.getShowTimeByID("TCC-T1-201511141330");
+		Showtime showtime = sd.getShowTimeByID("TCCT1-201510241130");
 		String cineplexName = "THE CATHAY CINEPLEX";
 		
 		Cineplex nc = new Cineplex("Cathay Cineplexes Pte Ltd","THE CATHAY CINEPLEX", "2 Handy Road Levels 5 & 6 The Cathay Singapore 229233", new ArrayList<Cinema>());

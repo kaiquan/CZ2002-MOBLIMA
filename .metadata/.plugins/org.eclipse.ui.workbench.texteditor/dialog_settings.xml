@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="BATMAN-" key="selection"/>
+		<item value="changeMovieDetails" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="changeMovieDetails"/>
+			<item value="change"/>
 			<item value="batman-"/>
 			<item value="CATHAY CINEPLEX DOWNTOWN EAST"/>
 			<item value="CCPL-2015-07-13-24-59"/>
 			<item value="mMovieDetailsView"/>
 			<item value="guest"/>
 			<item value="AdminTopFiveMoviesMgr"/>
-			<item value="showtimeid"/>
-			<item value="null`"/>
 		</list>
 		<list key="replacehistory">
 		</list>

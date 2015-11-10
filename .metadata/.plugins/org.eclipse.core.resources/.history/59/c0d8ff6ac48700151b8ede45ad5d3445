@@ -19,10 +19,10 @@ public class BookingView {
 		this.s = new Scanner(System.in);
 	}
 	
-	public void showBookingDetails(ArrayList<String> selectedSeats, String selectedMovieName, String selectedMovieType, String selectedCinemaCode, Date showtime, String selectedCineplexName){
+	public void showBookingDetails(ArrayList<String> selectedSeats, String selectedMovieName, String selectedCinemaCode, Date showtime, String selectedCineplexName){
 		String dateString = new SimpleDateFormat("E hh:mm a, dd-MM-yyyy").format(showtime);
 		System.out.println("======================== YOUR BASKET ========================");
-		System.out.println("Movie\t\t\t: " + selectedMovieName + " (" + selectedMovieType + ")");
+		System.out.println("Movie\t\t\t: " + selectedMovieName);
 		System.out.println("Showing at\t\t: " + dateString + ", " + selectedCineplexName);
 		System.out.println("Cinema\t\t\t: " + selectedCinemaCode);
 		System.out.print("Seat(s) selected\t: ");

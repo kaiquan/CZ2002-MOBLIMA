@@ -21,13 +21,11 @@
 <fullyQualifiedTypeName name="model.Guest"/>
 <fullyQualifiedTypeName name="model.Cineplex"/>
 <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
-<fullyQualifiedTypeName name="model.Price"/>
 <fullyQualifiedTypeName name="dao_module.CinemaDAO"/>
 <fullyQualifiedTypeName name="model.MOVIETYPE"/>
 <fullyQualifiedTypeName name="model.MOVIESTATUS"/>
 <fullyQualifiedTypeName name="model.AGELIMIT"/>
 <fullyQualifiedTypeName name="dao_module.BookingDAO"/>
-<fullyQualifiedTypeName name="dao_module.PriceDAO"/>
 <fullyQualifiedTypeName name="model.CINEMACLASS"/>
 <fullyQualifiedTypeName name="model.TICKETTYPE"/>
 <fullyQualifiedTypeName name="model.DAYOFWEEK"/>
@@ -47,5 +45,7 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="model.Movie"/>
 <fullyQualifiedTypeName name="view.AdminTopFiveMoviesView"/>
+<fullyQualifiedTypeName name="model.Price"/>
+<fullyQualifiedTypeName name="dao_module.PriceDAO"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>

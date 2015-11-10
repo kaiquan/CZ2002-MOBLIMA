@@ -54,7 +54,7 @@ public class BookingMgr {
 	}
 	
 	public void displayBookingDetails(){
-		this.bookingView.showBookingDetails(selectedSeats, selectedMovie.getTitle(), selectedMovie.getMovieType().toString(), selectedCinema.getCinemaCode(), showtime.getDateTime(), selectedCineplexName);
+		this.bookingView.showBookingDetails(selectedSeats, selectedMovie.getTitle(), selectedCinema.getCinemaCode(), showtime.getDateTime(), selectedCineplexName);
 	}
 	
 	public void getMovieGoerDetails(){
