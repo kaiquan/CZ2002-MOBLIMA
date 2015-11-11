@@ -1,10 +1,3 @@
-/**
- * A View class which is responsible for interfacing with user to perform booking related actions
- * @author 	Freny Nelin
- * @version	1.0
- * @since	2015-11-10
- */
-
 package view;
 
 import java.text.ParseException;
@@ -18,34 +11,14 @@ import controller.BookingMgr;
 
 public class BookingView {
 
-	/**
-	 * Controller object used as center logic to perform booking related actions
-	 */
 	private BookingMgr bookingMgr;
-	
-	/**
-	 * Scanner object used for getting user inputs
-	 */
 	private Scanner s;
 
-	/**
-	 * Creates a new BookingView Object which initializes the controller object (BookingMgr)
-	 * @param bkgMgr	BookingMgr Object
-	 */
 	public BookingView(BookingMgr bkgMgr){
 		this.bookingMgr = bkgMgr;
 		this.s = new Scanner(System.in);
 	}
 	
-	/**
-	 * Display details of items selected for booking purpose
-	 * @param selectedSeats			List of seats selected for booking
-	 * @param selectedMovieName		Name of the movie selected for booking
-	 * @param selectedMovieType		Type of the movie selected for booking
-	 * @param selectedCinemaCode	Cinema code of the cinema for booking
-	 * @param showtime				Showtime selected for booking
-	 * @param selectedCineplexName	Name of the cineplex selected for booking
-	 */
 	public void showBookingDetails(ArrayList<String> selectedSeats, String selectedMovieName, String selectedMovieType, String selectedCinemaCode, Date showtime, String selectedCineplexName){
 		String dateString = new SimpleDateFormat("E hh:mm a, dd-MM-yyyy").format(showtime);
 		System.out.println("======================== YOUR BASKET ========================");
@@ -57,11 +30,7 @@ public class BookingView {
 		System.out.println("\n\n");
 	}
 	
-	/**
-	 * Ask for user inputs to get the number senior(s) and student(s) for the ticket(s) going to be booked
-	 * @param selectedSeatSize	Total seats selected (equals as the total number of tickets)
-	 */
-	public void getSeniorAndStudentCount(int selectedSeatSize){
+	public void getSeniorAndChildCount(int selectedSeatSize){
 		int seatsBookedCount = selectedSeatSize;
 		int numOfSenior = 0, numOfStudent = 0;
 		String input;
@@ -131,9 +100,6 @@ public class BookingView {
 		this.bookingMgr.setSeniorAndStudentCount(numOfSenior, numOfStudent);
 	}
 	
-	/**
-	 * Ask for the details of the person who is booking the tickets
-	 */
 	public void getMovieGoersDetails(){
 		s = new Scanner(System.in);
 		String name, email, input;
@@ -164,10 +130,6 @@ public class BookingView {
 		this.bookingMgr.setMovieGoerDetails(name, email, mobileNo);
 	}
 	
-	/**
-	 * Display whether the user has successfully or unsuccessfully booked the movie
-	 * @param isSuccessful	Boolean to indicate whether the booking is successful
-	 */
 	public void displaySuccessfulOrUnsuccessfulBooking(boolean isSuccessful){
 		if(isSuccessful){
 			System.out.println("You have successfully booked the movie. Thank you and enjoy your movie!");
@@ -178,17 +140,6 @@ public class BookingView {
 		System.out.println();
 	}
 	
-	/**
-	 * Display the details of the ticket costs calculated and the total price payable by the user
-	 * @param selectedSeatSize	Number of total tickets booked
-	 * @param numOfAdult		Number of adults (regular) movie tickets
-	 * @param numOfSenior		Number of senior(s) movie tickets
-	 * @param numOfStudent		Number of student(s) movie tickets
-	 * @param adultCost			Price for one adult (regular) ticket
-	 * @param seniorCost		Price for one senior ticket
-	 * @param studentCost		Price for one student ticket
-	 * @param totalCost			Total price payable for ticket(s) booked
-	 */
 	public void displayTotalBookingCost(int selectedSeatSize, int numOfAdult, int numOfSenior, int numOfStudent, double adultCost, double seniorCost, double studentCost, double totalCost){
 		System.out.println("=================== TOTAL BOOKING COST ===================");
 		System.out.println("Total Number of Tickets\t: " + selectedSeatSize);
@@ -206,10 +157,6 @@ public class BookingView {
 		System.out.println();
 	}
 	
-	/**
-	 * Display the details of all bookings made by specific user in the past
-	 * @param bookingHistory	List of bookings made by user in the past
-	 */
 	public void displayBookingHistory(ArrayList<Booking> bookingHistory){
 		System.out.println("=================== BOOKING HISTORY ==========================");
 		if(bookingHistory != null && !bookingHistory.isEmpty()){
@@ -242,10 +189,6 @@ public class BookingView {
 		}
 	}
 
-	/**
-	 * Display an array of seats name in concatenated string
-	 * @param selectedSeats	List of seat names
-	 */
 	private void printSeats(ArrayList<String> selectedSeats){
 		for(int i = 0; i < selectedSeats.size(); i++){
 			System.out.print(selectedSeats.get(i));

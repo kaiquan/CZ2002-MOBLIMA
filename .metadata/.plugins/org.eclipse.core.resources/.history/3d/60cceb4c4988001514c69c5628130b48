@@ -34,7 +34,7 @@ public class BookingTest {
 		BookingMgr bm = new BookingMgr(selectedSeats, selectedMovie, selectedCinema, showtime, cineplexName);
 		
 		bm.displayBookingDetails();
-		bm.getSeniorAndStudentCount();
+		bm.getSeniorAndChildCount();
 		bm.getMovieGoerDetails();
 		bm.calculateAndDisplayTicketCosts();
 		bm.proceedBooking();

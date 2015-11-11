@@ -321,7 +321,7 @@ public class SelectSeatMgr {
 	public void doBooking(){
 		BookingMgr bm = new BookingMgr(newBookingSeat, mov, cinema, st, cpl.getName());
 		bm.displayBookingDetails();
-		bm.getSeniorAndStudentCount();
+		bm.getSeniorAndChildCount();
 		bm.getMovieGoerDetails();
 		bm.calculateAndDisplayTicketCosts();
 		bm.proceedBooking();
