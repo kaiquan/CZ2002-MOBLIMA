@@ -95,11 +95,10 @@ public class BookingDAO extends JSONDAO {
 		return results;
 	}
 	
-	/**
-	 **@purpose	: To retrieve all bookings by a guest
-	 **@param	: Guest guestobject
-	 **@return	: null if no bookings, else a ArrayList<Booking>
-	**/
+	//@purpose	: To retrieve all bookings by a guest
+	//@param	: required
+	//@return	: null if bookings are empty/not found
+	@SuppressWarnings("null")
 	public ArrayList<Booking> getBookingsByGuest(Guest guest){
 		ArrayList<Booking> results = new ArrayList<Booking>();
 		// how come the size become 4??

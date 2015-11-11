@@ -19,11 +19,6 @@ public class HoildayDAO extends JSONDAO {
 		parseJSON(this.jsonObject);
 	}
 	
-	/**
-	 **@purpose	: To  get all declared hoildays
-	 **@param	: void
-	 **@return	: ArrayList<Date>
-	**/
 	public ArrayList<Date> getAllHoildays(){
 		if(this.hoildays!=null&&this.hoildays.size()>0)
 			return hoildays;
@@ -31,11 +26,6 @@ public class HoildayDAO extends JSONDAO {
 			return null;
 	}
 	
-	/**
-	 **@purpose	: To add hoildays
-	 **@param	: Date date
-	 **@return	: boolean
-	**/
 	@SuppressWarnings("unchecked")
 	public boolean addHoilday(Date date){
 		JSONArray hoildays = (JSONArray) jsonObject.get("hoildays");
@@ -47,11 +37,7 @@ public class HoildayDAO extends JSONDAO {
 		updateFile(JSONDAO.hoildayPath,this.jsonObject);
 		return true;
 	}
-	/**
-	 **@purpose	: To remove hoildays
-	 **@param	: Date date
-	 **@return	: boolean
-	**/
+	
 	public boolean removeHoilday(Date date){
 		JSONArray hoildays = (JSONArray) jsonObject.get("hoildays");
 

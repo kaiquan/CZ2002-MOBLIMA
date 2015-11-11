@@ -20,11 +20,7 @@ public class PriceDAO extends JSONDAO {
 		parseJson(this.jsonObject);
 	}
 	
-	/**
-	 **@purpose	: update the pricing list
-	 **@param	: Price price
-	 **@return	: void
-	**/
+	
 	@SuppressWarnings("unchecked")
 	public void updatePrice(Price price){
 		//update the phantium price
@@ -197,20 +193,11 @@ public class PriceDAO extends JSONDAO {
 		updateFile(JSONDAO.pricePath,this.jsonObject);
 	}
 	
-	/**
-	 **@purpose	: retrieve the prices
-	 **@param	: void
-	 **@return	: Price
-	**/
 	public Price getTickestPrices(){
 		return this.ticketPrice;
 	}
 	
-	/**
-	 **@purpose	: caculate the price
-	 **@param	: CINEMACLASS cinemaType, TICKETYPE, tickeytype, DAYOFWEEK dayofweek, boolean is_After6
-	 **@return	: double
-	**/
+	
 	public double getPrice(CINEMACLASS cinemaType, TICKETTYPE ticketType, DAYOFWEEK dayOfWeek, boolean is_After6){
 		double price = 0;
 		

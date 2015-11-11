@@ -15,11 +15,8 @@ public class GuestDAO extends JSONDAO{
 	}
 	
 	
-	/**
-	 **@purpose	: To create a new guest 
-	 **@param	: Guest guestobject, Strig cineplexname
-	 **@return	: void
-	**/
+	//@purpose	: create a new guest data
+	//@param		: required
 	@SuppressWarnings("unchecked")
 	public void createNewGuest(Guest guest,String cineplexName){
 		JSONArray jsonGuests = (JSONArray) jsonObject.get("guests");
@@ -44,11 +41,9 @@ public class GuestDAO extends JSONDAO{
 		updateFile(JSONDAO.guestPath, this.jsonObject);
 	}
 	
-	/**
-	 **@purpose	: To  get Guest details by email & mobileNo
-	 **@param	: String email, int mobileno, String cineplexname
-	 **@return	: Guest
-	**/
+	//@purpose	: get Guest details by email & mobileNo
+	//@param	: required
+	//@return	: return null if not found/exist
 	public Guest getGuestByEmailAndMobileNoANDCineplexName(String email, int mobileNo,String cineplexName){
 		Guest result = null;
 		if(this.guests!=null&&this.guests.size()>0){
@@ -60,11 +55,10 @@ public class GuestDAO extends JSONDAO{
 		}
 		return result;
 	}
-	/**
-	 **@purpose	: To  get Guest details by id
-	 **@param	: String email, int mobileno, String cineplexname
-	 **@return	: Guest
-	**/
+	
+	//@purpose	: get Guest details by id
+	//@param	: required
+	//@return	: return null if not found/exist
 	public Guest getGuestByIdANDCineplexName(String id,String cineplexName){
 		Guest result = null;
 		if(this.guests!=null&&this.guests.size()>0){

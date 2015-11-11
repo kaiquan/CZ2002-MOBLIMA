@@ -18,11 +18,6 @@ public class CineplexDAO extends JSONDAO{
 		parseJSON(this.jsonObject);
 	}
 	
-	/**
-	 **@purpose	: To retrieve all cineplex
-	 **@param	: void
-	 **@return	: ArrayList<Cineplex>
-	**/
 	public ArrayList<Cineplex> getAllCineplex(){
 		ArrayList<Cineplex> results = null;
 		if(this.cineplexes!=null&&this.cineplexes.size()>0){
@@ -30,11 +25,7 @@ public class CineplexDAO extends JSONDAO{
 		}
 		return results;
 	}
-	/**
-	 **@purpose	: To retrieve all cineplex by name
-	 **@param	: String cineplex name
-	 **@return	: Cineplex
-	**/
+
 	public Cineplex getCineplexByName(String name){
 		Cineplex result=null;
 		if(this.cineplexes!=null&&this.cineplexes.size()>0){
@@ -48,12 +39,6 @@ public class CineplexDAO extends JSONDAO{
 		}
 		return result;
 	}
-	
-	/**
-	 **@purpose	: To retrieve all cineplex attached with movies showing
-	 **@param	: boolaean to include movies that are not showing
-	 **@return	: ArrayList<Cineplex>
-	**/
 	public ArrayList<Cineplex> getCineplexWithMovies(boolean INCLUDE_END_OF_SHOWING_MOVIES){
 		ArrayList<Cineplex> results = null;
 		

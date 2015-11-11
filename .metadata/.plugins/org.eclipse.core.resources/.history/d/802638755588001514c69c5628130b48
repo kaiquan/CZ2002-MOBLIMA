@@ -15,10 +15,9 @@ public class AdminDAO extends JSONDAO{
 		parseJSON(this.jsonObject);
 	}
 	
-	/**@purpose	: To retrieve the cineplex details for admin login
-	 **@param	: String username, String password, String cineplexName
-	 **@return	: null if not found/exist else Cineplecx object
-	 **/
+	//@purpose	: To retrieve the cineplex details for admin login
+	//@param	: all required
+	//@return	: null if not found/exist
 	public Cineplex getCineplexByUserNameAndPassword(String username, String password, String cineplexName){
 		Cineplex result = null;
 		

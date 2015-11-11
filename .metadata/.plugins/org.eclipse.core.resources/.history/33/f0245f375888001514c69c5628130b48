@@ -20,11 +20,9 @@ public class MovieDAO extends JSONDAO{
 		parseJSON(this.jsonObject);
 	}
 	
-	/**
-	 **@purpose	: To create a movie listing
-	 **@param	: Movie movie object
-	 **@return	: boolean
-	**/
+	//@purpose	: create a movie listing with reviews
+	//@param	: required
+	//@return	: void
 	@SuppressWarnings("unchecked")
 	public boolean createNewMovie(Movie movie){
 		JSONArray jsonMovies = (JSONArray) jsonObject.get("movies");
@@ -56,11 +54,9 @@ public class MovieDAO extends JSONDAO{
 		return true;
 	}
 	
-	/**
-	 **@purpose	: update the movie listing with reviews
-	 **@param	: Movie movie object
-	 **@return	: void
-	**/
+	//@purpose	: update the movie listing with reviews
+	//@param	: required
+	//@return	: void
 	@SuppressWarnings("unchecked")
 	public void updateMovie(Movie movie){
 		JSONArray jsonMovies = (JSONArray) jsonObject.get("movies");
@@ -114,11 +110,9 @@ public class MovieDAO extends JSONDAO{
 		updateFile(JSONDAO.moviePath,this.jsonObject);
 	}
 	
-	/**
-	 **@purpose	: retrieve the movie listing with reviews
-	 **@param	: boolean include movies that are not showing
-	 **@return	: ArrayList<Movie>
-	**/
+	//@purpose	: retrieve the movie listing with reviews
+	//@param	: required
+	//@return	: arraylist of movies
 	public ArrayList<Movie> getAllMovieswithReviews(boolean include_END_OF_SHOWING){
 		ArrayList<Movie> results = null;
 		
@@ -140,11 +134,9 @@ public class MovieDAO extends JSONDAO{
 		return results;
 	}
 	
-	/**
-	 **@purpose	: retrieve the movie listing with reviews by cineplex
-	 **@param	: String cineplexname, boolean include movies that are not showing
-	 **@return	: ArrayList<Movie>
-	**/
+	//@purpose	: retrieve the movie listing with reviews by cineplex
+	//@param	: required
+	//@return	: arraylist of movies
 	public ArrayList<Movie> getAllMoviesWithReviewsByCineplex(String cineplexName, boolean include_END_OF_SHOWING){
 		ArrayList<Movie> results = null;
 		
@@ -168,11 +160,7 @@ public class MovieDAO extends JSONDAO{
 			
 		return results;
 	}
-	/**
-	 **@purpose	: retrieve the movie listing by id
-	 **@param	: String movieid
-	 **@return	: Movie
-	**/
+	
 	public Movie getMovieByid(String id){
 		Movie result= null;
 		if(this.movies!=null&this.movies.size()>0){
@@ -185,11 +173,7 @@ public class MovieDAO extends JSONDAO{
 		return result;
 	}
 	
-	/**
-	 **@purpose	: retrieve the movie listing by title
-	 **@param	: String movie title
-	 **@return	: Movie
-	**/
+	// New Added
 	public Movie getMovieByTitle(String title) {
 		Movie result = null;
 		if (this.movies != null & this.movies.size() > 0) {

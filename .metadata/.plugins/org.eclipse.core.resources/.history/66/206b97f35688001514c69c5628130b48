@@ -9,11 +9,6 @@ public class CinemaDAO extends JSONDAO{
 	public CinemaDAO(){
 	}
 	
-	/**
-	 **@purpose	: To retrieve cinema by id
-	 **@param	: String cinemaid
-	 **@return	: null if not found, else a Cinema object
-	**/
 	public Cinema getCinemaByCinemaId(String cinemaId){
 		Cinema results = null;
 		ArrayList<Cineplex> cineplexs = new CineplexDAO().getAllCineplex();
@@ -26,12 +21,6 @@ public class CinemaDAO extends JSONDAO{
 		}
 		return results;
 	}
-	
-	/**
-	 **@purpose	: To retrieve cinemas by cineplex
-	 **@param	: Cineplex cineplex object
-	 **@return	: null if not found, else a ArrayList<Cinema> 
-	**/
 	public ArrayList<Cinema> getCinemaByCineplex(Cineplex cineplex){
 		ArrayList<Cinema> results = null;
 		ArrayList<Cineplex> cineplexs = new CineplexDAO().getAllCineplex();

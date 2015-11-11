@@ -31,11 +31,6 @@ public class HoildayDAO extends JSONDAO {
 			return null;
 	}
 	
-	/**
-	 **@purpose	: To add hoildays
-	 **@param	: Date date
-	 **@return	: boolean
-	**/
 	@SuppressWarnings("unchecked")
 	public boolean addHoilday(Date date){
 		JSONArray hoildays = (JSONArray) jsonObject.get("hoildays");
@@ -47,11 +42,7 @@ public class HoildayDAO extends JSONDAO {
 		updateFile(JSONDAO.hoildayPath,this.jsonObject);
 		return true;
 	}
-	/**
-	 **@purpose	: To remove hoildays
-	 **@param	: Date date
-	 **@return	: boolean
-	**/
+	
 	public boolean removeHoilday(Date date){
 		JSONArray hoildays = (JSONArray) jsonObject.get("hoildays");
 

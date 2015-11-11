@@ -22,11 +22,9 @@ public class BookingDAO extends JSONDAO {
 		this.jsonObject = readFile(JSONDAO.bookingPath);
 		parseJSON(this.jsonObject,includeGuest);
 	}
-	/**
-	 **@purpose	: To rcreate a new booking
-	 **@param	: Booking bookingobject
-	 **@return	: void
-	**/
+	
+	//@purpose 	: To create a new booking
+	//@Param 	: required
 	@SuppressWarnings("unchecked")
 	public void createNewBooking(Booking booking){
 		JSONArray jsonBookings = (JSONArray) jsonObject.get("bookings");
@@ -58,11 +56,9 @@ public class BookingDAO extends JSONDAO {
 		updateFile(JSONDAO.bookingPath,this.jsonObject);
 	}		
 	
-	/**
-	 **@purpose	: To retrieve the list of bookings made by a movie
-	 **@param	: Movie Movie object
-	 **@return	: null if no bookings, else a ArrayList<Booking>
-	**/
+	//@purpose 	: To calculate the total ticket sales for a movie by the controller
+	//@Param	: (Movie) required
+	//@return	: null if no bookings
 	@SuppressWarnings("null")
 	public ArrayList<Booking> getBookingsByMovie(Movie movie){
 		ArrayList<Booking> results = null;
@@ -77,11 +73,10 @@ public class BookingDAO extends JSONDAO {
 		return results;
 	}
 	
-	/**
-	 **@purpose	: To retrieve the list of bookings made by a movie
-	 **@param	: String movieid
-	 **@return	: null if no bookings, else a ArrayList<Booking>
-	**/
+	//@purpose 	: To calculate the total ticket sales for a movie by the controller
+	//@Param	: (Movie) required
+	//@return	: null if no bookings
+	@SuppressWarnings("null")
 	public ArrayList<Booking> getBookingsByMovieID(String movieId){
 		ArrayList<Booking> results = new ArrayList<Booking>();
 		
@@ -95,11 +90,10 @@ public class BookingDAO extends JSONDAO {
 		return results;
 	}
 	
-	/**
-	 **@purpose	: To retrieve all bookings by a guest
-	 **@param	: Guest guestobject
-	 **@return	: null if no bookings, else a ArrayList<Booking>
-	**/
+	//@purpose	: To retrieve all bookings by a guest
+	//@param	: required
+	//@return	: null if bookings are empty/not found
+	@SuppressWarnings("null")
 	public ArrayList<Booking> getBookingsByGuest(Guest guest){
 		ArrayList<Booking> results = new ArrayList<Booking>();
 		// how come the size become 4??
