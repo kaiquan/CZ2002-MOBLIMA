@@ -67,7 +67,12 @@ public class StartMenuMgr {
 			break;
 		case 5:
 			AdminLoginMgr mAdminLoginMgr = new AdminLoginMgr();	
-			mAdminLoginMgr.prepareloginForm();
+			try {
+				mAdminLoginMgr.prepareloginForm();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		}
 		

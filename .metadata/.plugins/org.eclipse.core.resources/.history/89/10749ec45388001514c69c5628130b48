@@ -1,0 +1,322 @@
+package controller;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Scanner;
+
+import dao_module.HoildayDAO;
+import dao_module.MovieDAO;
+import dao_module.PriceDAO;
+import dao_module.ShowTimeDAO;
+import model.AGELIMIT;
+import model.Cinema;
+import model.Cineplex;
+import model.MOVIESTATUS;
+import model.MOVIETYPE;
+import view.AdminTopFiveMoviesView;
+import view.AdminView;
+import view.ListMovieView;
+import model.Movie;
+import model.Price;
+import model.Review;
+import model.Showtime;
+
+public class AdminMgr {
+	private String username;
+	private Cineplex mCineplex;
+	
+	private AdminView mAdminView;
+	private MovieDAO movieDao;
+	private ShowTimeDAO showtimeDAO;
+	private HoildayDAO holidayDAO;
+	
+	
+	public AdminMgr(String username, Cineplex mCineplex) {
+		this.username = username;
+		this.mCineplex = mCineplex;
+		if(mAdminView==null)
+			mAdminView = new AdminView(username, mCineplex.getName(), this);
+	}
+	
+	public AdminMgr(String username, Cineplex mCineplex, AdminView mAdminView) {
+		this.username = username;
+		this.mCineplex = mCineplex;
+		this.mAdminView = mAdminView;
+	}
+	
+	public AdminMgr() {
+	}
+
+	public void optionSelected(int choice){
+		switch(choice){
+		case 1:
+			mAdminView.displayAddMovieForm();
+			break;
+		case 2:
+			mAdminView.displayEditMovieMenu(mCineplex.getMovies());
+			break;
+		case 3:
+			//edit ovie status??
+			mAdminView.displayEditMovieMenu(mCineplex.getMovies());
+			break;
+		case 4:
+			mAdminView.displayAddShowTimeForm(this.mCineplex.getMovies(), this.mCineplex.getCinemas());
+			break;
+		case 5:
+			int c;
+			do{
+				System.out.println("Select 1 to add a new hoilday, 2 to remove an existing hoilday");
+				c=new Scanner(System.in).nextInt();
+				if(c==1)
+					mAdminView.displayAddHolidayForm();
+				else
+					mAdminView.displayRemoveHolidayMenu();
+			}while(c!=1||c!=2);
+			
+			break;
+		case 6:
+			//edit pricing
+			new AdminView().displayEditPricings();
+			break;
+		case 7:
+			AdminTopFiveMoviesView topFiveMovieView = new AdminTopFiveMoviesView(new AdminTopFiveMoviesMgr(this.mCineplex));
+			topFiveMovieView.displayTopFiveMovies();
+			break;
+			
+		}
+	}
+
+	public void prepareAdminForm() {
+		mAdminView.displayAdminOptions();
+		
+	}
+
+	public void addMovie(String movieName, String movieType, String movieStatus, String synopsis, String director, String casts, int duration, String ageLimit) {
+		
+		MOVIETYPE mt = MOVIETYPE.valueOf(movieType.toUpperCase());
+		MOVIESTATUS ms = MOVIESTATUS.valueOf(movieStatus.toUpperCase());
+		AGELIMIT al = AGELIMIT.valueOf(ageLimit.toUpperCase());
+		ArrayList<String> castList = new ArrayList<String>(Arrays.asList(casts.split(", ")));		
+		ArrayList<Review> review = new ArrayList<Review>();
+		
+		
+		Movie newMovie = new Movie(mCineplex, movieName, mt, ms, synopsis, director, castList, duration, al, review);
+		movieDao = new MovieDAO();
+		boolean success = movieDao.createNewMovie(newMovie);
+		
+		if(success) mAdminView.displayMovieAdded();		
+		
+	}
+	
+	
+	/*public boolean changeMovieStatus(int movideIndex, int changeStatus){
+		Movie selectedMovie = null;
+		boolean changeSuccess = false;
+		try{
+			selectedMovie = mCineplex.getMovies().get(movideIndex);
+			selectedMovie.setMovieStatus(MOVIESTATUS.values()[changeStatus]);	
+			movieDao = new MovieDAO();
+			movieDao.updateMovie(selectedMovie);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(selectedMovie.getMovieStatus() == MOVIESTATUS.values()[changeStatus])
+				changeSuccess = true;				
+		}
+		
+		return changeSuccess;
+	
+	}*/
+	
+	public boolean changeMovieDetails(int movideIndex, int key, String value){
+		Movie selectedMovie = null;
+		boolean changeSuccess = false;
+		try{
+			selectedMovie = mCineplex.getMovies().get(movideIndex);
+			switch(key){
+			case 1:
+				selectedMovie.setTitle(value);
+				break;
+			case 2:
+				selectedMovie.setDirector(value);
+				break;
+			case 3:
+				selectedMovie.setShowDuration(Integer.parseInt(value));
+				break;
+			case 4:
+				selectedMovie.setSynopsis(value);
+				break;
+			case 5:
+				ArrayList<String> castList = new ArrayList<String>(Arrays.asList(value.split(", ")));
+				selectedMovie.setCasts(castList);
+				break;
+			case 6:
+				selectedMovie.setAgeLimit(AGELIMIT.valueOf(value));
+				break;
+			case 7:
+				selectedMovie.setMovieStatus(MOVIESTATUS.valueOf(value));
+				break;
+			case 8:
+				selectedMovie.setMovieType(MOVIETYPE.valueOf(value));
+				break;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+				changeSuccess = true;				
+		}
+		
+		return changeSuccess;
+	
+	}
+	public boolean commitUpdateMovie(int movideIndex){
+		boolean changeSuccess = false;
+		try{
+			Movie selectedMovie = mCineplex.getMovies().get(movideIndex);
+			movieDao = new MovieDAO();
+			movieDao.updateMovie(selectedMovie);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			changeSuccess = true;
+		}
+		
+		return changeSuccess;
+	}
+
+	public void addShowTime(int cinemaIndex, int movieIndex, Date showtime) {
+		Cinema selectedCinema = mCineplex.getCinemas().get(cinemaIndex);
+		Movie selectedMovie = mCineplex.getMovies().get(movieIndex);
+		
+		Showtime newShowTime = new Showtime(showtime, selectedMovie, selectedCinema);
+
+		showtimeDAO = new ShowTimeDAO();
+		boolean success = showtimeDAO.createNewShowTime(newShowTime);
+
+		if(success) mAdminView.displayShowTimeAdded();	
+	}
+
+	public ArrayList<Showtime> listShowTimes(int movieIndex) {
+		Movie selectedMovie = mCineplex.getMovies().get(movieIndex);
+		ArrayList<Showtime> showTimesSelectedMovie = new ArrayList<Showtime>();
+
+		showtimeDAO = new ShowTimeDAO();
+		showTimesSelectedMovie = showtimeDAO.getShowTimesByCineplexAndMovie(mCineplex, selectedMovie);
+
+		return showTimesSelectedMovie;
+	}
+
+	public void updateShowTime(String showtimeID, Date updatedShowTime) {
+		Showtime selectedShowTime = null;
+
+		showtimeDAO = new ShowTimeDAO();
+		selectedShowTime = showtimeDAO.getShowTimeByID(showtimeID);
+
+		selectedShowTime.setDateTime(updatedShowTime);
+
+		boolean success = showtimeDAO.updateShowTime(selectedShowTime);
+
+		if(success) mAdminView.displayShowTimeUpdated();
+	}
+
+	public void removeShowTime(String showtimeID) {
+		Showtime selectedShowTime = null;
+
+		showtimeDAO = new ShowTimeDAO();
+		selectedShowTime = showtimeDAO.getShowTimeByID(showtimeID);
+		boolean success = showtimeDAO.removeShowTime(selectedShowTime);
+
+		if(success) mAdminView.displayShowTimeRemoved();
+	}
+
+	public ArrayList<Date> listHolidays() {
+		ArrayList<Date> listPublicHolidays = new ArrayList<Date>();
+
+		holidayDAO = new HoildayDAO();
+		listPublicHolidays = holidayDAO.getAllHoildays();
+
+		return listPublicHolidays;
+	}
+
+	public void addHoliday(Date newHoliday) {
+		holidayDAO = new HoildayDAO();
+		boolean success = holidayDAO.addHoilday(newHoliday);
+
+		if(success) mAdminView.displayHolidayAdded();
+	}
+
+	public void removeHoliday(Date selectedHoliday) {
+		holidayDAO = new HoildayDAO();
+		boolean success = holidayDAO.removeHoilday(selectedHoliday);
+
+		if(success) mAdminView.displayHolidayRemoved();
+	}
+	
+	@SuppressWarnings("resource")
+	public void editPrice(int category){
+		Price ticketPricing = new Price();
+		ticketPricing = new PriceDAO().getTickestPrices();
+		
+		if(category==1){
+			System.out.println("Current Platinumcinema price is :$"+ticketPricing.getPlantiumCinemaPrice());
+			System.out.println("Enter the new value :");
+			ticketPricing.setPlantiumCinemaPrice(new Scanner(System.in).nextDouble());
+		}
+		else if(category==2){
+			//student
+			int day=-1;
+			int timing=-1;
+			System.out.println("Select which day would you like to edit(1-7):");
+			do{
+				day=new Scanner(System.in).nextInt();
+			}while(day<1&&day>7);
+			System.out.println("Enter '1' to edit pricing before 6pm, '2' for after 6pm:");
+			do{
+				timing=new Scanner(System.in).nextInt();
+			}while(timing<1&&timing>2);
+			
+			System.out.println("Current student price selected is :$"+ticketPricing.getPricings().get(0).get(day-1).get(timing-1));
+			System.out.println("Enter the new value :");
+			ticketPricing.getPricings().get(0).get(day-1).set(timing-1, new Scanner(System.in).nextDouble());
+		}
+		else if(category==3){
+			//senior
+			int day=-1;
+			int timing=-1;
+			System.out.println("Select which day would you like to edit(1-7):");
+			do{
+				day=new Scanner(System.in).nextInt();
+			}while(day<1&&day>7);
+			System.out.println("Enter '1' to edit pricing before 6pm, '2' for after 6pm:");
+			do{
+				timing=new Scanner(System.in).nextInt();
+			}while(timing<1&&timing>2);
+			
+			System.out.println("Current Senior citizen price selected is :$"+ticketPricing.getPricings().get(1).get(day-1).get(timing-1));
+			System.out.println("Enter the new value :");
+			ticketPricing.getPricings().get(1).get(day-1).set(timing-1, new Scanner(System.in).nextDouble());
+		}
+		else if(category==4){
+			//regular
+			int day=-1;
+			int timing=-1;
+			System.out.println("Select which day would you like to edit(1-7):");
+			do{
+				day=new Scanner(System.in).nextInt();
+			}while(day<1&&day>7);
+			System.out.println("Enter '1' to edit pricing before 6pm, '2' for after 6pm:");
+			do{
+				timing=new Scanner(System.in).nextInt();
+			}while(timing<1&&timing>2);
+			
+			System.out.println("Current Regular citizen price selected is :$"+ticketPricing.getPricings().get(2).get(day-1).get(timing-1));
+			System.out.println("Enter the new value :");
+			ticketPricing.getPricings().get(2).get(day-1).set(timing-1, new Scanner(System.in).nextDouble());
+		}
+		
+		new PriceDAO().updatePrice(ticketPricing);
+		System.out.println("Prices hae been updated successfully.");
+	}
+
+}

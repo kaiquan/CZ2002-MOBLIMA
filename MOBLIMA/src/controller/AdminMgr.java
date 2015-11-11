@@ -23,15 +23,44 @@ import model.Review;
 import model.Showtime;
 
 public class AdminMgr {
+	
+	/**
+	 * Admin username
+	 */
 	private String username;
+	
+	/**
+	 * Cineplex of the admin
+	 */
 	private Cineplex mCineplex;
 	
+	/**
+	 * Admin view for display
+	 */
 	private AdminView mAdminView;
+	
+
+	/**
+	 * Movie Data access object to access stored movie information
+	 */
 	private MovieDAO movieDao;
+	
+	/**
+	 * ShowTime Data access object to access stored Showtime information
+	 */
 	private ShowTimeDAO showtimeDAO;
+	
+	/**
+	 * Holiday Data access object to access stored Holiday information
+	 */
 	private HoildayDAO holidayDAO;
 	
-	
+
+	/**
+	 * initalize the username and cineplex of the admin after admin logined
+	 * @param username
+	 * @param mCineplex
+	 */
 	public AdminMgr(String username, Cineplex mCineplex) {
 		this.username = username;
 		this.mCineplex = mCineplex;
@@ -39,6 +68,12 @@ public class AdminMgr {
 			mAdminView = new AdminView(username, mCineplex.getName(), this);
 	}
 	
+	/**
+	 * initalize the username and cineplex of the admin after admin logined
+	 * @param username
+	 * @param mCineplex
+	 * @param mAdminView
+	 */
 	public AdminMgr(String username, Cineplex mCineplex, AdminView mAdminView) {
 		this.username = username;
 		this.mCineplex = mCineplex;
@@ -48,7 +83,11 @@ public class AdminMgr {
 	public AdminMgr() {
 	}
 
-	public void optionSelected(int choice){
+	/**
+	 * process admin menu selection depend on user choice
+	 * @param choice
+	 */
+	public void optionSelected(int choice) throws Exception{
 		switch(choice){
 		case 1:
 			mAdminView.displayAddMovieForm();
@@ -87,12 +126,23 @@ public class AdminMgr {
 		}
 	}
 
-	public void prepareAdminForm() {
+	public void prepareAdminMenu(){
 		mAdminView.displayAdminOptions();
 		
 	}
 
-	public void addMovie(String movieName, String movieType, String movieStatus, String synopsis, String director, String casts, int duration, String ageLimit) {
+	/**
+	 * Add movie to movie json file
+	 * @param movieName - name of movie
+	 * @param movieType - Options: THREE_DIMENATION, TWO_DIMENATION or HD
+	 * @param movieStatus - Options: NOW_SHOWING, COMING_SOON, PREVIEW or END_OF_SHOWING
+	 * @param synopsis - brief description of movie
+	 * @param director - director of the movie
+	 * @param casts - cast of the movie
+	 * @param duration - minutes
+	 * @param ageLimit - Options: G, PG13, M16 or R21
+	 */
+	public void addMovie(String movieName, String movieType, String movieStatus, String synopsis, String director, String casts, int duration, String ageLimit) throws Exception{
 		
 		MOVIETYPE mt = MOVIETYPE.valueOf(movieType.toUpperCase());
 		MOVIESTATUS ms = MOVIESTATUS.valueOf(movieStatus.toUpperCase());
@@ -110,26 +160,14 @@ public class AdminMgr {
 	}
 	
 	
-	/*public boolean changeMovieStatus(int movideIndex, int changeStatus){
-		Movie selectedMovie = null;
-		boolean changeSuccess = false;
-		try{
-			selectedMovie = mCineplex.getMovies().get(movideIndex);
-			selectedMovie.setMovieStatus(MOVIESTATUS.values()[changeStatus]);	
-			movieDao = new MovieDAO();
-			movieDao.updateMovie(selectedMovie);
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			if(selectedMovie.getMovieStatus() == MOVIESTATUS.values()[changeStatus])
-				changeSuccess = true;				
-		}
-		
-		return changeSuccess;
-	
-	}*/
-	
-	public boolean changeMovieDetails(int movideIndex, int key, String value){
+	/**
+	 * Change a Movie detail depend on the selected key
+	 * @param movideIndex - index of the movie
+	 * @param key - index of detail to change
+	 * @param value - replace the detail with value
+	 * @return
+	 */
+	public boolean changeMovieDetails(int movideIndex, int key, String value)  throws Exception{
 		Movie selectedMovie = null;
 		boolean changeSuccess = false;
 		try{
@@ -162,7 +200,8 @@ public class AdminMgr {
 				break;
 			}
 		}catch(Exception e){
-			e.printStackTrace();
+			e.getMessage();
+			
 		}finally{
 				changeSuccess = true;				
 		}
@@ -170,14 +209,20 @@ public class AdminMgr {
 		return changeSuccess;
 	
 	}
-	public boolean commitUpdateMovie(int movideIndex){
+	
+	/**
+	 * Update the movie changes in movie json file
+	 * @param movideIndex - index of the movie
+	 * @return
+	 */
+	public boolean commitUpdateMovie(int movideIndex) throws Exception{
 		boolean changeSuccess = false;
 		try{
 			Movie selectedMovie = mCineplex.getMovies().get(movideIndex);
 			movieDao = new MovieDAO();
 			movieDao.updateMovie(selectedMovie);
 		}catch(Exception e){
-			e.printStackTrace();
+			e.getMessage();
 		}finally{
 			changeSuccess = true;
 		}
@@ -185,6 +230,12 @@ public class AdminMgr {
 		return changeSuccess;
 	}
 
+	/**
+	 * Schedule a new movie showtime
+	 * @param cinemaIndex - index of cinema
+	 * @param movieIndex - index of movie
+	 * @param showtime - date/time of showtime
+	 */
 	public void addShowTime(int cinemaIndex, int movieIndex, Date showtime) {
 		Cinema selectedCinema = mCineplex.getCinemas().get(cinemaIndex);
 		Movie selectedMovie = mCineplex.getMovies().get(movieIndex);
@@ -197,6 +248,11 @@ public class AdminMgr {
 		if(success) mAdminView.displayShowTimeAdded();	
 	}
 
+	/**
+	 * list all show times
+	 * @param movieIndex - index of movie
+	 * @return an arraylist of the showtimes
+	 */
 	public ArrayList<Showtime> listShowTimes(int movieIndex) {
 		Movie selectedMovie = mCineplex.getMovies().get(movieIndex);
 		ArrayList<Showtime> showTimesSelectedMovie = new ArrayList<Showtime>();
@@ -207,6 +263,11 @@ public class AdminMgr {
 		return showTimesSelectedMovie;
 	}
 
+	/**
+	 * Change Showtime date/time
+	 * @param showtimeID - ID of showtime
+	 * @param updatedShowTime - new values of showtime
+	 */
 	public void updateShowTime(String showtimeID, Date updatedShowTime) {
 		Showtime selectedShowTime = null;
 
@@ -220,6 +281,10 @@ public class AdminMgr {
 		if(success) mAdminView.displayShowTimeUpdated();
 	}
 
+	/**
+	 * Remove Showtime
+	 * @param showtimeID - ID of the showtime
+	 */
 	public void removeShowTime(String showtimeID) {
 		Showtime selectedShowTime = null;
 
@@ -230,6 +295,10 @@ public class AdminMgr {
 		if(success) mAdminView.displayShowTimeRemoved();
 	}
 
+	/**
+	 * List the Holidays
+	 * @return an Arraylist of Dates
+	 */
 	public ArrayList<Date> listHolidays() {
 		ArrayList<Date> listPublicHolidays = new ArrayList<Date>();
 
@@ -239,6 +308,10 @@ public class AdminMgr {
 		return listPublicHolidays;
 	}
 
+	/**
+	 * Add a new Holiday
+	 * @param newHoliday - data/time of the holiday to add
+	 */
 	public void addHoliday(Date newHoliday) {
 		holidayDAO = new HoildayDAO();
 		boolean success = holidayDAO.addHoilday(newHoliday);
@@ -246,6 +319,10 @@ public class AdminMgr {
 		if(success) mAdminView.displayHolidayAdded();
 	}
 
+	/**
+	 * remove a holiday
+	 * @param selectedHoliday - date/time of date to remove
+	 */
 	public void removeHoliday(Date selectedHoliday) {
 		holidayDAO = new HoildayDAO();
 		boolean success = holidayDAO.removeHoilday(selectedHoliday);
@@ -253,6 +330,10 @@ public class AdminMgr {
 		if(success) mAdminView.displayHolidayRemoved();
 	}
 	
+	/**
+	 * Edit the pricing of the tickets
+	 * @param category
+	 */
 	@SuppressWarnings("resource")
 	public void editPrice(int category){
 		Price ticketPricing = new Price();
