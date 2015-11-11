@@ -15,6 +15,7 @@ public class ListMovieView {
 	ArrayList<String> cineplexes = new ArrayList<String>();
 	ArrayList<Movie> movies = new ArrayList<Movie>();
 	private ArrayList<Cineplex> cplDAO;
+	private int cineplexChoice;
 	private String decisionMake;
 	
 	public ListMovieView(){
@@ -29,10 +30,6 @@ public class ListMovieView {
 		listMovie();
 	}
 	
-	/**
-	 * Listing out all the cineplex and let the user to choose he/she
-	 * want to list out which cineplex's movie list
-	 */
 	public void listMovie(){
 		cplDAO=new CineplexDAO().getAllCineplex();		
 		do{

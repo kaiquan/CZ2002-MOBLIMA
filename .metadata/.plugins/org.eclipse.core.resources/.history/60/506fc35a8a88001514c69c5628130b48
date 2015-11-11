@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import controller.MovieDetailsMgr;
+import dao_module.CineplexDAO;
 import model.Movie;
 
 
@@ -14,6 +15,7 @@ public class MovieDetailsView {
 	ArrayList<String> castList = new ArrayList<String>();
 	ArrayList<String> reviewList = new ArrayList<String>();
 	Movie movies = new Movie();
+	private int movieChoice;
 	private String decisionMake;
 	
 	public MovieDetailsView(){
@@ -23,19 +25,11 @@ public class MovieDetailsView {
 			mMovieDetailsMgr= new MovieDetailsMgr(this);	
 	}
 	
-	/**
-	 * Listing out all the cineplex and let the user to choose he/she
-	 * want to list out which cineplex's movie list
-	 */
 	public void listMovie(ArrayList<String> movL){
 		this.movieList = movL;
 		listMovieDetails();
 	}
 	
-	/**
-	 * Listing out all the movie and let the user decide he/she want to 
-	 * see which movie's details
-	 */
 	public void listMovieDetails(){
 			
 		do{

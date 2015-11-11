@@ -178,8 +178,8 @@ public class SelectSeatMgr {
 	}
 	
 	/**
-	 * Return all the cineplex that has the selected movie 
-	 * @param 	movieID		Selected movie by the user
+	 * Return all the movies that available in the selected cineplex
+	 * @param 	cinplex		Selected cineplex by the user
 	 */
 	public  void getCineplexByMovie(String movieID){
 		showingList.clear();
@@ -206,11 +206,6 @@ public class SelectSeatMgr {
 		}
 	}
 //------------------------Asking for Showtime------------------------------------------------------//
-	/**
-	 * Return the showtime for the specific movie and cineplex
-	 * @param 	cpl		Selected cineplex by the user
-	 * @param 	mov		Selected movie by the user
-	 */
 	public void getShowTimeInfo(Cineplex cpl, Movie mov){
 		showingList.clear();
 		if(stDAO==null){
@@ -223,10 +218,6 @@ public class SelectSeatMgr {
 		
 	}
 //------------------------Retrieve Cinema Code and The Seat-------------------------//
-	/**
-	 * Get the cinema code which selected by the user based on cineplex, movie, showtime
-	 * @param 	choice	Selected showtime by the user
-	 */
 	public String getCinemaCode(int choice){
 		this.cinemaCode=showtimeByCineplexAndMovie.get(choice).getCinemaCode();
 		System.out.println(cinemaCode);
@@ -234,9 +225,6 @@ public class SelectSeatMgr {
 		return cinemaCode;
 	}
 	
-	/**
-	 * Get the number of the seat available for the selected cinema
-	 */
 	public void getCinemaSeatSize(){
 		for(int i=0;i<cpl.getCinemas().size();i++){
 			if(cpl.getCinemas().get(i).getCinemaCode().equals(cinemaCode)){
@@ -246,11 +234,6 @@ public class SelectSeatMgr {
 		}
 	}
 	
-	/**
-	 * Check he selected cinema seat availability and add those unavailable seat to the 
-	 * unavailableSeat array to make sure the user will not book other user's booked seat.
-	 * @param 	cinemaCode	The code of the selected cinema
-	 */
 	public void checkBookingSeat(String cinemaCode){
 		if(bookDAO==null){
 			bookDAO=new BookingDAO();
@@ -268,13 +251,7 @@ public class SelectSeatMgr {
 		}
 
 	}
-
-	/**
-	 * Print out those available seat and point out those unavailable seat based on the 
-	 * unavailableSeat array.
-	 * @param 	row		The number of row to the selected cinema
-	 * @param 	col		The number of col to the selected cinema
-	 */
+		
 	public void showSeat(int row,int col){
 		boolean occupied=false;
 		System.out.print(" ");
@@ -316,13 +293,6 @@ public class SelectSeatMgr {
 		System.out.println("[ ] = Available");
 	}
 	
-	/**
-	 * Verify the user input (seatNumber) to prevent the user giving invalid
-	 * seat number which included the seat number doesn't exist or unavailable.
-	 * If the seat number is invalid, system will request the user to give a new
-	 * seat number.
-	 * @param 	seatNumber		The seat number that given by the user
-	 */
 	public void verifySeat(String seatNumber){
 		String[] part = seatNumber.split("(?<=\\D)(?=\\d)");
 		boolean add=true;
@@ -348,14 +318,6 @@ public class SelectSeatMgr {
 		}
 	}
 //------------------------Booking Seat----------------------------------------------//
-	/**
-	 * Book the seat number that selected by the user
-	 * @param 	newBookingSeat		An array store all the selected seat number by the user
-	 * @param	mov					The movie that selected by the user
-	 * @param	cinema				The cinema that selected by the user
-	 * @param	st					The showtime that selected by the user
-	 * @param	cpl.getName()		The name of the cineplex that selected by the user
-	 */
 	public void doBooking(){
 		BookingMgr bm = new BookingMgr(newBookingSeat, mov, cinema, st, cpl.getName());
 		bm.displayBookingDetails();
@@ -366,25 +328,19 @@ public class SelectSeatMgr {
 	}
 	
 //------------------------Verify User input-----------------------------------------//
-	/**
-	 * Verify the user input based on:
-	 * 1. options limit (cannot give a number more than the given options and less than 1)
-	 * 2. invalid input (non-meaning characters or symbol)
-	 * @param 	seatNumber		The seat number that given by the user
-	 */
-	public boolean verifyInput(int limit, String userInput){
-		String regex = "[0-9]+";
-		int input;
-		if(!userInput.matches(regex)){
-			return false;
-		}else{
-			input=Integer.parseInt(userInput);
-		}
-		if(input<=0 || input >limit){
-			return false;
-		}
-		return true;
-	}	
+		public boolean verifyInput(int limit, String userInput){
+			String regex = "[0-9]+";
+			int input;
+			if(!userInput.matches(regex)){
+				return false;
+			}else{
+				input=Integer.parseInt(userInput);
+			}
+			if(input<=0 || input >limit){
+				return false;
+			}
+			return true;
+		}	
 }
 
 
